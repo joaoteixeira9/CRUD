@@ -12,6 +12,7 @@ include "conexao.php";
             <th>DESCRIÇÃO</th>
             <th>PREÇO</th>
             <th>CATEGORIA</th>
+            <th>AÇÕES</th>
         </tr>
     <?php
     $sql = "select * from servicos";
@@ -19,12 +20,25 @@ include "conexao.php";
     echo "<br><br>";
 
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        echo "<tr>";
-        echo "<td>". $linha['servico'] ."</td>";
-        echo "<td>". $linha['descricao'] ."</td>";
-        echo "<td>". $linha['preco'] ."</td>";
-        echo "<td>". $linha['categoria'] ."</td>";
-        echo "</tr>";
+        echo "<tr>"; //começo coluna
+        echo "<td> {$linha['servico']} </td>"; // {} => interpolação de strings
+        echo "<td> {$linha['descricao']} </td>";
+        echo "<td> {$linha['preco']} </td>";
+        echo "<td> {$linha['categoria']} </td>";
+
+        echo "<td>"; //começo ações
+        // excluir linhas de serviços
+        echo "<a href='servicos-excluir.php?id={$linha['id']}'>";
+        echo "<img src='img/lixeira.svg' alt=''>";
+        echo "</a>";
+        // fim excluir linhas de serviços
+        
+        //editar linhas de serviços
+        echo "<a href='servicos-editar.php?id={$linha['id']}'>";
+        echo "<img src='img/editar.svg' alt=''>";
+        echo "</a>";
+        echo "</td>"; // fim ações
+        echo "</tr>"; // fim coluna
     }
 
     mysqli_close($conexao);
