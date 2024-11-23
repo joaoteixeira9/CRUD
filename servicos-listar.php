@@ -37,6 +37,8 @@ include "conexao.php";
         echo "<a href='servicos-editar.php?id={$linha['id']}'>";
         echo "<img src='img/editar.svg' alt=''>";
         echo "</a>";
+        //fim //editar linhas de serviços
+
         echo "</td>"; // fim ações
         echo "</tr>"; // fim coluna
     }
