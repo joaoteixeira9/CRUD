@@ -25,7 +25,7 @@
         <label>Preço: <input name="preco"  value="<?=$preco;?>"></label> <br>
         <label>Categoria: <input name="categoria"  value="<?=$categoria;?>"></label> <br>
 
-        <button type="submit">Salvar</button>
+        <button type="submit">Editar</button>
     </form>
 
 
