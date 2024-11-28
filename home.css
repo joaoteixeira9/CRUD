@@ -1,0 +1,435 @@
+*{
+    padding: 0;
+    margin: 0;
+    background-color: black;
+}
+
+/* BARRA DE NAVEGAÇÃO */
+.nav{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+.barra-de-navegacao {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    height: 20px;
+}
+
+.img-navegacao{
+    width: 20%;
+    display: flex;
+    justify-content: right;
+    gap: 30px;
+}
+.img-navegacao img{
+    width: 30px;
+    height: 30px;
+    justify-content: right;
+    display: flex;
+    margin-right: 20px;
+}
+
+.nav .barra-de-navegacao :not(:hover){
+    font-family: "Lexend Tera-Regular", Helvetica;
+    color: aliceblue;
+    transition: 0.3s;
+    text-decoration: none;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+.barra-de-navegacao :hover{
+    font-family: "Lexend Tera-Regular", Helvetica;
+    color: #4b4b4b;
+    transition: 0.3s;
+    text-decoration: none;
+    scale: 1.09;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+/* LOGIN */
+.grupo{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.3%;
+}
+
+.grupo .imagem-sccortes{
+    width: 800px;
+    height: 800px;
+    animation: flutuar 2s ease-in-out alternate infinite;
+    position: relative;
+}
+ /* @keyframes flutuar {
+    0%{
+        top: -20px;
+    }
+    100%{
+        top: 60px;
+    } 
+
+}*/ 
+
+.img-login{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.login{
+    width: 40%;
+    height: 100%;
+    border: 2px solid aliceblue;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-right: 50px;
+}
+.login img{
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+    border: 1px solid aliceblue;
+    border-radius: 100%;
+    background-color: aliceblue; 
+}
+.forms{
+    display: flex;
+    justify-content: center
+}
+.formulario {
+    margin-top: 50px;
+    color: #4b4b4b;
+    font-family: "Libre Franklin-Black", Helvetica;
+    font-weight: bolder;
+}
+.formulario input{
+    background-color: aliceblue;
+    border: 1px solid;
+    height: 25px;
+    width: 250px;
+}
+.formulario button{
+    background-color: aliceblue;
+    width: 100px;
+    height: 25px;
+    border: none;
+    font-family: "Lexend Tera-Regular", Helvetica;
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.formulario .button{
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro{
+    color: #4b4b4b;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.cadastrar h4{
+   display: flex;
+   justify-content: center;
+}
+.cadastrar h4 a{
+    color: #1f66fd;
+    font-family: "Lexend Tera-Regular", Helvetica;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    margin-top: 5px;
+}
+
+/* SOBRE-NÓS */
+.titulo-sobreNos p{
+    color: aliceblue;
+    width: 60%;
+    height: 100%;
+    margin-top: 5%;
+    text-align: justify;
+    font-family: "Lexend Tera-Regular", Helvetica;
+    font-size: 18px;
+}
+.titulo-sobreNos{
+    display: flex;
+    justify-content: center;
+}
+
+.video-scCortes{
+    margin-top: 70px;
+    height: 400px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 230px;
+}
+.video-scCortes .video{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    height: 600px;
+}
+.video iframe{
+    margin-top: 40px;
+}
+/* CORTES */
+.tabelaDePrecos{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    font-family: "Lexend Tera-Regular", Helvetica;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 200;
+}
+.pagCortes{
+    display: flex;
+    justify-content: right;
+}
+.slider{
+    margin: 0 auto;
+    width: 1000px;
+    height: 800px;
+    overflow: hidden;
+    border: 1px solid aliceblue;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.slides{
+    width: 700%;
+    height: 800px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide img{
+    width: 65.2%;
+}
+
+/* .manual-navigation{
+    position: absolute;
+    width: 1000px;
+    margin-top: 750px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.manual-btn{
+    border: 2px solid aliceblue;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+} */
+
+/* .manual-btn:hover{
+    background-color: aliceblue;
+} */
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+
+/* .navigation-auto div{
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto{
+    position: absolute;
+    width: 1000px;
+    margin-top: 750px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+} */
+
+/* .navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: aliceblue;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: aliceblue;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: aliceblue;
+} */
+/* RODAPÉ */
+#rodape{
+    color: aliceblue;
+    background-color: aliceblue;
+    margin-top: 70px;
+    font-family: "Lexend Tera-Regular", Helvetica;
+
+}
+.contatosRodape{
+    display: flex;
+    padding: 40px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sobreBarbeiros{
+    background-color: aliceblue;
+    margin-left: 25%;
+}
+.sobreBarbeiros h4{
+    background-color: aliceblue;
+    color: black;
+}
+.sobreBarbeiros h5{
+    background-color: aliceblue;
+}
+.sobreBarbeiros a{
+    background-color: aliceblue;
+    text-decoration: none;
+    color: #424242;
+    letter-spacing: 1px;
+}
+.sobreBarbeiros h5{
+    color: #424242;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+}
+
+.contatosEHorarios{
+    margin-left: 32%;
+    background-color: aliceblue;
+}
+.contatosEHorarios h4{
+    background-color: aliceblue;
+    color: black;
+}
+
+.contatosEHorarios h5{
+    color: #424242;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    letter-spacing: 1.5px;
+}
+#nossos-hrr{
+    margin-bottom: 10px;
+    text-transform: lowercase;
+    letter-spacing: 2;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.contatosEHorarios h4, .sobreBarbeiros h4{
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.fotoBarbearia{
+    background-color: aliceblue;
+}
+.fotoBarbearia img{
+    width: 400px;
+    height: 280px;
+}
+
+.redesSociais{
+    background-color: aliceblue;
+    color:black;
+}
+.redesSociais h4{
+    background-color: aliceblue;
+    margin-left: 40px;
+    letter-spacing: 2.5px;
+    font-weight: 540;
+}
+.redesSociais img{
+    background-color: aliceblue;
+    height: 50px;
+    width: 50px;
+}
+
+.titulo{
+    background-color: aliceblue;
+}
+
+.imgRedesSociais{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    width: 12.5%;
+    text-decoration: none;
+    margin-right: 200px;
+}
+
+.imgRedesSociais a{
+    background-color: aliceblue;
+}
+.direitos{
+    background-color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: right;
+    width: 66%;
+}
+.direitos h5{
+    background-color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: right;
+}
+
+.imgDireitos{
+    display: flex;
+    background-color: aliceblue;
+}
+
+@media (max-width: 768px) {
+    .fotoBarbearia img {
+        width: 100%;
+        height: auto;
+    }
+    .contatosEHorarios {
+        margin-left: 0;
+        text-align: center;
+    }
+}
