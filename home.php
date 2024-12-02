@@ -3,9 +3,9 @@
 ?>
 <main>
 <?php
-    // session_start(); // Inicia a sessão
-    // $nome = $_SESSION['nome'];
-    // echo "Olá, $nome!";
+    //  session_start(); // Inicia a sessão
+    //  $nome = $_SESSION['nome'];
+    //  echo "Olá, $nome!";
 ?>
 
 </main>

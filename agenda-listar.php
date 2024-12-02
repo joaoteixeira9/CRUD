@@ -4,7 +4,13 @@
 ?>
 <main>
     <h2>Agendamento</h2>
-        <?php
+   
+        <?php 
+        $sql = "SELECT * FROM clientes";
+        $res = mysqli_query($conexao, $sql);
+        while($l = mysqli_fetch_assoc($res)){
+        
+        echo "<form action='agenda-salvar.php?id={$l['id']}' method='post'>";
             $sql = "SELECT * FROM funcionarios";
             $res = mysqli_query($conexao, $sql);
             echo "<label> Selecione um profissional: </label> <br>";
@@ -43,22 +49,20 @@
             }
             echo "</select>";
 
-            $diasDaSemana = [
-                "Segunda-feira", 
-                "Terça-feira", 
-                "Quarta-feira", 
-                "Quinta-feira", 
-                "Sexta-feira", 
-                "Sábado"
-            ];
-         
-            echo "<br><br><label>Escolha um dia da semana:</label><br>";
-            echo "<select name='dia'>";
-            foreach ($diasDaSemana as $dia) {
-                echo "<option value='$dia'>$dia</option>";
+            echo "<br><br><label>Data: <input type='date' name='data'></label>";
+            
+            $sql = "SELECT * FROM horarios";
+            $res = mysqli_query($conexao, $sql);
+            echo "<br><br><label> Selecione um horário: </label>";
+            echo "<select name='horario'>";
+            while($l = mysqli_fetch_assoc($res)){
+                echo "<option value='{$l['id']}'> {$l['horario']}</option>";
             }
             echo "</select>";
-            
+
+            echo "<br><br><button type='submit'>Agendar</button>";
+        }
         ?>
+    </form>
 </main>
 <?php include "footer.php";

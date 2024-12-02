@@ -10,9 +10,9 @@
     while($l = mysqli_fetch_assoc($resultado)){
     }
 
-    if (mysqli_num_rows($resultado) > 0) {
-        header("Location: home.php");
+    if (mysqli_num_rows($resultado) > 0) {    
         // $_SESSION['nome'] = $usuario['nome'];
+        header("Location: home.php");
         exit();
     }else{
         echo "Informações inválidas!";
