@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #6d9788;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.produtos-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.produto {
+    background-color: #d1dbc8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+}
+
+.produto img {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}
+
+.produto h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+.produto p {
+    color: #665e52;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.produto .preco {
+    font-size: 1.2em;
+    color: #3a5f6f;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.produto button {
+    background-color: #59b390;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+.produto button:hover {
+    background-color: #59b390;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
