@@ -1,0 +1,33 @@
+
+/* Estilo dos ícones */
+td a img {
+    width: 24px; /* Ajuste o tamanho conforme necessário */
+    height: 24px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transição para o efeito de hover */
+}
+
+/* Efeito de hover para os ícones */
+td a:hover img {
+    transform: scale(1.1); /* Aumenta um pouco o tamanho do ícone */
+    opacity: 0.8; /* Efeito de opacidade para um visual mais dinâmico */
+}
+
+/* Adicionando cores específicas para os ícones de acordo com a ação */
+td a[href*="excluir"] img {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(7477%) hue-rotate(349deg) brightness(93%) contrast(90%);
+    /* Cor para o ícone de excluir (lixeira) */
+}
+
+td a[href*="editar"] img {
+    filter: brightness(0) saturate(100%) invert(29%) sepia(92%) saturate(442%) hue-rotate(200deg) brightness(96%) contrast(92%);
+    /* Cor para o ícone de editar */
+}
+
+/* Efeito de hover para cores de ícones */
+td a[href*="excluir"]:hover img {
+    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(10deg) brightness(80%) contrast(80%);
+}
+
+td a[href*="editar"]:hover img {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(400%) hue-rotate(210deg) brightness(90%) contrast(85%);
+}

@@ -1,6 +1,5 @@
 <?php
     include "conexao.php";
-    include "header.php";
 
     echo "<br>";
     $sql = "SELECT * FROM agenda";
@@ -57,4 +56,3 @@
     mysqli_close($conexao);
     echo "</table>";
 ?>
-<?php include "footer.php" ?>

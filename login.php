@@ -7,16 +7,22 @@
 
     $sql = "SELECT * FROM clientes WHERE email = '$email' AND senha = '$senha'";
     $resultado = mysqli_query($conexao, $sql);
+    
 
     if (mysqli_num_rows($resultado) > 0) {
         $l = mysqli_fetch_assoc($resultado);
         $_SESSION['nome'] = $l['nome'];
         $_SESSION['id'] = $l['id'];
-        header("Location: home.php");
-        exit();
+
+        if ($l['tipoDeUsuario'] == "usuario") {
+            header("Location:usuario-home.php");
+        }
+        else if($l['tipoDeUsuario'] == "admin"){
+            header("Location: home.php");
+        }
     }else{
         echo "Informações inválidas!";
     }
-
+    
     mysqli_close($conexao);
 ?>
