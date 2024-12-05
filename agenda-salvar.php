@@ -6,8 +6,7 @@
     $servicoId = $_POST["servico"];
     $data = $_POST["data"];
     $horarioId = $_POST["horario"];
-
-    $sql = "INSERT INTO agenda (clienteId, profissionalId, servicoId, data, horarioId) VALUES ($clienteId,$profissionalId, $servicoId, '$data' , $horarioId)";
+    $sql = "INSERT INTO agenda (clienteId, profissionalId, servicoId, data, horarioId) VALUES ($clienteId,$profissionalId, $servicoId, '$data' , '$horarioId')";
     $res = mysqli_query($conexao, $sql);
     mysqli_close($conexao);
     header("Location: agenda-listar.php");

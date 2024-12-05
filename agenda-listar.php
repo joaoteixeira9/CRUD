@@ -38,18 +38,12 @@
         $servico = $linhaServico['servico'];
         $preco = $linhaServico['preco'];
 
-        $horarioId = $linha['horarioId'];
-        $sqlHorario = "SELECT * FROM horarios WHERE id = $horarioId";
-        $resHorario = mysqli_query($conexao, $sqlHorario);
-        $linhaHorario = mysqli_fetch_assoc($resHorario);
-        $horario = $linhaHorario['horario'];
-
         echo "<tr>"; // começo de coluna
         echo "<td> $nomeCliente</td>";
         echo "<td> $nomeProfissional</td>";
         echo "<td> $servico</td>";
         echo "<td> {$linha['data']}</td>";
-        echo "<td> $horario</td>";
+        echo "<td> {$linha['horarioId']}</td>";
         echo "<td> $preco</td>";
         echo "</tr>"; // fim da coluna
     }
