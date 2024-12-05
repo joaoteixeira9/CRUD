@@ -4,27 +4,34 @@ include "conexao.php";
 ?>
 
 <main>
-    <h2>Todos os serviços</h2>
-    <a href="servicos-cadastrar.php">Adicionar novo serviço</a>
-    <table border="2">
+    <link rel="stylesheet" href="servicos-listar.css">
+    <br>
+    <h2 class="container-fluid">Todos os serviços</h2>
+    <a class="container-fluid" href="servicos-cadastrar.php">Adicionar novo serviço</a>
+    
+    <table class="table table-hover">
+    <thead>
         <tr>
-            <th>SERVIÇO</th>
-            <th>DESCRIÇÃO</th>
-            <th>PREÇO</th>
-            <th>CATEGORIA</th>
-            <th>AÇÕES</th>
+            <th scope="col">SERVIÇO</th>
+            <th scope="col">DESCRIÇÃO</th>
+            <th scope="col">PREÇO</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col">AÇÕES</th>
         </tr>
+    </thead>
     <?php
     $sql = "select * from servicos";
     $resultado = mysqli_query($conexao, $sql);
     echo "<br><br>";
 
     while ($linha = mysqli_fetch_assoc($resultado)) {
+        echo "<tbody>";
         echo "<tr>"; //começo coluna
         echo "<td> {$linha['servico']} </td>"; // {} => interpolação de strings
         echo "<td> {$linha['descricao']} </td>";
         echo "<td> {$linha['preco']} </td>";
         echo "<td> {$linha['categoria']} </td>";
+        
 
         echo "<td>"; //começo ações
         // excluir linhas de serviços
@@ -41,6 +48,7 @@ include "conexao.php";
 
         echo "</td>"; // fim ações
         echo "</tr>"; // fim coluna
+        echo "</tbody>";
     }
 
     mysqli_close($conexao);

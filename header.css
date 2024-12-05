@@ -1,0 +1,64 @@
+/* Resetando alguns estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo um fundo claro e tipografia */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilizando o cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 50px;
+    background-color: #055a9a;
+}
+
+/* Estilo do título */
+h1 {
+    font-size: 2.5rem;
+    color: #e6e6e6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Estilo para o link do título */
+h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Estilo para o logo */
+header a img {
+    width: 150px; /* Ajuste o tamanho do logo conforme necessário */
+    height: auto;
+}
+
+/* Adicionando efeito de hover ao logo */
+/* header a:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+} */
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    header a img {
+        width: 100px;
+    }
+}
