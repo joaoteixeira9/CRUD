@@ -1,21 +1,3 @@
-*{
-    padding: 0;
-    margin: 0;
-    background-color: black;
-}
-
-/* BARRA DE NAVEGAÇÃO */
-.nav{
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-}
-.barra-de-navegacao {
-    display: flex;
-    justify-content: space-around;
-    width: 75%;
-    height: 20px;
-}
 
 .img-navegacao{
     width: 20%;

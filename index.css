@@ -1,0 +1,239 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+    font-size: 18px;
+    padding: 10px;
+    color: black;
+    background-color: rgba(0.0.0.0,5);
+}
+
+.nav a{
+    color: rgb(255, 255, 255);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Ajuste para os ícones sociais (Instagram e WhatsApp) */
+.social-icons {
+    margin-left: auto; /* Empurra os ícones para a direita */
+    display: flex;
+    align-items: center; /* Alinha verticalmente no centro */
+}
+
+/* Ajuste o tamanho das imagens de ícones */
+.img-navegacao {
+    width: 35px;  /* Ajuste o tamanho conforme necessário */
+    height: auto;  /* Mantém a proporção */
+    margin-top: 3px; /* Ajuste o alinhamento vertical, se necessário */
+    margin-right: 12px; /* Adiciona espaço à direita das imagens */
+}
+/* Ajusta a altura do carrossel */
+.carousel-item {
+    height: 750px; /* Ajuste conforme necessário */
+}
+
+#carouselExampleIndicators {
+    width: 70%;                /* Define a largura do carrossel para 70% da tela */
+    margin: 0 auto;            /* Centraliza o carrossel horizontalmente */
+}
+
+.carousel-inner {
+    width: 100%;               /* Garante que a área interna ocupe toda a largura disponível */
+    height: auto;              /* Ajusta a altura automaticamente para manter a proporção */
+}
+
+.carousel-item img {
+    object-fit: cover;         /* Faz com que a imagem cubra a área disponível */
+    width: 100%;                /* A imagem vai ocupar 100% da largura do carrossel */
+    height: 70%;               /* A imagem vai ocupar 100% da altura do carrossel */
+}
+.carousel-caption {
+    position: absolute;       /* Define o posicionamento da legenda */
+    top: 50%;                 /* Ajuste a porcentagem para mover para cima ou para baixo */
+    left: 50%;                /* Centraliza a legenda horizontalmente */
+    transform: translateX(-50%); /* Garante que a legenda seja centralizada corretamente */
+}
+.carousel-indicators{
+    top: 65%;                 /* Ajuste a porcentagem para mover para cima ou para baixo */
+}
+
+.carousel-caption h5, .carousel-caption p {
+    margin: 0;               /* Remove margens para que a legenda fique mais compacta */
+}
+
+header {
+    background-image: url('img/img1.png');
+    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    width: 100%;
+    height: 850px;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    border: 2px solid black;
+}
+
+.video-scCortes{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.card-title{
+    display: flex;
+    justify-content: center;
+}
+.card-text {
+    font-family: 'Arial', sans-serif; /* Define a fonte para o texto */
+    font-size: 16px; /* Ajusta o tamanho da fonte */
+    line-height: 1.6; /* Aumenta o espaçamento entre as linhas */
+    color: #333; /* Define a cor do texto */
+    margin-bottom: 20px; /* Espaço abaixo do texto */
+    text-align: justify; /* Justifica o texto, para uma leitura mais uniforme */
+    padding: 15px; /* Espaçamento interno para dar conforto ao texto */
+    background-color: #f9f9f9; /* Fundo leve para destacar o texto */
+    border-radius: 8px; /* Bordas arredondadas para suavizar o visual */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave ao redor do card */
+}
+
+.rounded img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /* Garantir que a imagem cubra a área sem distorção */
+}
+
+#rodape{
+    color: aliceblue;
+    background-color: aliceblue;
+    margin-top: 70px;
+    font-family: "Lexend Tera-Regular", Helvetica;
+
+}
+.contatosRodape{
+    display: flex;
+    padding: 40px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.sobreBarbeiros{
+    background-color: aliceblue;
+    margin-left: 25%;
+}
+.sobreBarbeiros h4{
+    background-color: aliceblue;
+    color: black;
+}
+.sobreBarbeiros h5{
+    background-color: aliceblue;
+}
+.sobreBarbeiros a{
+    background-color: aliceblue;
+    text-decoration: none;
+    color: #424242;
+    letter-spacing: 1px;
+}
+.sobreBarbeiros h5{
+    color: #424242;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+}
+
+.contatosEHorarios{
+    margin-left: 32%;
+    background-color: aliceblue;
+}
+.contatosEHorarios h4{
+    background-color: aliceblue;
+    color: black;
+}
+
+.contatosEHorarios h5{
+    color: #424242;
+    margin-top: 3px;
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    letter-spacing: 1.5px;
+}
+#nossos-hrr{
+    margin-bottom: 10px;
+    text-transform: lowercase;
+    letter-spacing: 2;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.contatosEHorarios h4, .sobreBarbeiros h4{
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    display: flex;
+    justify-content: center;
+}
+
+.fotoBarbearia{
+    background-color: aliceblue;
+}
+.fotoBarbearia img{
+    width: 400px;
+    height: 280px;
+}
+
+.redesSociais{
+    background-color: aliceblue;
+    color:black;
+}
+.redesSociais h4{
+    background-color: aliceblue;
+    margin-left: 40px;
+    letter-spacing: 2.5px;
+    font-weight: 540;
+}
+.redesSociais img{
+    background-color: aliceblue;
+    height: 50px;
+    width: 50px;
+}
+
+.titulo{
+    background-color: aliceblue;
+}
+
+.imgRedesSociais{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    width: 12.5%;
+    text-decoration: none;
+    margin-right: 200px;
+}
+
+.imgRedesSociais a{
+    background-color: aliceblue;
+}
+.direitos{
+    background-color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: right;
+    width: 66%;
+}
+.direitos h5{
+    background-color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: right;
+}
+
+.imgDireitos{
+    display: flex;
+    background-color: aliceblue;
+}
+
