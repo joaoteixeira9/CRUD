@@ -4,13 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
-
-
-
-
-
 main {
     max-width: 600px;
     margin: 20px auto;
@@ -63,5 +56,3 @@ button {
 button:hover {
     background: #4cae4c; /* Cor do botão ao passar o mouse */
 }
-
-
