@@ -26,6 +26,7 @@
             <th>DESCRIÇÃO</th>
             <th>PREÇO</th>
             <th>CATEGORIA</th>
+            <th
             </tr>";
             $sql = "select * from servicos";
             $resultado = mysqli_query($conexao, $sql);

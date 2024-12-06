@@ -1,52 +1,66 @@
-<?php
-    include "conexao.php";
+<?php 
+include "header.php"; 
+include "conexao.php";
+?>
 
-    echo "<br>";
-    $sql = "SELECT * FROM agenda";
-    $res = mysqli_query($conexao, $sql);
-    echo "<table border='2'>
-            <tr>
-                <th>Cliente</th>
-                <th>Profissional</th>
-                <th>Servico</th>
-                <th>Data</th>
-                <th>Horario</th>
-                <th>Valor</th>
-            </tr>";
+<main>
+    <link rel="stylesheet" href="agendas-listar.css">
+    <br>
+    <h2 class="container-fluid">Todos os serviços</h2>
+    <a class="container-fluid" href="agendas-cadastrar.php">Adicionar nova agenda</a>
+    
+    <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">FUNCIONARIO</th>
+            <th scope="col">DATA</th>
+            <th scope="col">HORARIO</th>
+            <th scope="col">SERVICOS</th>
+            <th scope="col">EXCLUIR</th>
+            <th scope="col">EDITAR</th>
+        </tr>
+    </thead>
+    <?php
+    $sql = "select * from agendas";
+    $resultado = mysqli_query($conexao, $sql);
+    echo "<br><br>";
 
-    while ($linha = mysqli_fetch_assoc($res)) {
-        // Buscar o nome do cliente
-        $clienteId = $linha['clienteId'];
-        $sqlCliente = "SELECT nome FROM clientes WHERE id = $clienteId";
-        $resCliente = mysqli_query($conexao, $sqlCliente);
-        $linhaCliente = mysqli_fetch_assoc($resCliente);
-        $nomeCliente = $linhaCliente['nome'];
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+        echo "<tbody>";
+        echo "<tr>"; //começo coluna
+        echo "<td> {$linha['funcionario']} </td>"; // {} => interpolação de strings
+        echo "<td> {$linha['data']} </td>";
+        echo "<td> {$linha['horario']} </td>";
+        echo "<td> {$linha['servico']} </td>";
+        
 
-        // Buscar o nome do profissional
-        $profissionalId = $linha['profissionalId']; 
-        $sqlProfissional = "SELECT nome FROM funcionarios WHERE id = $profissionalId";
-        $resProfissional = mysqli_query($conexao, $sqlProfissional);
-        $linhaProfissional = mysqli_fetch_assoc($resProfissional);
-        $nomeProfissional = $linhaProfissional['nome'];
+        echo "<td>"; //começo ações
+        // excluir linhas de serviços
+        echo "<a href='agendas-excluir.php?id={$linha['id']}'>";
+        echo "<img src='img/lixeira.svg' alt=''>";
+        echo "</a>";
+        // fim excluir linhas de serviços
+        
+        //editar linhas de serviços
+        echo "<a href='agendas-editar.php?id={$linha['id']}'>";
+        echo "<img src='img/editar.svg' alt=''>";
+        echo "</a>";
+        //fim //editar linhas de serviços
 
-        // Buscar o nome do serviço e o preço
-        $servicoId = $linha['servicoId']; 
-        $sqlServico = "SELECT servico, preco FROM servicos WHERE id = $servicoId";
-        $resServico = mysqli_query($conexao, $sqlServico);
-        $linhaServico = mysqli_fetch_assoc($resServico);
-        $servico = $linhaServico['servico'];
-        $preco = $linhaServico['preco'];
-
-        echo "<tr>"; // começo de coluna
-        echo "<td> $nomeCliente</td>";
-        echo "<td> $nomeProfissional</td>";
-        echo "<td> $servico</td>";
-        echo "<td> {$linha['data']}</td>";
-        echo "<td> {$linha['horarioId']}</td>";
-        echo "<td> $preco</td>";
-        echo "</tr>"; // fim da coluna
+        echo "</td>"; // fim ações
+        echo "</tr>"; // fim coluna
+        echo "</tbody>";
     }
 
     mysqli_close($conexao);
-    echo "</table>";
-?>
+
+    //para debugar
+    // echo "<pre>";
+    // print_r($resultado);
+    // echo "</pre>";
+    //fim debug
+    ?>
+    </table>
+</main>
+
+<?php include "footer.php"; ?>
