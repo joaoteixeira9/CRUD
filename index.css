@@ -128,3 +128,7 @@ header {
     display: flex;
     justify-content: left;
 }
+
+.rounded{
+    margin-left: 0.5rem;
+}
