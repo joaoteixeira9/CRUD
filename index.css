@@ -105,135 +105,26 @@ header {
     height: 250px;
     object-fit: cover; /* Garantir que a imagem cubra a área sem distorção */
 }
-
-#rodape{
-    color: aliceblue;
-    background-color: aliceblue;
-    margin-top: 70px;
-    font-family: "Lexend Tera-Regular", Helvetica;
-
-}
-.contatosRodape{
-    display: flex;
-    padding: 40px;
-    background-color: aliceblue;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.sobreBarbeiros{
-    background-color: aliceblue;
-    margin-left: 25%;
-}
-.sobreBarbeiros h4{
-    background-color: aliceblue;
-    color: black;
-}
-.sobreBarbeiros h5{
-    background-color: aliceblue;
-}
-.sobreBarbeiros a{
-    background-color: aliceblue;
+#rodape {
+    background-color: #000; /* Preto */
+    color: #fff; /* Branco */
+  }
+  
+  #rodape h4, #rodape h5 {
+    color: #fff; /* Branco para títulos */
+  }
+  
+  #rodape a {
+    color: #fff; /* Branco para links */
     text-decoration: none;
-    color: #424242;
-    letter-spacing: 1px;
-}
-.sobreBarbeiros h5{
-    color: #424242;
-    margin-top: 3px;
+  }
+  
+  #rodape a:hover {
+    color: #f0f0f0; /* Cor mais clara para o hover */
+    text-decoration: underline;
+  }
+
+.foto{
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
-
-.contatosEHorarios{
-    margin-left: 32%;
-    background-color: aliceblue;
-}
-.contatosEHorarios h4{
-    background-color: aliceblue;
-    color: black;
-}
-
-.contatosEHorarios h5{
-    color: #424242;
-    margin-top: 3px;
-    display: flex;
-    justify-content: center;
-    background-color: aliceblue;
-    letter-spacing: 1.5px;
-}
-#nossos-hrr{
-    margin-bottom: 10px;
-    text-transform: lowercase;
-    letter-spacing: 2;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.5;
-}
-.contatosEHorarios h4, .sobreBarbeiros h4{
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    display: flex;
-    justify-content: center;
-}
-
-.fotoBarbearia{
-    background-color: aliceblue;
-}
-.fotoBarbearia img{
-    width: 400px;
-    height: 280px;
-}
-
-.redesSociais{
-    background-color: aliceblue;
-    color:black;
-}
-.redesSociais h4{
-    background-color: aliceblue;
-    margin-left: 40px;
-    letter-spacing: 2.5px;
-    font-weight: 540;
-}
-.redesSociais img{
-    background-color: aliceblue;
-    height: 50px;
-    width: 50px;
-}
-
-.titulo{
-    background-color: aliceblue;
-}
-
-.imgRedesSociais{
-    background-color: aliceblue;
-    display: flex;
-    justify-content: center;
-    width: 12.5%;
-    text-decoration: none;
-    margin-right: 200px;
-}
-
-.imgRedesSociais a{
-    background-color: aliceblue;
-}
-.direitos{
-    background-color: aliceblue;
-    text-align: center;
-    display: flex;
-    justify-content: right;
-    width: 66%;
-}
-.direitos h5{
-    background-color: aliceblue;
-    text-align: center;
-    display: flex;
-    justify-content: right;
-}
-
-.imgDireitos{
-    display: flex;
-    background-color: aliceblue;
-}
-
