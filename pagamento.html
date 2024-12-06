@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code Pix</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        #qrcode {
+            margin: 20px 0;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerador de QR Code Pix</h1>
+    <form id="pixForm">
+        <input type="text" id="chavePix" placeholder="Chave Pix (e-mail, CPF, CNPJ, ou telefone)" required>
+        <input type="text" id="nomeRecebedor" placeholder="Nome do Recebedor" required>
+        <input type="text" id="cidade" placeholder="Cidade do Recebedor" required>
+        <input type="number" step="0.01" id="valor" placeholder="Valor (R$)" required>
+        <input type="text" id="descricao" placeholder="Descrição do Pagamento (opcional)">
+        <button type="button" onclick="gerarQRCode()">Gerar QR Code</button>
+    </form>
+    <canvas id="qrcode"></canvas>
+    <script>
+        function calcularCRC16(payload) {
+            let polinomio = 0x1021;
+            let resultado = 0xFFFF;
+
+            for (let i = 0; i < payload.length; i++) {
+                resultado ^= payload.charCodeAt(i) << 8;
+                for (let j = 0; j < 8; j++) {
+                    if ((resultado & 0x8000) !== 0) {
+                        resultado = (resultado << 1) ^ polinomio;
+                    } else {
+                        resultado <<= 1;
+                    }
+                }
+            }
+            return (resultado & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+        }
+
+        function gerarQRCode() {
+            const chavePix = document.getElementById('chavePix').value.trim();
+            const nomeRecebedor = document.getElementById('nomeRecebedor').value.trim();
+            const cidade = document.getElementById('cidade').value.trim();
+            const valor = parseFloat(document.getElementById('valor').value.trim()).toFixed(2);
+            const descricao = document.getElementById('descricao').value.trim();
+
+            if (!chavePix || !nomeRecebedor || !cidade || isNaN(valor)) {
+                alert("Por favor, preencha todos os campos obrigatórios corretamente.");
+                return;
+            }
+
+            // Montagem do código Pix
+            const payload = `
+                000201
+                26${chavePix.length}${chavePix}
+                52040000
+                5303986
+                5802BR
+                59${nomeRecebedor.length}${nomeRecebedor}
+                60${cidade.length}${cidade}
+                54${valor.length}${valor}
+                ${descricao ? `62${descricao.length}${descricao}` : ''}
+            `.replace(/\s+/g, '');
+
+            // Adiciona o CRC16
+            const codigoPixComCRC = `${payload}6304`;
+            const crc = calcularCRC16(codigoPixComCRC);
+            const codigoFinal = `${codigoPixComCRC}${crc}`;
+
+            // Gera o QR Code
+            const qr = new QRious({
+                element: document.getElementById('qrcode'),
+                value: codigoFinal,
+                size: 300,
+            });
+
+            console.log("Código Pix gerado:", codigoFinal);
+        }
+    </script>
+</body>
+</html>
