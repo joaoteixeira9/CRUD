@@ -1,44 +1,64 @@
-<?php include "header.php"; include "conexao.php"?>
+<?php
+include "header.php";
+include "conexao.php";
+?>
+
 <main>
-    <h2>Funcionários</h2>
-    <a href="funcionarios-cadastrar.php">Cadastre um novo funcionário</a>
-    <table border="2">
+    <link rel="stylesheet" href="funcionarios-listar">
+    <br>
+    <h2 class="container-fluid">Todos os Funcionarios</h2>
+    <a class="container-fluid" href="funcionarios-cadastrar.php">Adicionar novo Funcionario</a>
+
+    <table class="table table-hover">
+    <thead>
         <tr>
-            <th>id</th>
-            <th>nome</th>
-            <th>telefone</th>
-            <th>ações</th>
+            <th scope="col">NOME</th>
+            <th scope="col">TELEFONE</th>
+            <th scope="col">HORARIO</th>
+            <th scope="col">DATA</th>
+            <th scope="col">PREÇO</th>
         </tr>
-        <?php
-            $sql = "SELECT * FROM funcionarios";
-            $resultado = mysqli_query($conexao, $sql);
-            echo "<br><br>";
+    </thead>
+<?php
 
-            while ($l = mysqli_fetch_assoc($resultado)) {
-                echo "<tr>";
-                echo "<td>{$l['id']}</td>";
-                echo "<td>{$l['nome']}</td>";
-                echo "<td>{$l['telefone']}</td>";
+$sql = "select * from funcionarios";
+$resultado = mysqli_query($conexao, $sql);
+echo "<br><br>";
 
-                echo "<td>";    //INICIO AÇÕES
-                
-                // INICIO EXCLUIR FUNCIONÁRIOS
-                echo "<a href='funcionarios-excluir.php?id={$l['id']}'>";   
-                echo "<img src='img/lixeira.svg' alt=''>";
-                echo "</a>";
-                // FIM EXCLUIR FUNCIONÁRIOS
-                
-                // INICIO EDITAR FUNCIONÁRIOS
-                echo "<a href='funcionarios-editar.php?id={$l['id']}'>";  
-                echo "<img src='img/editar.svg' alt=''>";
-                echo "</a>";
-                // FIM EDITAR FUNCIONÁRIOS
+while($linha = mysqli_fetch_assoc($resultado)){
+    echo "<tbody>";
+    echo "<tr>";
+    echo "<td> {$linha['nome']} </td>";
+    echo "<td> {$linha['telefone']} </td>";
+    echo "<td> {$linha['horario']} </td>";
+    echo "<td> {$linha['data']} </td>";
+    echo "<td> {$linha['preco']} </td>";
 
-                echo "</td>";   //FIM AÇÕES
-                echo "</tr>";
-            }
-            mysqli_close($conexao);
-        ?>
-    </table>
+    // echo "<td>";
+    // echo "<a href ='funcionarios-excluir.php?id={$linha['id']}'>";
+    // echo "<img src='excluir.png' width='25'>";
+    // echo "</a>";
+
+    // echo "<td>";
+    // echo "<a href ='funcionarios-editar.php?id={$linha['id']}'>";
+    // echo "<img src='editar.png' width='25'>";
+    // echo "</a>";
+
+    echo "</td>";
+    echo "</tr>";
+    echo "</tbody>";
+}
+
+mysqli_close($conexao);
+
+/*para debugar
+echo "<pre>";
+print_r($resultado);
+echo "</pre>";
+fim debugar
+*/
+
+?>
+</table>
 </main>
-<?php include "footer.php"?>
+<?php include "footer.php"; ?>

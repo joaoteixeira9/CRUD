@@ -2,43 +2,63 @@
 include "header.php";
 include "conexao.php";
 ?>
+
 <main>
-    <h2>Todos os Fornecedores</h2>
-    <a href="fornecedores-cadastrar.php">Adicionar novo fornrcedor</a>
-    <table border="2">
+    <link rel="stylesheet" href="fornecedores-listar">
+    <br>
+    <h2 class="container-fluid">Todos os Fornecedores</h2>
+    <a class="container-fluid" href="fornecedores-cadastrar.php">Adicionar novo Funcionario</a>
+
+    <table class="table table-hover">
+    <thead>
         <tr>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>Endereço</th>
-            <th>Produto</th>
-            <th>Ações</th>
+            <th scope="col">NOME</th>
+            <th scope="col">TELEFONE</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">ENDERECO</th>
+            <th scope="col">PRODUTO</th>
         </tr>
-        <?php
-        $sql = "SELECT * FROM fornecedores";
-        $resultado = mysqli_query($conexao, $sql);
+    </thead>
+<?php
 
-        while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($linha['nome']) . "</td>";
-            echo "<td>" . htmlspecialchars($linha['telefone']) . "</td>";
-            echo "<td>" . htmlspecialchars($linha['email']) . "</td>";
-            echo "<td>" . htmlspecialchars($linha['endereco']) . "</td>";
-            echo "<td>" . htmlspecialchars($linha['produto']) . "</td>";
-            echo "<td>" . htmlspecialchars($linha['acoes']) . "</td>";
-            echo "<td>";
-            echo "<a href='fornecedores-excluir.php?id={$linha['id']}'>";
-            echo "<img src='img/lixeira.svg' width='20px' alt='Excluir'>";
-            echo "</a>";
-            echo "<a href='fornecedores-editar.php?id={$linha['id']}'>";
-            echo "<img src='img/editar.svg' width='20px' alt='Editar'>";
-            echo "</a>";
-            echo "</td>";
-            echo "</tr>";
-        }
+$sql = "select * from fornecedores";
+$resultado = mysqli_query($conexao, $sql);
+echo "<br><br>";
 
-        mysqli_close($conexao);
-        ?>
-    </table>
+while($linha = mysqli_fetch_assoc($resultado)){
+    echo "<tbody>";
+    echo "<tr>";
+    echo "<td> {$linha['nome']} </td>";
+    echo "<td> {$linha['telefone']} </td>";
+    echo "<td> {$linha['email']} </td>";
+    echo "<td> {$linha['endereco']} </td>";
+    echo "<td> {$linha['produto']} </td>";
+
+    // echo "<td>";
+    // echo "<a href ='fornecedores-excluir.php?id={$linha['id']}'>";
+    // echo "<img src='excluir.png' width='25'>";
+    // echo "</a>";
+
+    // echo "<td>";
+    // echo "<a href ='fornecedores-editar.php?id={$linha['id']}'>";
+    // echo "<img src='editar.png' width='25'>";
+    // echo "</a>";
+
+    echo "</td>";
+    echo "</tr>";
+    echo "</tbody>";
+}
+
+mysqli_close($conexao);
+
+/*para debugar
+echo "<pre>";
+print_r($resultado);
+echo "</pre>";
+fim debugar
+*/
+
+?>
+</table>
 </main>
 <?php include "footer.php"; ?>
