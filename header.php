@@ -8,9 +8,13 @@
     <title></title>
 </head>
 <body>
-    <header>
-        <h1>Barbearia SC Cortes</h1>
-        <a href="home.php"><img src="img/scCortes.png" alt=""></a>
+    <header class="container-fluid text-center">
+        <div class="container d-flex flex-column align-items-center">
+            <a href="home.php" class="d-block mb-3">
+                <img src="img/scCortes.png" alt="Logo Barbearia SC Cortes" class="img-fluid" style="max-height: 150px;">
+            </a>
+            <a href="home.php"><h1 class="fs-3">Barbearia SC Cortes</h1></a>
+        </div>
     </header>
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -20,7 +24,7 @@
             <a class="nav-link" href="clientes-listar.php">Clientes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="agenda-agendar.php">Agenda</a>
+            <a class="nav-link" href="agenda-listar.php">Agenda</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="produtos-listar.php">Produtos</a>

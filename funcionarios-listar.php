@@ -14,9 +14,6 @@ include "conexao.php";
         <tr>
             <th scope="col">NOME</th>
             <th scope="col">TELEFONE</th>
-            <th scope="col">HORARIO</th>
-            <th scope="col">DATA</th>
-            <th scope="col">PREÇO</th>
         </tr>
     </thead>
 <?php
@@ -30,21 +27,6 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<tr>";
     echo "<td> {$linha['nome']} </td>";
     echo "<td> {$linha['telefone']} </td>";
-    echo "<td> {$linha['horario']} </td>";
-    echo "<td> {$linha['data']} </td>";
-    echo "<td> {$linha['preco']} </td>";
-
-    // echo "<td>";
-    // echo "<a href ='funcionarios-excluir.php?id={$linha['id']}'>";
-    // echo "<img src='excluir.png' width='25'>";
-    // echo "</a>";
-
-    // echo "<td>";
-    // echo "<a href ='funcionarios-editar.php?id={$linha['id']}'>";
-    // echo "<img src='editar.png' width='25'>";
-    // echo "</a>";
-
-    echo "</td>";
     echo "</tr>";
     echo "</tbody>";
 }

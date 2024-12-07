@@ -90,6 +90,7 @@
 
             echo "<br><br><button type='submit'>Agendar</button><br><br>";
             
+            var_dump($reservados);
         }
         ?>
     </form>

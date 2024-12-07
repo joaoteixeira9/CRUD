@@ -1,0 +1,32 @@
+#rodape {
+    background-color: #055a9a;
+    color: #fff;
+}
+  
+#rodape h4, #rodape h5 {
+    color: #fff; 
+}
+  
+#rodape a {
+    color: #fff;
+    text-decoration: none;
+}
+  
+#rodape a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+.foto{
+    display: flex;
+    justify-content: left;
+}
+
+.rounded{
+    margin-left: 0.5rem;
+}
+.rounded img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}

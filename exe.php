@@ -1,5 +1,6 @@
 <?php
-include 'conexao.php';
+// Arquivo de armazenamento das reservas (usando JSON)
+$reservasArquivo = 'reservas.json';
 
 // Função para gerar os horários disponíveis para um dia específico
 function gerarHorarios($inicio, $fim, $intervalo) {
@@ -15,43 +16,70 @@ function gerarHorarios($inicio, $fim, $intervalo) {
     return $horarios;
 }
 
-// Verificar se a data foi enviada via GET (selecionar a data)
+// Carregar reservas do arquivo JSON (se existir)
+function carregarReservas() {
+    global $reservasArquivo;
+    if (file_exists($reservasArquivo)) {
+        $reservasJson = file_get_contents($reservasArquivo);
+        return json_decode($reservasJson, true);
+    }
+    return [];
+}
+
+// Salvar reservas no arquivo JSON
+function salvarReservas($reservas) {
+    global $reservasArquivo;
+    file_put_contents($reservasArquivo, json_encode($reservas, JSON_PRETTY_PRINT));
+}
+
+// Lista de barbeiros
+$funcionarios = [
+    1 => 'João',
+    2 => 'Carlos',
+    3 => 'Pedro',
+];
+
+// Verificar se a data e o barbeiro foram enviados via GET
 $data = isset($_GET['data']) ? $_GET['data'] : date('Y-m-d');
+$funcionarioId = isset($_GET['funcionario_id']) ? (int)$_GET['funcionario_id'] : 1; // Padrão: primeiro funcionário
 
 // Gerar todos os horários possíveis entre 09:00 e 17:00 com intervalos de 30 minutos
 $horariosDisponiveis = gerarHorarios('09:00', '17:00', 30);
 
-// Consultar os horários já reservados para a data selecionada
-$sql = "SELECT horario FROM reservas WHERE data = ?";
-$stmt = mysqli_prepare($conexao, $sql);
-mysqli_stmt_bind_param($stmt, 's', $data);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$reservados = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// Carregar as reservas do arquivo JSON
+$reservas = carregarReservas();
 
-// Converter horários reservados em um array simples para comparação
-$horariosReservados = array_map(function ($item) {
-    return date('H:i', strtotime($item['horario'])); // Normalizar o formato para comparação
-}, $reservados);
+// Consultar os horários já reservados para o barbeiro na data selecionada
+$reservados = [];
+foreach ($reservas as $reserva) {
+    if ($reserva['data'] == $data && $reserva['funcionario_id'] == $funcionarioId) {
+        $reservados[] = $reserva['horario'];
+    }
+}
 
+// Se o formulário foi enviado, realizar a reserva
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Verificar se o horário foi enviado
-    if (isset($_POST['horario']) && !empty($_POST['horario'])) {
+    if (isset($_POST['horario'], $_POST['funcionario_id']) && !empty($_POST['horario'])) {
         $horarioReservado = $_POST['horario'];
+        $funcionarioId = (int)$_POST['funcionario_id'];
     
-        // Inserir a reserva no banco de dados
-        $sql = "INSERT INTO reservas (horario, data, reservado) VALUES (?, ?, 1)";
-        $stmt = mysqli_prepare($conexao, $sql);
-        mysqli_stmt_bind_param($stmt, 'ss', $horarioReservado, $data);
-        mysqli_stmt_execute($stmt);
+        // Adicionar a nova reserva
+        $reservas[] = [
+            'horario' => $horarioReservado,
+            'data' => $data,
+            'funcionario_id' => $funcionarioId,
+        ];
+
+        // Salvar as reservas no arquivo
+        salvarReservas($reservas);
 
         echo "Reserva feita com sucesso!";
         
         // Atualizar a página para refletir a reserva
-        header("Location: ".$_SERVER['PHP_SELF']."?data=".$data);
+        header("Location: ".$_SERVER['PHP_SELF']."?data=".$data."&funcionario_id=".$funcionarioId);
         exit;
     } else {
-        echo "Erro: Nenhum horário foi selecionado.";
+        echo "Erro: Nenhum horário ou barbeiro foi selecionado.";
     }
 }
 ?>
@@ -72,18 +100,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <h1>Agendamento de Horários - <?= date('d/m/Y', strtotime($data)) ?></h1>
 
-    <!-- Formulário para escolher uma data -->
+    <!-- Formulário para escolher um barbeiro e uma data -->
     <form method="GET">
+        <label for="funcionario_id">Escolha o barbeiro:</label>
+        <select name="funcionario_id" id="funcionario_id" onchange="this.form.submit()">
+            <?php foreach ($funcionarios as $id => $nome): ?>
+                <option value="<?= $id ?>" 
+                    <?= $funcionarioId == $id ? 'selected' : '' ?>>
+                    <?= $nome ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
         <label for="data">Escolha a data:</label>
         <input type="date" name="data" id="data" value="<?= $data ?>" onchange="this.form.submit()">
     </form>
 
     <h2>Horários Disponíveis</h2>
     <form method="POST">
+        <input type="hidden" name="funcionario_id" value="<?= $funcionarioId ?>">
         <select name="horario" id="horario">
             <?php foreach ($horariosDisponiveis as $horario): ?>
                 <option value="<?= $horario ?>" 
-                    <?= in_array($horario, $horariosReservados) ? 'disabled' : '' ?>>
+                    <?= in_array($horario, $reservados) ? 'disabled' : '' ?>>
                     <?= $horario ?>
                 </option>
             <?php endforeach; ?>
@@ -91,31 +130,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Reservar</button>
     </form>
 
-    <h2>Horários já reservados para <?= date('d/m/Y', strtotime($data)) ?>:</h2>
+    <h2>Horários já reservados para <?= date('d/m/Y', strtotime($data)) ?> pelo barbeiro:</h2>
     <ul>
-        <?php if (count($horariosReservados) > 0): ?>
-            <?php foreach ($horariosReservados as $horario): ?>
+        <?php if (count($reservados) > 0): ?>
+            <?php foreach ($reservados as $horario): ?>
                 <li><?= $horario ?></li>
             <?php endforeach; ?>
         <?php else: ?>
             <li>Nenhum horário reservado</li>
         <?php endif; ?>
     </ul>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const horariosReservados = <?= json_encode($horariosReservados); ?>;
-            const selectElement = document.getElementById('horario');
-
-            // Desabilitar opções já reservadas
-            for (let i = 0; i < selectElement.options.length; i++) {
-                const option = selectElement.options[i];
-                if (horariosReservados.includes(option.value)) {
-                    option.disabled = true;
-                    option.classList.add('reservado'); // Adiciona uma classe para estilização
-                }
-            }
-        });
-    </script>
 </body>
 </html>

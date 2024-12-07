@@ -13,59 +13,67 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Ajuste para os ícones sociais (Instagram e WhatsApp) */
 .social-icons {
-    margin-left: auto; /* Empurra os ícones para a direita */
+    margin-left: auto;
     display: flex;
-    align-items: center; /* Alinha verticalmente no centro */
+    align-items: center;
 }
 
-/* Ajuste o tamanho das imagens de ícones */
 .img-navegacao {
-    width: 35px;  /* Ajuste o tamanho conforme necessário */
-    height: auto;  /* Mantém a proporção */
-    margin-top: 3px; /* Ajuste o alinhamento vertical, se necessário */
-    margin-right: 12px; /* Adiciona espaço à direita das imagens */
+    width: 35px;
+    height: auto;
+    margin-top: 3px; 
+    margin-right: 12px; 
 }
-/* Ajusta a altura do carrossel */
+
 .carousel-item {
-    height: 750px; /* Ajuste conforme necessário */
+    height: 750px; 
 }
 
 #carouselExampleIndicators {
-    width: 70%;                /* Define a largura do carrossel para 70% da tela */
-    margin: 0 auto;            /* Centraliza o carrossel horizontalmente */
+    width: 70%;
+    margin: 0 auto;
 }
 
 .carousel-inner {
-    width: 100%;               /* Garante que a área interna ocupe toda a largura disponível */
-    height: auto;              /* Ajusta a altura automaticamente para manter a proporção */
+    width: 100%;
+    height: auto;
 }
 
 .carousel-item img {
-    object-fit: cover;         /* Faz com que a imagem cubra a área disponível */
-    width: 100%;                /* A imagem vai ocupar 100% da largura do carrossel */
-    height: 70%;               /* A imagem vai ocupar 100% da altura do carrossel */
+    object-fit: cover;
+    width: 100%;
+    height: 70%;
 }
+
 .carousel-caption {
-    position: absolute;       /* Define o posicionamento da legenda */
-    top: 50%;                 /* Ajuste a porcentagem para mover para cima ou para baixo */
-    left: 50%;                /* Centraliza a legenda horizontalmente */
-    transform: translateX(-50%); /* Garante que a legenda seja centralizada corretamente */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 .carousel-indicators{
-    top: 65%;                 /* Ajuste a porcentagem para mover para cima ou para baixo */
+    top: 65%;
 }
 
 .carousel-caption h5, .carousel-caption p {
-    margin: 0;               /* Remove margens para que a legenda fique mais compacta */
+    margin: 0;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 35%; /* Coloca os botões a 50% da altura */
+  transform: translateY(-50%); /* Centraliza os botões verticalmente */
+}
+
 
 header {
     background-image: url('img/img1.png');
-    background-size: cover; /* Ajusta a imagem para cobrir toda a área */
-    background-position: center; /* Centraliza a imagem */
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     height: 850px;
 }
@@ -87,42 +95,44 @@ header {
     display: flex;
     justify-content: center;
 }
+
 .card-text {
-    font-family: 'Arial', sans-serif; /* Define a fonte para o texto */
-    font-size: 16px; /* Ajusta o tamanho da fonte */
-    line-height: 1.6; /* Aumenta o espaçamento entre as linhas */
-    color: #333; /* Define a cor do texto */
-    margin-bottom: 20px; /* Espaço abaixo do texto */
-    text-align: justify; /* Justifica o texto, para uma leitura mais uniforme */
-    padding: 15px; /* Espaçamento interno para dar conforto ao texto */
-    background-color: #f9f9f9; /* Fundo leve para destacar o texto */
-    border-radius: 8px; /* Bordas arredondadas para suavizar o visual */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave ao redor do card */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: justify;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .rounded img {
     width: 250px;
     height: 250px;
-    object-fit: cover; /* Garantir que a imagem cubra a área sem distorção */
+    object-fit: cover;
 }
+
 #rodape {
-    background-color: #000; /* Preto */
-    color: #fff; /* Branco */
-  }
+    background-color: #000;
+    color: #fff;
+}
   
-  #rodape h4, #rodape h5 {
-    color: #fff; /* Branco para títulos */
-  }
+#rodape h4, #rodape h5 {
+    color: #fff; 
+}
   
-  #rodape a {
-    color: #fff; /* Branco para links */
+#rodape a {
+    color: #fff;
     text-decoration: none;
-  }
+}
   
-  #rodape a:hover {
-    color: #f0f0f0; /* Cor mais clara para o hover */
+#rodape a:hover {
+    color: #f0f0f0;
     text-decoration: underline;
-  }
+}
 
 .foto{
     display: flex;
