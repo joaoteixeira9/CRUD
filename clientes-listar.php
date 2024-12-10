@@ -7,7 +7,6 @@ include "conexao.php";
     <link rel="stylesheet" href="clientes-listar">
     <br>
     <h2 class="container-fluid">Todos os Clientes</h2>
-    <a class="container-fluid" href="clientes-cadastrar.php">Adicionar novo Cliente</a>
 
     <table class="table table-hover">
     <thead>

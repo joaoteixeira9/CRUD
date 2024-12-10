@@ -44,13 +44,13 @@ while ($linha = mysqli_fetch_assoc($res)) {
 
     // Exibir a linha da tabela com os dados
     echo "<tr>
-            <td>$nomeCliente</td>
-            <td>$nomeProfissional</td>
-            <td>$servico</td>
-            <td>{$linha['data']}</td>
-            <td>{$linha['horarioId']}</td>
-            <td>$preco</td>
-          </tr>";
+        <td>$nomeCliente</td>
+        <td>$nomeProfissional</td>
+        <td>$servico</td>
+        <td>" . date('d/m/Y', strtotime($linha['data'])) . "</td>
+        <td>{$linha['horarioId']}</td>
+        <td>$preco</td>
+      </tr>";
 }
 
 // Fechar a tabela

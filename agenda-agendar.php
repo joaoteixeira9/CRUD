@@ -68,13 +68,14 @@
             $sql = "SELECT * FROM agenda";
             $res = mysqli_query($conexao, $sql);
             $reservados = [];
-            while($l = mysqli_fetch_assoc($res)){
+            while ($l = mysqli_fetch_assoc($res)) {
                 $reservados[] = [
-                    'data' => $l['data'],
-                    'horarioId' => $l['horarioId']
+                    'data' => $l['data'], // Certifique-se de que o formato da data é consistente
+                    'horarioId' => date('H:i', strtotime($l['horarioId'])) // Converte para o formato HH:mm
                 ];
             }
             echo "<script>var horariosReservados = " . json_encode($reservados) . ";</script>";
+
             echo "<br><br><label>Selecione um horário:</label>";
             echo "<div style='display: flex; gap: 10px; flex-wrap: wrap;'>";
 
@@ -89,8 +90,6 @@
             echo "<input type='hidden' id='horarioSelecionado' name='horario'>";
 
             echo "<br><br><button type='submit'>Agendar</button><br><br>";
-            
-            var_dump($reservados);
         }
         ?>
     </form>
@@ -103,6 +102,60 @@ function selecionarHorario(horarioId) {
     const botaoSelecionado = document.getElementById('horario_' + horarioId);
     botaoSelecionado.style.backgroundColor = '#000000';
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const dataInput = document.getElementById('dataSelecionada');
+    const horarioInput = document.getElementById('horarioSelecionado');
+    const horariosReservadosMap = {}; // Para armazenar mapeamento de data para horários
+
+    // Constrói um mapa de horários reservados para facilitar a busca
+    horariosReservados.forEach(reserva => {
+        if (!horariosReservadosMap[reserva.data]) {
+            horariosReservadosMap[reserva.data] = [];
+        }
+        horariosReservadosMap[reserva.data].push(reserva.horarioId);
+    });
+
+    // Função para verificar e esconder horários com base na data selecionada
+    function verificarHorariosReservados() {
+        const dataSelecionada = dataInput.value; // Data no formato AAAA-MM-DD
+        const horariosReservadosDoDia = horariosReservadosMap[dataSelecionada] || [];
+
+        // Restaura a visibilidade de todos os botões
+        const botoes = document.querySelectorAll("button[type='button']");
+        botoes.forEach(btn => {
+            btn.style.display = 'inline-block'; // Torna todos os botões visíveis
+            btn.style.backgroundColor = '#007BFF'; // Cor padrão
+        });
+
+        // Esconde os horários reservados
+        horariosReservadosDoDia.forEach(horario => {
+            const botao = document.getElementById('horario_' + horario);
+            if (botao) {
+                botao.style.display = 'none'; // Esconde o botão do horário reservado
+            }
+        });
+    }
+
+    // Escuta mudanças no campo de data
+    dataInput.addEventListener('change', verificarHorariosReservados);
+
+    // Inicializa verificação com a data atual
+    verificarHorariosReservados();
+
+    // Seleção de horário
+    document.querySelectorAll("button[type='button']").forEach(button => {
+        button.addEventListener('click', function () {
+            if (button.style.display !== 'none') { // Verifica se o botão está visível
+                horarioInput.value = button.textContent;
+                document.querySelectorAll("button[type='button']").forEach(btn => {
+                    btn.style.backgroundColor = '#007BFF';
+                });
+                button.style.backgroundColor = '#000000'; // Cor de seleção
+            }
+        });
+    });
+});
 
 function verificarHorariosReservados(reservados) {
 }
