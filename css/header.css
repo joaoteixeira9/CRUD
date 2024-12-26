@@ -1,0 +1,37 @@
+header {
+    background: #055a9a;
+    color: #fff; /* Texto branco */
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    text-align: center; /* Centraliza o conteúdo */
+    font-family: 'Poppins', sans-serif; /* Fonte moderna e limpa */
+}
+
+header img {
+    max-height: 120px; /* Tamanho ajustado para o logotipo */
+    border-radius: 50%; /* Logotipo com bordas circulares */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}
+
+header h1 {
+    font-size: 2rem; /* Tamanho da fonte do título */
+    font-weight: 600; /* Peso do título mais forte */
+    margin-top: 15px; /* Espaço entre o título e a imagem */
+    letter-spacing: 1.5px; /* Espaçamento entre letras */
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+header a {
+    text-decoration: none;
+    font-weight: 500; /* Peso moderado */
+    transition: color 0.3s ease; /* Transição suave para hover */
+    color: #fff;
+}
+
+header a:hover {
+    color: #fff; /* Cor branca ao passar o mouse */
+    text-decoration: none;
+    font-weight: 500; /* Peso moderado */
+    transition: color 0.3s ease; /* Transição suave para hover */
+}
+

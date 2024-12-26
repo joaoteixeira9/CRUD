@@ -1,0 +1,27 @@
+h3.mb-4 {
+    color: #34495e;
+}
+
+button.btn {
+    background-color: #055a9a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.btn:hover {
+    background-color: #004f79;
+}
+
+button.btn:focus {
+    outline: none;
+}
+
+.container.text-center.my-5 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}

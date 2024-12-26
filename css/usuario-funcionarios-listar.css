@@ -1,0 +1,51 @@
+h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+table {
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f4f6f7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+table tbody tr:hover {
+    background-color: #3498db;
+    color: #3498db;
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+th, td {
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 1px solid #dfe6e9;
+    text-transform: uppercase;
+}
+
+thead th {
+    background-color: #055a9a;
+    color: white;
+    font-weight: 600;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #ecf0f1;
+}
+
+table {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+tbody tr {
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
