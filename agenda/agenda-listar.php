@@ -1,69 +1,27 @@
 <link rel="stylesheet" href="../css/agenda-listar.css">
 <?php 
-include "../includes/header.php"; 
-include "../includes/conexao.php";
-
-echo "<br>";
-
-// Consulta a tabela agenda
-$sql = "SELECT * FROM agenda";
-$res = mysqli_query($conexao, $sql);
-
-// Início da tabela
-echo "<div class='tabelaAgenda' style='width: 70%; display: flex; justify-content: center;  margin: 0 auto;'>";
-
-echo "<table class='table' style='border-collapse: collapse;'>";
-echo "<thead style='background-color: #34495e; color: white;'>
-        <tr>
-            <th>Cliente</th>
-            <th>Profissional</th>
-            <th>Serviço</th>
-            <th>Data</th>
-            <th>Horário</th>
-            <th>Valor</th>
-        </tr>
-      </thead>";
-echo "<tbody>";
-
-while ($linha = mysqli_fetch_assoc($res)) {
-    // Buscar o nome do cliente
-    $clienteId = $linha['clienteId'];
-    $sqlCliente = "SELECT nome FROM clientes WHERE id = $clienteId";
-    $resCliente = mysqli_query($conexao, $sqlCliente);
-    $linhaCliente = mysqli_fetch_assoc($resCliente);
-    $nomeCliente = $linhaCliente['nome'];
-
-    // Buscar o nome do profissional
-    $profissionalId = $linha['profissionalId']; 
-    $sqlProfissional = "SELECT nome FROM funcionarios WHERE id = $profissionalId";
-    $resProfissional = mysqli_query($conexao, $sqlProfissional);
-    $linhaProfissional = mysqli_fetch_assoc($resProfissional);
-    $nomeProfissional = $linhaProfissional['nome'];
-
-    // Buscar o serviço e o preço
-    $servicoId = $linha['servicoId']; 
-    $sqlServico = "SELECT servico, preco FROM servicos WHERE id = $servicoId";
-    $resServico = mysqli_query($conexao, $sqlServico);
-    $linhaServico = mysqli_fetch_assoc($resServico);
-    $servico = $linhaServico['servico'];
-    $preco = $linhaServico['preco'];
-
-    // Exibir a linha da tabela com os dados
-    echo "<tr>
-        <td>$nomeCliente</td>
-        <td>$nomeProfissional</td>
-        <td>$servico</td>
-        <td>" . date('d/m/Y', strtotime($linha['data'])) . "</td>
-        <td>{$linha['horarioId']}</td>
-        <td>$preco</td>
-      </tr>";
-}
-
-// Fechar a tabela
-echo "</tbody></table>";
-echo "</div>";
-echo "<br>";
-// Fechar a conexão com o banco de dados
-mysqli_close($conexao);
+    include "../includes/header.php";
+    include "../includes/conexao.php";
 ?>
-<?php include "../includes/footer.php"; ?>
+    <div class="container text-center my-5">
+        <h3 class="mb-4">Confira sua agenda de atendimentos</h3>
+        <?php
+            // Primeiro profissional
+            $sql = "SELECT * FROM clientes WHERE id = 1";
+            $res = mysqli_query($conexao, $sql);
+            while ($l = mysqli_fetch_assoc($res)) {
+                echo "<a href='agenda-listar-sameque.php' data-id='{$l['id']}'><button class='btn btn-lg mx-3 mb-3 text-uppercase' value='{$l['id']}'>{$l['nome']} </button></a>";
+            }
+
+            // Segundo profissional
+            $sql = "SELECT * FROM clientes WHERE id = 3";
+            $res = mysqli_query($conexao, $sql);
+            while ($l = mysqli_fetch_assoc($res)) {
+                echo "<a href='agenda-listar-alexsander.php' data-id='{$l['id']}'><button class='btn btn-lg mx-3 mb-3 text-uppercase' value='{$l['id']}'>{$l['nome']}</button></a>";
+            }
+
+        ?>
+    </div>
+<?php
+    include "../includes/footer.php";
+?>

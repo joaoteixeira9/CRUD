@@ -1,33 +1,3 @@
-<?php
-    include "../includes/conexao.php";
-    session_start();
-    
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-
-    $sql = "SELECT * FROM clientes WHERE email = '$email' AND senha = '$senha'";
-    $resultado = mysqli_query($conexao, $sql);
-    
-
-    if (mysqli_num_rows($resultado) > 0) {
-        $l = mysqli_fetch_assoc($resultado);
-        $_SESSION['nome'] = $l['nome'];
-        $_SESSION['id'] = $l['id'];
-
-        if ($l['tipoDeUsuario'] == "usuario") {
-            header("Location: ../usuario/php/usuario-home.php");
-        }
-        else if($l['tipoDeUsuario'] == "admin"){
-            header("Location: home.php");
-        }
-    }else{
-        echo "<div class='alert alert-danger' role='alert'>
-            <strong>Erro!</strong> As informações fornecidas são inválidas ou o cadastro não existe.
-          </div>";
-    }
-    
-    mysqli_close($conexao);
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -38,7 +8,7 @@
 </head>
 <body>
 <section>
-  <form action="login.php" method="post" class="formulario">
+  <form action="./login-autenticar.php" method="post" class="formulario">
       <h2>Entrar</h2>
       <img src="../img/usuario.png" alt="">
       <div class="form-group">

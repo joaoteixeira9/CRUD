@@ -1,37 +1,24 @@
-header {
-    background: #055a9a;
-    color: #fff; /* Texto branco */
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    text-align: center; /* Centraliza o conteúdo */
-    font-family: 'Poppins', sans-serif; /* Fonte moderna e limpa */
+.logo-container {
+    position: absolute;
+    right: 10px; /* Ajuste conforme necessário */
+    background-color: #055a9a; /* Cor de fundo azul */
+    border-radius: 15px; /* Bordas arredondadas */
+    display: flex;
+    align-items: center;
+    border-right: 10px solid #055a9a;
 }
 
-header img {
-    max-height: 120px; /* Tamanho ajustado para o logotipo */
-    border-radius: 50%; /* Logotipo com bordas circulares */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+.logo-image {
+    width: 40px; /* Ajuste para o tamanho desejado */
+    height: 40px; /* Ajuste para o tamanho desejado */
 }
 
-header h1 {
-    font-size: 2rem; /* Tamanho da fonte do título */
-    font-weight: 600; /* Peso do título mais forte */
-    margin-top: 15px; /* Espaço entre o título e a imagem */
-    letter-spacing: 1.5px; /* Espaçamento entre letras */
-    text-transform: uppercase; /* Texto em maiúsculas */
+.logo-text {
+    font-size: 16px; /* Tamanho do texto menor */
+    color: white; /* Cor do texto */
+    margin: 0; /* Remove margens */
 }
 
-header a {
-    text-decoration: none;
-    font-weight: 500; /* Peso moderado */
-    transition: color 0.3s ease; /* Transição suave para hover */
-    color: #fff;
+.nav{
+    padding: 1.5px;
 }
-
-header a:hover {
-    color: #fff; /* Cor branca ao passar o mouse */
-    text-decoration: none;
-    font-weight: 500; /* Peso moderado */
-    transition: color 0.3s ease; /* Transição suave para hover */
-}
-

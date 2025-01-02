@@ -11,24 +11,20 @@
     <title></title>
 </head>
 <body>
-    <header class="container-fluid text-center">
-        <div class="container d-flex flex-column align-items-center">
-            <a href="../../usuario/php/usuario-home.php" class="d-block mb-3">
-                <img src="../../img/scCortes.png" alt="Logo Barbearia SC Cortes" class="img-fluid" style="max-height: 150px;">
-            </a>
-            <a href="../../usuario/php/usuario-home.php"><h1 class="fs-3">Barbearia SC Cortes</h1></a>
-        </div>
+    <header class="">
+        <ul class="nav nav-tabs">
+        <li class="nav-item">
+                <a class="nav-link" href="./agenda-barbeiro.php">Agendar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../html/produtos.html">Produtos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>
+            </li>
+            <li class="nav-item logo-container">
+                <a href="./usuario-home.php"><img src="../../img/scCortes.png" alt="Logo Barbearia SC Cortes" class="logo-image"></a>
+                <a href="./usuario-home.php"><h1 class="fs-3 logo-text">Barbearia SC Cortes</h1></a>
+            </li>
+        </ul>
     </header>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="./agenda-barbeiro.php">Agenda</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../../html/produtos.html">Produtos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>
-        </li>
-    </ul>
-    
-    

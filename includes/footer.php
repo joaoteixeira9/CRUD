@@ -23,7 +23,7 @@
     <div class="col-md-4 mb-4">
       <h4>Sobre nós</h4>
       <p><a href="#" class="text-white">Samequê Costa</a></p>
-      <p><a href="#" class="text-white">Miguel Arthur</a></p>
+      <p><a href="#" class="text-white">Alexsander</a></p>
     </div>
   </div>
 

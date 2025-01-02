@@ -6,7 +6,7 @@ include "../includes/conexao.php";
 <main>
     <link rel="stylesheet" href="clientes-listar">
     <br>
-    <h2 class="container-fluid">Todos os clientes</h2>
+    <h2 class="container-fluid">Todos os Clientes</h2>
 
     <table class="table table-hover">
     <thead>

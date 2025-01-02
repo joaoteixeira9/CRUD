@@ -9,10 +9,10 @@
         $res = mysqli_query($conexao, $sql);
         while ($l = mysqli_fetch_assoc($res)) {
 
-        echo "<form action='./agenda-salvar.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
+        echo "<form action='./agenda-salvar-sameque.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
             
             // Seleção de Profissional
-            $sql = "SELECT * FROM funcionarios WHERE id = 1";
+            $sql = "SELECT * FROM clientes WHERE id = 1";
             $res = mysqli_query($conexao, $sql);
             echo "<div class='mb-3'>";
             echo "<label for='profissional' class='form-label' style='color: #34495e;'>Profissional selecionado:";
@@ -58,7 +58,13 @@
             }
             echo "</select>";
             echo "</div>";
-
+            echo "<br>";
+            echo "<p class='text-muted fst-italic mb-3'> 
+            Escolha uma data para o serviço. 
+            <strong>Lembramos que não trabalhamos aos domingos e segundas-feiras.</strong> 
+            Caso selecione um desses dias, ajustaremos automaticamente para a próxima terça-feira.
+          </p>";
+    
             // Campo de Data
             echo "<div class='mb-3'>";
             echo "<label for='dataSelecionada' class='form-label' style='color: #34495e;'>Data:</label>";
@@ -77,7 +83,7 @@
                 return $horarios;
             }
             $horariosDisponiveis = gerarHorarios('09:00', '17:00', 30);
-            $sql = "SELECT * FROM agenda";
+            $sql = "SELECT * FROM agenda_sameque";
             $res = mysqli_query($conexao, $sql);
             $reservados = [];
             while ($l = mysqli_fetch_assoc($res)) {
@@ -120,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const horarioInput = document.getElementById('horarioSelecionado');
     const horariosReservadosMap = {};
 
+    // Populando o mapa de horários reservados com base na resposta do servidor
     horariosReservados.forEach(reserva => {
         if (!horariosReservadosMap[reserva.data]) {
             horariosReservadosMap[reserva.data] = [];
@@ -127,37 +134,48 @@ document.addEventListener('DOMContentLoaded', function () {
         horariosReservadosMap[reserva.data].push(reserva.horarioId);
     });
 
+    // Função para verificar e ocultar os horários reservados
     function verificarHorariosReservados() {
         const dataSelecionada = dataInput.value;
         const horariosReservadosDoDia = horariosReservadosMap[dataSelecionada] || [];
         const botoes = document.querySelectorAll("button[type='button']");
+
+        // Exibindo todos os botões de horário
         botoes.forEach(btn => {
             btn.style.display = 'inline-block';
-            btn.style.backgroundColor = '#007BFF';
+            btn.style.backgroundColor = '#007BFF'; // Resetar cor para azul
         });
+
+        // Escondendo os horários reservados para a data selecionada
         horariosReservadosDoDia.forEach(horario => {
             const botao = document.getElementById('horario_' + horario);
             if (botao) {
-                botao.style.display = 'none';
+                botao.style.display = 'none'; // Esconde o botão do horário reservado
             }
         });
     }
 
-    dataInput.addEventListener('change', verificarHorariosReservados);
+    // Executa a verificação de horários reservados ao carregar a página
     verificarHorariosReservados();
 
+    // Evento para atualizar os horários visíveis quando a data for alterada
+    dataInput.addEventListener('change', verificarHorariosReservados);
+
+    // Evento de clique para selecionar o horário
     document.querySelectorAll("button[type='button']").forEach(button => {
         button.addEventListener('click', function () {
             if (button.style.display !== 'none') {
-                horarioInput.value = button.textContent;
+                horarioInput.value = button.textContent; // Registra o horário selecionado
+                // Destaca o botão selecionado
                 document.querySelectorAll("button[type='button']").forEach(btn => {
-                    btn.style.backgroundColor = '#007BFF';
+                    btn.style.backgroundColor = '#007BFF';  // Resetar a cor de fundo
                 });
-                button.style.backgroundColor = '#000000';
+                button.style.backgroundColor = '#000000';  // Destacar o botão selecionado
             }
         });
     });
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const dataInput = document.getElementById('dataSelecionada');

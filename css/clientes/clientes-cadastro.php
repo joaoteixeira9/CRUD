@@ -34,7 +34,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary btn-block">Salvar</button>
-        <a href="../php/login.php" class="btn btn-link btn-block">Já tem uma conta? Faça login</a>
+        <a href="../php/login" class="btn btn-link btn-block">Já tem uma conta? Faça login</a>
     </form>
 </section>
 </body>

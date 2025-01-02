@@ -6,7 +6,7 @@ include "../includes/conexao.php";
 <main>
     <link rel="stylesheet" href="produtos-listar">
     <br>
-    <h2 class="container-fluid">Todos os Produtos</h2>
+    <h2 class="container-fluid">Todos os produtos</h2>
     <a class="container-fluid" href="./produtos-cadastrar.php">Adicionar novo Produto</a>
     <a class="container-fluid" href="../html/produtos.html">Ver Produtos</a>
 

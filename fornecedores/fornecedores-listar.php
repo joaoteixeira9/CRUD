@@ -6,7 +6,7 @@ include "../includes/conexao.php";
 <main>
     <link rel="stylesheet" href="fornecedores-listar">
     <br>
-    <h2 class="container-fluid">Todos os Fornecedores</h2>
+    <h2 class="container-fluid">Todos os fornecedores</h2>
     <a class="container-fluid" href="./fornecedores-cadastrar.php">Adicionar novo fornecedor</a>
 
     <table class="table table-hover">
