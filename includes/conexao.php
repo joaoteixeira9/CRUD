@@ -1,7 +1,7 @@
 <?php
 $usuario = "root";
 $senha = "";
-$servidor = "localhost";
+$servidor = "10.125.44.38";
 $porta = "3306";
 $nome_bd = "bd_barbearia";
 
