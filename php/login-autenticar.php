@@ -19,7 +19,7 @@
             header("Location: ../usuario/php/usuario-home.php");
         }
         else if($l['tipoDeUsuario'] == "admin"){
-            header("Location: home.php");
+            header("Location: ../php/home.php");
         }
     }else{
         echo "<div class='popup'>
@@ -71,7 +71,7 @@
     .btn-voltar {
         margin-top: 15px;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #85000a;
         color: white;
         border: none;
         border-radius: 5px;
@@ -80,7 +80,7 @@
     }
 
     .btn-voltar:hover {
-        background-color: #0056b3;
+        background-color: #db3026;
         text-decoration: none;
         color: #fff;
     }

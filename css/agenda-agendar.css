@@ -1,7 +1,7 @@
 select.form-select {
     background-color: #ffffff;
     border: 2px solid #bdc3c7;
-    color: #0d6efd;
+    color: #db3026;
     padding: 10px 15px;
     border-radius: 6px;
     font-size: 16px;
@@ -12,17 +12,17 @@ select.form-select {
 
 select.form-select:focus {
     outline: none;
-    border-color: #0d6efd;
-    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+    border-color: #db3026;
+    box-shadow: 0 0 5px rgba(253, 13, 13, 0.5);
 }
 
 select.form-select:hover {
-    border-color: #0a58ca;
+    border-color: #db3026;
 }
 
 select.form-select option {
     background-color: #ffffff;
-    color: #0d6efd;
+    color: #db3026;
     padding: 10px;
     font-size: 16px;
 }

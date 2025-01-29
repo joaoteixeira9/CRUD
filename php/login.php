@@ -53,8 +53,8 @@
   }
 
   .btn-primary {
-    background-color: #055a9a;
-    border-color: #055a9a;
+    background-color: #db3026;
+    border-color: #db3026;
     border-radius: 50px;
     width: 100%;
     padding: 10px;
@@ -64,15 +64,15 @@
   }
 
   .btn-primary:hover {
-    background-color: #034f7a;
-    border-color: #034f7a;
+    background-color: #85000a;
+    border-color: #85000a;
   }
   
   .formulario a {
     display: block;
     text-align: center;
     margin-top: 15px;
-    color: #055a9a;
+    color: #db3026;
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;

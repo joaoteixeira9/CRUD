@@ -7,7 +7,7 @@
 
 /* Títulos das colunas */
 .table th {
-    background-color: #055a9a;
+    background-color: #db3026;
     color: white;
     font-weight: bold;
 }
@@ -31,7 +31,7 @@
 
 /* Botões de ação */
 .btn {
-    background-color: #055a9a;
+    background-color: #db3026;
     color: white;
     border: none;
     border-radius: 5px;
@@ -39,12 +39,12 @@
 }
 
 .btn:hover {
-    background-color: #055a9a;
+    background-color: #db3026;
 }
 
 /* Título da página */
 .agenda-title {
-    color: #055a9a;
+    color: #db3026;
     font-size: 2rem;
     font-weight: bold;
 }
@@ -62,7 +62,7 @@ h3.mb-4 {
 }
 
 button.btn {
-    background-color: #055a9a;
+    background-color: #db3026;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -73,7 +73,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #004f79;
+    background-color: #85000a;
 }
 
 button.btn:focus {

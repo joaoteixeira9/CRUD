@@ -15,8 +15,8 @@
             $sql = "SELECT * FROM clientes WHERE id = 1";
             $res = mysqli_query($conexao, $sql);
             echo "<div class='mb-3'>";
-            echo "<label for='profissional' class='form-label' style='color: #34495e;'>Profissional selecionado:";
-            echo "<h2 class='text-uppercase text-primary'>";
+            echo "<label for='profissional' class='form-label' style='color: #db3026;'>Profissional selecionado:";
+            echo "<h2 class='text-uppercase'>";
             while($l = mysqli_fetch_assoc($res)){
             echo "{$l['nome']}";
             echo "</h2></label>";
@@ -116,7 +116,7 @@
 function selecionarHorario(horarioId) {
     document.getElementById('horarioSelecionado').value = horarioId;
     const botoes = document.querySelectorAll("button[type='button']");
-    botoes.forEach(btn => btn.style.backgroundColor = '#007BFF');
+    botoes.forEach(btn => btn.style.backgroundColor = '#db3026');
     const botaoSelecionado = document.getElementById('horario_' + horarioId);
     botaoSelecionado.style.backgroundColor = '#000000';
 }
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Exibindo todos os botões de horário
         botoes.forEach(btn => {
             btn.style.display = 'inline-block';
-            btn.style.backgroundColor = '#007BFF'; // Resetar cor para azul
+            btn.style.backgroundColor = '#db3026'; // Resetar cor para azul
         });
 
         // Escondendo os horários reservados para a data selecionada
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 horarioInput.value = button.textContent; // Registra o horário selecionado
                 // Destaca o botão selecionado
                 document.querySelectorAll("button[type='button']").forEach(btn => {
-                    btn.style.backgroundColor = '#007BFF';  // Resetar a cor de fundo
+                    btn.style.backgroundColor = '#db3026';  // Resetar a cor de fundo
                 });
                 button.style.backgroundColor = '#000000';  // Destacar o botão selecionado
             }

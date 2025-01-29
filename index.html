@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/index.css">
   <title>Sc Cortes</title>
 </head>
+
 <header>
   <ul class="nav">
     <li class="nav-item">
@@ -30,7 +31,7 @@
       <a class="nav-link" href="./html/produtos.html">PRODUTOS</a>
     </li>
     <li class="nav-item">
-      <a href="./php/logar.php"><img src="img/usuario.png" class="img-navegacao"></a>
+      <a href="./php/login.php"><img src="img/usuario.png" class="img-navegacao"></a>
     </li>
     <li class="nav-item">
       <a href="https://www.instagram.com/sc.cortes_/"><img src="img/instagram-branco.png" class="img-navegacao"></a>
@@ -45,81 +46,75 @@
 
   <div class="card mb-3">
     <div class="video-scCortes">
-      <div class="video"><iframe width="960" height="515"
-          src="https://www.youtube.com/embed/jiwC18kwjEA?si=ZXmz0uZowHWk1lk0" title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/24T8TpGEKBo?autoplay=1&loop=1&playlist=24T8TpGEKBo&controls=0&mute=1&rel=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+      </div>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Sobre nós</h5>
-      <p>
-        Bem-vindo à SC Cortes
-        <span>A Arte de Cuidar do Seu Estilo!</span>
-        Na SC Cortes, oferecemos mais do que um simples corte de cabelo ou barba. Nosso compromisso é com a sua
-        confiança e bem-estar. Somos uma barbearia moderna, com um ambiente aconchegante e descontraído, onde cada
-        cliente é tratado de forma única e especial.
-      </p>
+      <h5 class="card-title" onclick="toggleContent(0)">Sobre nós</h5>
+      <div class="content-body" id="content-0">
+        <p>Bem-vindo à SC Cortes
+          <span>A Arte de Cuidar do Seu Estilo!</span>
+          Na SC Cortes, oferecemos mais do que um simples corte de cabelo ou barba. Nosso compromisso é com a sua
+          confiança e bem-estar. Somos uma barbearia moderna, com um ambiente aconchegante e descontraído, onde cada
+          cliente é tratado de forma única e especial.
+        </p>
+      </div>
 
-      <p class="card-text">
-        <strong>Nosso Diferencial:</strong>
-      <ul>
-        <li><strong>Profissionais Qualificados:</strong> Nossa equipe é formada por barbeiros experientes, sempre
-          atualizados com as últimas tendências de cortes e cuidados masculinos.</li>
-        <li><strong>Atendimento Personalizado:</strong> Cada cliente recebe atenção exclusiva para garantir que seu
-          estilo seja único e de acordo com suas preferências.</li>
-        <li><strong>Ambiente Agradável:</strong> Nosso espaço é pensado para você relaxar e aproveitar cada momento.
-        </li>
-      </ul>
-      </p>
+      <h5 class="card-title" onclick="toggleContent(1)">Nosso Diferencial</h5>
+      <div class="content-body" id="content-1">
+        <ul>
+          <li><strong>Profissionais Qualificados:</strong> Nossa equipe é formada por barbeiros experientes, sempre
+            atualizados com as últimas tendências de cortes e cuidados masculinos.</li>
+          <li><strong>Atendimento Personalizado:</strong> Cada cliente recebe atenção exclusiva para garantir que seu
+            estilo seja único e de acordo com suas preferências.</li>
+          <li><strong>Ambiente Agradável:</strong> Nosso espaço é pensado para você relaxar e aproveitar cada momento.</li>
+        </ul>
+      </div>
 
-      <p class="card-text">
-        <strong>Serviços:</strong>
-      <ul>
-        <li>Corte de Cabelo: Dos cortes clássicos aos mais modernos, sempre com qualidade e precisão.</li>
-        <li>Barba e Design de Sobrancelhas: Cuidados detalhados para deixar sua barba e sobrancelhas impecáveis.</li>
-        <li>Penteados e Finalização: Transforme seu look com penteados estilosos e acabamentos perfeitos.</li>
-        <li>Cortes Especiais: Opções para todos os gostos, incluindo cortes para eventos especiais, como casamentos ou
-          festas.</li>
-      </ul>
-      </p>
+      <h5 class="card-title" onclick="toggleContent(2)">Serviços</h5>
+      <div class="content-body" id="content-2">
+        <ul>
+          <li>Corte de Cabelo: Dos cortes clássicos aos mais modernos, sempre com qualidade e precisão.</li>
+          <li>Barba e Design de Sobrancelhas: Cuidados detalhados para deixar sua barba e sobrancelhas impecáveis.</li>
+          <li>Penteados e Finalização: Transforme seu look com penteados estilosos e acabamentos perfeitos.</li>
+          <li>Cortes Especiais: Opções para todos os gostos, incluindo cortes para eventos especiais, como casamentos ou festas.</li>
+        </ul>
+      </div>
 
-      <p class="card-text">
-        <strong>Por que escolher a SC Cortes?</strong>
-      <ul>
-        <li><strong>Qualidade e Atenção aos Detalhes:</strong> Cada serviço é realizado com dedicação para garantir
-          resultados excepcionais.</li>
-        <li><strong>Ambiente Exclusivo:</strong> Nosso espaço oferece conforto e comodidade para que você se sinta em
-          casa.</li>
-        <li><strong>Facilidade de Agendamento:</strong> Agende seu horário online de maneira prática.</li>
-      </ul>
-      </p>
+      <h5 class="card-title" onclick="toggleContent(3)">Por que escolher a SC Cortes?</h5>
+      <div class="content-body" id="content-3">
+        <ul>
+          <li><strong>Qualidade e Atenção aos Detalhes:</strong> Cada serviço é realizado com dedicação para garantir resultados excepcionais.</li>
+          <li><strong>Ambiente Exclusivo:</strong> Nosso espaço oferece conforto e comodidade para que você se sinta em casa.</li>
+          <li><strong>Facilidade de Agendamento:</strong> Agende seu horário online de maneira prática.</li>
+        </ul>
+      </div>
 
       <p>
-        Venha para a SC Cortes e descubra como podemos transformar o seu estilo! Estamos prontos para proporcionar uma
-        experiência única e personalizada, com cortes e serviços de altíssima qualidade.
+        Venha para a SC Cortes e descubra como podemos transformar o seu estilo! Estamos prontos para proporcionar uma experiência única e personalizada, com cortes e serviços de altíssima qualidade.
       </p>
 
       <p>
         <strong>SC Cortes - Seu estilo, nossa paixão.</strong>
       </p>
 
-      <p><small class="text-muted">Atualizados 3 minutos atrás</small></p>
+      <p><small class="text-muted">Atualizados 23/01/25</small></p>
     </div>
   </div>
+
   <br><br><br><br><br><br>
+
+  <!-- Carousel -->
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="img/img2.png" alt="Primeiro Slide">
-      </div>
-      <div class="carousel-item">
         <img src="img/Corte1.PNG" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Corte 1</h5>
@@ -175,7 +170,6 @@
       <div class="col-md-4 mb-4">
         <h4>Sobre nós</h4>
         <p><a href="#">Samequê Costa</a></p>
-        <p><a href="#">Miguel Arthur</a></p>
       </div>
     </div>
 
@@ -198,8 +192,6 @@
     </div>
   </section>
 
-
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -210,6 +202,16 @@
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
+  <script>
+    function toggleContent(index) {
+      var content = document.getElementById("content-" + index);
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block"; // Exibe o conteúdo
+      } else {
+        content.style.display = "none"; // Oculta o conteúdo
+      }
+    }
+  </script>
 </body>
 
 </html>

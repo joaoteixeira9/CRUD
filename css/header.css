@@ -1,11 +1,11 @@
 .logo-container {
     position: absolute;
     right: 10px; /* Ajuste conforme necessário */
-    background-color: #055a9a; /* Cor de fundo azul */
+    background-color: #db3026; /* Cor de fundo azul */
     border-radius: 15px; /* Bordas arredondadas */
     display: flex;
     align-items: center;
-    border-right: 10px solid #055a9a;
+    border-right: 10px solid #db3026;
 }
 
 .logo-image {
@@ -21,4 +21,12 @@
 
 .nav{
     padding: 1.5px;
+}
+
+.nav a{
+    color: #db3026;
+}
+
+.nav a:hover{
+    color: #db3026;
 }

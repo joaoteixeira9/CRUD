@@ -3,7 +3,7 @@ h3.mb-4 {
 }
 
 button.btn {
-    background-color: #055a9a;
+    background-color: #db3026;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -14,7 +14,7 @@ button.btn {
 }
 
 button.btn:hover {
-    background-color: #004f79;
+    background-color: #85000a;
 }
 
 button.btn:focus {
