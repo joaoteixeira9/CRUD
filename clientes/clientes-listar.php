@@ -8,7 +8,7 @@ include "../includes/conexao.php";
     <br>
     <h2 class="container-fluid">Todos os clientes</h2>
 
-    <table class="table table-hover">
+    <table class="table table-hover border">
     <thead>
         <tr>
             <th scope="col">ID</th>

@@ -17,7 +17,7 @@
                 <a class="nav-link" href="./agenda-barbeiro.php">Agendar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../../html/produtos.html">Produtos</a>
+                <a class="nav-link" href="./produtos.php">Produtos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>

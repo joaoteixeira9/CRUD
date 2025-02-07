@@ -16,12 +16,13 @@
     }
     mysqli_close($conexao);
 ?>
-<main>
+<main>   
+    <link rel="stylesheet" href="../css/produtos-cadastrar.css">
     <h2>Editar um funcionário</h2>
     <form action="./funcionarios-atualizar.php?id=<?=$id;?>" method="post">
-        <label>Nome: <input name="nome" value="<?=$nome;?>"></label> <br>
-        <label>Telefone: <input name="telefone" value="<?=$telefone;?>"></label> <br>
-        <button type="submit">Editar</button>
+        <label>Nome: <input name="nome" class="form-control" value="<?=$nome;?>"></label> <br>
+        <label>Telefone: <input name="telefone" class="form-control" value="<?=$telefone;?>"></label> <br>
+        <button type="submit"class="btn btn-outline-primary">Editar</button>
     </form>
 </main>
 <?php include "../includes/footer.php"?>

@@ -1,3 +1,9 @@
+main{
+    width: 80vw;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+}
 /* Estilo dos ícones */
 td a img {
     width: 24px; /* Ajuste o tamanho conforme necessário */

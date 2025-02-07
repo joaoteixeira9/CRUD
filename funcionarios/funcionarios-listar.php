@@ -9,7 +9,7 @@ include "../includes/conexao.php";
     <h2 class="container-fluid">Todos os funcionários</h2>
     <a class="container-fluid" href="funcionarios-cadastrar.php">Adicionar novo Funcionário</a>
     <div class="servicos">
-    <table class="table table-hover">
+    <table class="table table-hover border">
     <thead>
         <tr>
             <th scope="col">NOME</th>
