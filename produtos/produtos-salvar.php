@@ -19,19 +19,16 @@ if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] == 0) {
     $caminhoFoto = null; // Caso não haja foto, não armazena nada
 }
 
-// Montar o SQL de insert
 $sql = "INSERT INTO produtos (nome, descricao, preco)
         VALUES ('$nome', '$descricao', '$preco')";
 
-// Incluir o arquivo de conexão
+
 include "../includes/conexao.php";
 
-// Executar o SQL insert no BD
+
 $resultado = mysqli_query($conexao, $sql);
 
-// Fechar a conexão
 mysqli_close($conexao);
 
-// Redirecionar para a página listar
 header("Location: ./produtos-listar.php");
 ?>

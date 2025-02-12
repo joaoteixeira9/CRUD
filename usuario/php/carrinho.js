@@ -1,53 +1,37 @@
-// Função que adiciona o produto ao carrinho
+// Adiciona os produtos ao carrinho e armazena no localStorage
 document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function() {
-        // Pega os dados do produto
+    button.addEventListener('click', function () {
         const produto = {
             id: this.getAttribute('data-id'),
             nome: this.getAttribute('data-nome'),
             preco: parseFloat(this.getAttribute('data-preco')),
+            quantidade: parseInt(this.getAttribute('data-quantidade')), // Adiciona a quantidade
+            descricao: this.getAttribute('data-descricao'), // Adiciona a descrição
         };
 
-        // Recupera o carrinho do localStorage, ou cria um carrinho vazio
+        // Recupera o carrinho do localStorage (caso não exista, cria um array vazio)
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
+        
         // Adiciona o produto ao carrinho
         carrinho.push(produto);
 
-        // Salva o carrinho novamente no localStorage
+        // Armazena o carrinho atualizado no localStorage
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-        // Atualiza a área do carrinho
+        console.log(carrinho); // Verifica se o produto foi adicionado corretamente
+
+        // Atualiza a exibição do carrinho
         atualizarCarrinho();
     });
 });
 
-// Função para atualizar a área do carrinho
-function atualizarCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const cartItems = document.getElementById('cart-items');
-
-    // Limpa a lista de itens do carrinho
-    if (cartItems) {
-        cartItems.innerHTML = '';
-        if (carrinho.length === 0) {
-            cartItems.innerHTML = '<li>Seu carrinho está vazio.</li>';
-        } else {
-            // Exibe os produtos no carrinho
-            carrinho.forEach(produto => {
-                const item = document.createElement('li');
-                item.textContent = `${produto.nome} - R$${produto.preco.toFixed(2)}`;
-                cartItems.appendChild(item);
-            });
-        }
-    }
-}
+// Função que atualiza a exibição do carrinho
 function atualizarCarrinho() {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     const cartItems = document.getElementById('cart-items');
     const totalPriceElement = document.getElementById('total-price');
 
-    // Limpar a lista de itens
+    // Limpa os itens exibidos
     cartItems.innerHTML = '';
 
     if (carrinho.length === 0) {
@@ -55,45 +39,42 @@ function atualizarCarrinho() {
     } else {
         let total = 0;
 
-        // Exibe cada produto no carrinho
+        // Exibe cada item do carrinho
         carrinho.forEach((produto, index) => {
             const item = document.createElement('div');
             item.classList.add('cart-item');
             item.innerHTML = `
                 <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
+                <p>Quantidade: ${produto.quantidade}</p> <!-- Exibe a quantidade -->
+                <p>Descrição: ${produto.descricao}</p> <!-- Exibe a descrição -->
                 <button class="remove-item" data-index="${index}">Remover</button>
             `;
             cartItems.appendChild(item);
 
-            // Soma o total
-            total += produto.preco;
+            total += produto.preco * produto.quantidade; // Calcula o total com base na quantidade
         });
 
-        // Exibe o preço total
+        // Exibe o preço total no carrinho
         totalPriceElement.textContent = total.toFixed(2);
     }
 }
 
-// Função para remover um item do carrinho
-document.addEventListener('click', function(e) {
+// Remover um item do carrinho
+document.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('remove-item')) {
         const index = e.target.getAttribute('data-index');
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-        
-        // Remove o produto do carrinho
+
+        // Remove o item selecionado
         carrinho.splice(index, 1);
-        
+
         // Atualiza o carrinho no localStorage
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
-        
-        // Atualiza a página
+
+        // Atualiza a exibição do carrinho
         atualizarCarrinho();
     }
 });
 
-
-// Atualiza o carrinho assim que a página carrega
-window.onload = atualizarCarrinho;
-
-// Atualiza a área do carrinho assim que a página carrega
+// Chama a função para atualizar o carrinho quando a página carregar
 window.onload = atualizarCarrinho;
