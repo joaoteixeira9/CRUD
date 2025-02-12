@@ -7,19 +7,17 @@ include "../includes/conexao.php";
     <link rel="stylesheet" href="../css/funcionarios.-listar.css">
     <br>
     <h2 class="container-fluid">Todos os funcionários</h2>
-    <a class="container-fluid" href="funcionarios-cadastrar.php">Adicionar novo Funcionário</a>
     <div class="servicos">
     <table class="table table-hover border">
     <thead>
         <tr>
             <th scope="col">NOME</th>
             <th scope="col">TELEFONE</th>
-            <th scope="col">AÇÕES</th>
         </tr>
     </thead>
 <?php
 
-$sql = "select * from funcionarios";
+$sql = "select * from clientes where tipoDeUsuario = 'admin'";
 $resultado = mysqli_query($conexao, $sql);
 echo "<br><br>";
 
@@ -28,20 +26,6 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<tr>";
     echo "<td> {$linha['nome']} </td>";
     echo "<td> {$linha['telefone']} </td>";
-    echo "<td>"; //começo ações
-        // excluir linhas de serviços
-        echo "<a href='./funcionarios-excluir.php?id={$linha['id']}'>";
-        echo "<img src='../img/lixeira.svg' alt=''>";
-        echo "</a>";
-        // fim excluir linhas de serviços
-        
-        //editar linhas de serviços
-        echo "<a href='./funcionarios-editar.php?id={$linha['id']}'>";
-        echo "<img src='../img/editar.svg' alt=''>";
-        echo "</a>";
-        //fim //editar linhas de serviços
-
-        echo "</td>"; // fim ações
     echo "</tr>";
     echo "</tbody>";
 }

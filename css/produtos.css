@@ -33,13 +33,13 @@
 
 .produto .preco {
     font-size: 1.2em;
-    color: #055a9a; /* Azul escuro */
+    color: #db3026; /* Azul escuro */
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .produto button {
-    background-color: #055a9a; /* Azul escuro */
+    background-color: #db3026; /* Azul escuro */
     color: white;
     border: none;
     padding: 10px;
@@ -50,7 +50,7 @@
 }
 
 .produto button:hover {
-    background-color: #055a9a; /* Azul escuro */
+    background-color: #db3026; /* Azul escuro */
 }
 
 /* Estilo dos ícones */

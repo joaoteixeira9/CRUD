@@ -15,6 +15,8 @@ include "../includes/conexao.php";
             <th scope="col">NOME</th>
             <th scope="col">TELEFONE</th>
             <th scope="col">EMAIL</th>
+            <th scope="col">TIPO DE USUÁRIO</th>
+            <th scope="col">AÇÕES</th>
         </tr>
     </thead>
 
@@ -30,7 +32,15 @@ include "../includes/conexao.php";
                 echo "<td> {$linha['nome']} </td>";
                 echo "<td> {$linha['telefone']} </td>";
                 echo "<td> {$linha['email']} </td>";
-
+                echo "<td> {$linha['tipoDeUsuario']} </td>";
+                echo "<td>";
+                echo "<a href='./clientes-adm.php?id={$linha['id']}'>";
+                echo "<p>Admin</p>";
+                echo "</a>";
+                echo "<a href='./clientes-usuario.php?id={$linha['id']}'>";
+                echo "<p>Usuário</p>";
+                echo "</a>";
+                echo "</td>";
                 echo "</tr>";
                 echo "</tbody>";
             }
