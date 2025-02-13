@@ -19,7 +19,7 @@
             header("Location: ../usuario/php/usuario-home.php");
         }
         else if($l['tipoDeUsuario'] == "admin"){
-            header("Location: ../php/home.php");
+            header("Location: ./home.php");
         }
     }else{
         echo "<div class='popup'>
