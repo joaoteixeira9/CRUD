@@ -4,7 +4,7 @@
   <div class="row">
     <!-- Imagem Barbearia -->
     <div class="rounded float-start">
-      <img src="../../img/barbearia.jpeg" class="rounded float-left" alt="Imagem da Barbearia">
+      <img src="../img/barbearia.jpeg" class="rounded float-left" alt="Imagem da Barbearia">
     </div>
 
     <!-- Contatos e Horários -->
@@ -37,9 +37,9 @@
   </div>
 
   <div class="col-md-12 text-center">
-    <a href="#" class="mx-2"><img src="../../img/instagram-branco.png" alt="Instagram" class="img-fluid"
+    <a href="#" class="mx-2"><img src="../img/instagram-branco.png" alt="Instagram" class="img-fluid"
         style="width: 40px; height: 40px;"></a>
-    <a href="#" class="mx-2"><img src="../../img/whatsapp-branco.png" alt="WhatsApp" class="img-fluid"
+    <a href="#" class="mx-2"><img src="../img/whatsapp-branco.png" alt="WhatsApp" class="img-fluid"
         style="width: 40px; height: 40px;"></a>
   </div>
 

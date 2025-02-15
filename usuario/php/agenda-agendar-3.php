@@ -1,8 +1,8 @@
 <?php
     include "./usuario-header.php";
     include "../../includes/conexao.php";
-?>
-<main class="container mt-5">
+    ?>
+    <main class="container mt-5">
     <h2 class="text-center mb-4" style="color: #2c3e50;">Agendamento</h2>
     <?php 
         $id_admin = intval($_GET['id']);
@@ -10,10 +10,9 @@
         $res = mysqli_query($conexao, $sql);
         while ($l = mysqli_fetch_assoc($res)) {
 
-        echo "<form action='./agenda-salvar-sameque.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
+        echo "<form action='./agenda-salvar-3.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
             
             // Seleção de Profissional
-            
             $sql = "SELECT * FROM clientes WHERE id = '$id_admin'";
             $res = mysqli_query($conexao, $sql);
             echo "<div class='mb-3'>";
@@ -113,161 +112,161 @@
             echo "</form> <br><br>";
         }
     ?>
-</main>
-<script>
-function selecionarHorario(horarioId) {
-    document.getElementById('horarioSelecionado').value = horarioId;
-    const botoes = document.querySelectorAll("button[type='button']");
-    botoes.forEach(btn => btn.style.backgroundColor = '#db3026');
-    const botaoSelecionado = document.getElementById('horario_' + horarioId);
-    botaoSelecionado.style.backgroundColor = '#000000';
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const dataInput = document.getElementById('dataSelecionada');
-    const horarioInput = document.getElementById('horarioSelecionado');
-    const horariosReservadosMap = {};
-
-    // Populando o mapa de horários reservados com base na resposta do servidor
-    horariosReservados.forEach(reserva => {
-        if (!horariosReservadosMap[reserva.data]) {
-            horariosReservadosMap[reserva.data] = [];
-        }
-        horariosReservadosMap[reserva.data].push(reserva.horarioId);
-    });
-
-    // Função para verificar e ocultar os horários reservados
-    function verificarHorariosReservados() {
-        const dataSelecionada = dataInput.value;
-        const horariosReservadosDoDia = horariosReservadosMap[dataSelecionada] || [];
+    </main>
+    <script>
+    function selecionarHorario(horarioId) {
+        document.getElementById('horarioSelecionado').value = horarioId;
         const botoes = document.querySelectorAll("button[type='button']");
+        botoes.forEach(btn => btn.style.backgroundColor = '#db3026');
+        const botaoSelecionado = document.getElementById('horario_' + horarioId);
+        botaoSelecionado.style.backgroundColor = '#000000';
+    }
 
-        // Exibindo todos os botões de horário
-        botoes.forEach(btn => {
-            btn.style.display = 'inline-block';
-            btn.style.backgroundColor = '#db3026'; // Resetar cor para azul
+    document.addEventListener('DOMContentLoaded', function () {
+        const dataInput = document.getElementById('dataSelecionada');
+        const horarioInput = document.getElementById('horarioSelecionado');
+        const horariosReservadosMap = {};
+
+        // Populando o mapa de horários reservados com base na resposta do servidor
+        horariosReservados.forEach(reserva => {
+            if (!horariosReservadosMap[reserva.data]) {
+                horariosReservadosMap[reserva.data] = [];
+            }
+            horariosReservadosMap[reserva.data].push(reserva.horarioId);
         });
 
-        // Escondendo os horários reservados para a data selecionada
-        horariosReservadosDoDia.forEach(horario => {
-            const botao = document.getElementById('horario_' + horario);
-            if (botao) {
-                botao.style.display = 'none'; // Esconde o botão do horário reservado
+        // Função para verificar e ocultar os horários reservados
+        function verificarHorariosReservados() {
+            const dataSelecionada = dataInput.value;
+            const horariosReservadosDoDia = horariosReservadosMap[dataSelecionada] || [];
+            const botoes = document.querySelectorAll("button[type='button']");
+
+            // Exibindo todos os botões de horário
+            botoes.forEach(btn => {
+                btn.style.display = 'inline-block';
+                btn.style.backgroundColor = '#db3026'; // Resetar cor para azul
+            });
+
+            // Escondendo os horários reservados para a data selecionada
+            horariosReservadosDoDia.forEach(horario => {
+                const botao = document.getElementById('horario_' + horario);
+                if (botao) {
+                    botao.style.display = 'none'; // Esconde o botão do horário reservado
+                }
+            });
+        }
+
+        // Executa a verificação de horários reservados ao carregar a página
+        verificarHorariosReservados();
+
+        // Evento para atualizar os horários visíveis quando a data for alterada
+        dataInput.addEventListener('change', verificarHorariosReservados);
+
+        // Evento de clique para selecionar o horário
+        document.querySelectorAll("button[type='button']").forEach(button => {
+            button.addEventListener('click', function () {
+                if (button.style.display !== 'none') {
+                    horarioInput.value = button.textContent; // Registra o horário selecionado
+                    // Destaca o botão selecionado
+                    document.querySelectorAll("button[type='button']").forEach(btn => {
+                        btn.style.backgroundColor = '#db3026';  // Resetar a cor de fundo
+                    });
+                    button.style.backgroundColor = '#000000';  // Destacar o botão selecionado
+                }
+            });
+        });
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const dataInput = document.getElementById('dataSelecionada');
+
+        function formatarData(data) {
+            const ano = data.getFullYear();
+            const mes = String(data.getMonth() + 1).padStart(2, '0');
+            const dia = String(data.getDate()).padStart(2, '0');
+            return `${ano}-${mes}-${dia}`;
+        }
+
+        function corrigirDataSeNecessario(data) {
+            let diaDaSemana = data.getDay();
+            if (diaDaSemana === 0) { 
+                data.setDate(data.getDate() + 2); 
+            } else if (diaDaSemana === 1) { 
+                data.setDate(data.getDate() + 1); 
+            }
+            return data;
+        }
+
+        function criarDataSemFusoHorario(dataString) {
+            const [ano, mes, dia] = dataString.split('-').map(Number);
+            return new Date(ano, mes - 1, dia);
+        }
+
+        function configurarData() {
+            let hoje = new Date();
+            let dataValida = corrigirDataSeNecessario(hoje);
+            dataInput.min = formatarData(dataValida);
+            dataInput.value = formatarData(dataValida);
+        }
+
+        dataInput.addEventListener('change', function () {
+            let dataSelecionada = criarDataSemFusoHorario(this.value);
+            let dataCorrigida = corrigirDataSeNecessario(dataSelecionada);
+            this.value = formatarData(dataCorrigida);
+        });
+
+        configurarData();
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const dataInput = document.getElementById('dataSelecionada');
+        dataInput.placeholder = "dd/mm/aa";
+        dataInput.value = "";
+
+        dataInput.addEventListener('focus', function () {
+            this.style.color = "black";
+        });
+
+        dataInput.addEventListener('blur', function () {
+            if (!this.value) {
+                this.style.color = "gray";
             }
         });
-    }
 
-    // Executa a verificação de horários reservados ao carregar a página
-    verificarHorariosReservados();
-
-    // Evento para atualizar os horários visíveis quando a data for alterada
-    dataInput.addEventListener('change', verificarHorariosReservados);
-
-    // Evento de clique para selecionar o horário
-    document.querySelectorAll("button[type='button']").forEach(button => {
-        button.addEventListener('click', function () {
-            if (button.style.display !== 'none') {
-                horarioInput.value = button.textContent; // Registra o horário selecionado
-                // Destaca o botão selecionado
-                document.querySelectorAll("button[type='button']").forEach(btn => {
-                    btn.style.backgroundColor = '#db3026';  // Resetar a cor de fundo
-                });
-                button.style.backgroundColor = '#000000';  // Destacar o botão selecionado
-            }
-        });
-    });
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const dataInput = document.getElementById('dataSelecionada');
-
-    function formatarData(data) {
-        const ano = data.getFullYear();
-        const mes = String(data.getMonth() + 1).padStart(2, '0');
-        const dia = String(data.getDate()).padStart(2, '0');
-        return `${ano}-${mes}-${dia}`;
-    }
-
-    function corrigirDataSeNecessario(data) {
-        let diaDaSemana = data.getDay();
-        if (diaDaSemana === 0) { 
-            data.setDate(data.getDate() + 2); 
-        } else if (diaDaSemana === 1) { 
-            data.setDate(data.getDate() + 1); 
-        }
-        return data;
-    }
-
-    function criarDataSemFusoHorario(dataString) {
-        const [ano, mes, dia] = dataString.split('-').map(Number);
-        return new Date(ano, mes - 1, dia);
-    }
-
-    function configurarData() {
-        let hoje = new Date();
-        let dataValida = corrigirDataSeNecessario(hoje);
-        dataInput.min = formatarData(dataValida);
-        dataInput.value = formatarData(dataValida);
-    }
-
-    dataInput.addEventListener('change', function () {
-        let dataSelecionada = criarDataSemFusoHorario(this.value);
-        let dataCorrigida = corrigirDataSeNecessario(dataSelecionada);
-        this.value = formatarData(dataCorrigida);
-    });
-
-    configurarData();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const dataInput = document.getElementById('dataSelecionada');
-    dataInput.placeholder = "dd/mm/aa";
-    dataInput.value = "";
-
-    dataInput.addEventListener('focus', function () {
-        this.style.color = "black";
-    });
-
-    dataInput.addEventListener('blur', function () {
-        if (!this.value) {
-            this.style.color = "gray";
+        if (!dataInput.value) {
+            dataInput.style.color = "gray";
         }
     });
-
-    if (!dataInput.value) {
-        dataInput.style.color = "gray";
+    </script>
+    <?php include "./footer.php";?>
+    <style>
+    select.form-select {
+        background-color: #ffffff;
+        border: 2px solid #bdc3c7;
+        color: #0d6efd;
+        padding: 10px 15px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
-});
-</script>
-<?php include "./footer.php";?>
-<style>
-select.form-select {
-    background-color: #ffffff;
-    border: 2px solid #bdc3c7;
-    color: #0d6efd;
-    padding: 10px 15px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-select.form-select:focus {
-    outline: none;
-    border-color: #0d6efd;
-    box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
-}
+    select.form-select:focus {
+        outline: none;
+        border-color: #0d6efd;
+        box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+    }
 
-select.form-select:hover {
-    border-color: #0a58ca;
-}
+    select.form-select:hover {
+        border-color: #0a58ca;
+    }
 
-select.form-select option {
-    background-color: #ffffff;
-    color: #0d6efd;
-    padding: 10px;
-    font-size: 16px;
-}
-</style>
+    select.form-select option {
+        background-color: #ffffff;
+        color: #0d6efd;
+        padding: 10px;
+        font-size: 16px;
+    }
+    </style>
