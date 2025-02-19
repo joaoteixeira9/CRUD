@@ -1,31 +1,34 @@
-// Adiciona os produtos ao carrinho e armazena no localStorage
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function () {
         const produto = {
             id: this.getAttribute('data-id'),
             nome: this.getAttribute('data-nome'),
-            preco: parseFloat(this.getAttribute('data-preco')),
-            quantidade: parseInt(this.getAttribute('data-quantidade')), // Adiciona a quantidade
-            descricao: this.getAttribute('data-descricao'), // Adiciona a descrição
+            preco: parseFloat(this.getAttribute('data-preco').replace(',', '.')), // Preço como número
+            unidade: parseInt(this.getAttribute('data-unidade'), 10), // unidade como número inteiro de unidades
+            descricao: this.getAttribute('data-descricao'), // Descrição do produto
         };
 
-        // Recupera o carrinho do localStorage (caso não exista, cria um array vazio)
+        // Verifica se o produto já existe no carrinho
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-        
-        // Adiciona o produto ao carrinho
-        carrinho.push(produto);
 
-        // Armazena o carrinho atualizado no localStorage
+        const indexExistente = carrinho.findIndex(item => item.id === produto.id);
+        if (indexExistente !== -1) {
+            // Se o produto já existe, apenas atualiza a unidade
+            carrinho[indexExistente].unidade += produto.unidade;
+        } else {
+            // Caso contrário, adiciona o produto ao carrinho
+            carrinho.push(produto);
+        }
+
+        // Atualiza o carrinho no localStorage
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-        console.log(carrinho); // Verifica se o produto foi adicionado corretamente
 
         // Atualiza a exibição do carrinho
         atualizarCarrinho();
     });
 });
 
-// Função que atualiza a exibição do carrinho
+// Função para atualizar a exibição do carrinho
 function atualizarCarrinho() {
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     const cartItems = document.getElementById('cart-items');
@@ -45,17 +48,18 @@ function atualizarCarrinho() {
             item.classList.add('cart-item');
             item.innerHTML = `
                 <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
-                <p>Quantidade: ${produto.quantidade}</p> <!-- Exibe a quantidade -->
-                <p>Descrição: ${produto.descricao}</p> <!-- Exibe a descrição -->
+                <p>Unidade: ${produto.unidade}</p> <!-- unidade de unidades -->
+                <p>Descrição: ${produto.descricao}</p>
                 <button class="remove-item" data-index="${index}">Remover</button>
             `;
             cartItems.appendChild(item);
 
-            total += produto.preco * produto.quantidade; // Calcula o total com base na quantidade
+            // Calcula o total com base no preço e unidade
+            total += produto.preco * produto.unidade;
         });
 
         // Exibe o preço total no carrinho
-        totalPriceElement.textContent = total.toFixed(2);
+        totalPriceElement.textContent = `R$ ${total.toFixed(2)}`;
     }
 }
 
@@ -76,5 +80,5 @@ document.addEventListener('click', function (e) {
     }
 });
 
-// Chama a função para atualizar o carrinho quando a página carregar
+// Atualiza o carrinho na página quando a página for carregada
 window.onload = atualizarCarrinho;
