@@ -5,7 +5,7 @@ include "../includes/conexao.php";
 echo "<br>";
 // Consulta a tabela agenda
 $data = date('Y-m-d');
-$sql = "SELECT * FROM agenda_sameque WHERE data >= '$data'";
+$sql = "SELECT * FROM agenda_3";
 $res = mysqli_query($conexao, $sql);
 echo "<div class='container text-center my-4'>";
 echo "<h2 class='display-4'>Visualize sua agenda</h2>";

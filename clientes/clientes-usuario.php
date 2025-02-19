@@ -1,7 +1,4 @@
 <?php 
-    include "../includes/header.php" ;
-?>
-<?php 
     include "../includes/conexao.php";
 
     $id = $_GET["id"];
@@ -9,7 +6,17 @@
     $resultado = mysqli_query($conexao, $sql);
     $sql_tabela = "DROP TABLE IF EXISTS agenda_" . intval($id);
     $resultado = mysqli_query($conexao, $sql_tabela);
+
+    $arquivoPhp = "../usuario/php/agenda-agendar-$id.php";
+    if(file_exists($arquivoPhp)){
+        unlink($arquivoPhp);
+    }
+
+    $arquivoSalvarPhp = "../usuario/php/agenda-salvar-$id.php";
+    if(file_exists($arquivoSalvarPhp)){
+        unlink($arquivoSalvarPhp);
+    }
+
     mysqli_close($conexao);
     header("Location: ./clientes-listar.php");
 ?>
-<?php include "../includes/footer.php"?>
