@@ -1,3 +1,4 @@
+
 <section id="carrinho">
     <div class="container">
         <h2>Carrinho de Compras</h2>
@@ -11,8 +12,12 @@
     </div>
 </section>
 <?php
-    include '../../includes/conexao.php';
+    include "usuario-header.php";
+    include "../../includes/conexao.php";
+    include '../../footer.php';
+    
     ?>
 
 
 <script src="./carrinho.js"></script>
+

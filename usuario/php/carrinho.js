@@ -1,11 +1,10 @@
-// Adiciona os produtos ao carrinho e armazena no localStorage
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function () {
         const produto = {
             id: this.getAttribute('data-id'),
             nome: this.getAttribute('data-nome'),
-            preco: parseFloat(this.getAttribute('data-preco')),
-            quantidade: parseInt(this.getAttribute('data-quantidade')), // Adiciona a quantidade
+            preco: parseFloat(this.getAttribute('data-preco').replace(',', '.')), // Garantir que o preço seja um número
+            quantidade: parseInt(this.getAttribute('data-quantidade')), // Certifique-se de que a quantidade é um número inteiro
             descricao: this.getAttribute('data-descricao'), // Adiciona a descrição
         };
 
@@ -51,11 +50,12 @@ function atualizarCarrinho() {
             `;
             cartItems.appendChild(item);
 
-            total += produto.preco * produto.quantidade; // Calcula o total com base na quantidade
+            // Calcula o total com base no preço e quantidade
+            total += produto.preco * produto.quantidade; 
         });
 
         // Exibe o preço total no carrinho
-        totalPriceElement.textContent = total.toFixed(2);
+        totalPriceElement.textContent = `Total: R$ ${total.toFixed(2)}`;
     }
 }
 
