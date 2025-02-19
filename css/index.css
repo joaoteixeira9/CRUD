@@ -26,6 +26,11 @@
     transition: 0.3s ease-in-out;
 }
 
+.nav-item i {
+    font-size: 1.75rem;
+  }
+  
+
 .social-icons {
     margin-left: auto;
     display: flex;

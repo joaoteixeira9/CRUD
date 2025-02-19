@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -10,37 +11,28 @@ html, body {
     height: 100vh;
 }
 
-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
 .formulario {
     width: 100%;
     max-width: 400px;
-    background-color: #fff;
-    padding: 10px;
+    align-items: center;
+    padding: 15px;
     border-radius: 10px;
+    background-color: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.formulario a {
-    color: #db3026;
-    text-decoration: none;
-}
-
-.form-control {
-    border-radius: 15px;
-    margin-bottom: 15px;
-    padding: 10px;
+section {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
 }
 
 .btn-primary {
     background-color: #db3026;
     border-color: #db3026;
     border-radius: 50px;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     font-weight: 600;
@@ -52,25 +44,30 @@ section {
     border-color: #85000a;
 }
 
-.btn-link {
+.formulario .cadastre {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
     color: #db3026;
     font-weight: 600;
     text-decoration: none;
-    text-align: center;
-    display: block;
-    margin-top: 15px;
+    transition: 0.3s;
 }
 
-.btn-link:hover {
-    color: #85000a;
-    text-decoration: underline;
+.formulario a {
+    color: #db3026;
+    text-decoration: none;
+}
+
+.form-control {
+    border-radius: 15px;
 }
 
 img {
     display: block;
     margin: 20px auto;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    height: 150px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
