@@ -1,3 +1,6 @@
+<?php
+    include "./usuario-header.php";
+?>
 
 <section id="carrinho">
     <div class="container">
@@ -12,12 +15,8 @@
     </div>
 </section>
 <?php
-    include "usuario-header.php";
-    include "../../includes/conexao.php";
-    include '../../footer.php';
-    
-    ?>
-
+    include "./footer.php";
+?>
 
 <script src="./carrinho.js"></script>
 

@@ -13,7 +13,7 @@
                     echo "<div class='produto'>";
                     echo "<img src='../../img" . $l['nome'] . ".png' alt='" . $l['nome'] . "'>";
                     echo "<h3>{$l['nome']}</h3>";
-                    echo "<p>{$l['quantidade']}</p>";
+                    echo "<p>{$l['unidade']}</p>";
                     echo "<p>{$l['descricao']}</p>";
                     echo "<p class='preco'>R$ {$l['preco']}</p>";
                     // Corrigindo as aspas do botão
@@ -21,7 +21,7 @@
                             data-id='" . $l['id'] . "' 
                             data-nome='" . $l['nome'] . "' 
                             data-preco='" . $l['preco'] . "' 
-                            data-quantidade='" . $l['quantidade'] . "' 
+                            data-unidade='" . $l['unidade'] . "' 
                             data-descricao='" . $l['descricao'] . "'> 
                             Adicionar ao Carrinho
                           </button>";
