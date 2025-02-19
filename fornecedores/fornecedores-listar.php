@@ -17,13 +17,19 @@ include "../includes/conexao.php";
             <th scope="col">EMAIL</th>
             <th scope="col">ENDERECO</th>
             <th scope="col">PRODUTO</th>
+            <th scope="col">QUANTIDADE</th>
+            <th scope="col">DESCRIÇÃO</th>
+
         </tr>
     </thead>
 <?php
 
-$sql = "select * from fornecedores";
-$resultado = mysqli_query($conexao, $sql);
-echo "<br><br>";
+$sql = "SELECT * FROM `fornecedores`";
+if ($resultado = mysqli_query($conexao, $sql)) {
+    echo "<br><br>";
+} else {
+    echo "Erro ao executar a consulta: " . mysqli_error($conexao);
+}
 
 while($linha = mysqli_fetch_assoc($resultado)){
     echo "<tbody>";
@@ -33,6 +39,8 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<td> {$linha['email']} </td>";
     echo "<td> {$linha['endereco']} </td>";
     echo "<td> {$linha['produto']} </td>";
+    echo "<td> {$linha['quantidade']} </td>";
+    echo "<td> {$linha['descricao']} </td>";
 
     // echo "<td>";
     // echo "<a href ='fornecedores-excluir.php?id={$linha['id']}'>";

@@ -6,6 +6,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
             preco: parseFloat(this.getAttribute('data-preco').replace(',', '.')), // Preço como número
             unidade: parseInt(this.getAttribute('data-unidade'), 10), // unidade como número inteiro de unidades
             descricao: this.getAttribute('data-descricao'), // Descrição do produto
+            imagem: this.getAttribute('data-imagem') // Foto do produto
         };
 
         // Verifica se o produto já existe no carrinho
@@ -45,12 +46,20 @@ function atualizarCarrinho() {
         // Exibe cada item do carrinho
         carrinho.forEach((produto, index) => {
             const item = document.createElement('div');
-            item.classList.add('cart-item');
+            item.classList.add('col-md-4', 'd-flex', 'align-items-stretch', 'mb-4');
             item.innerHTML = `
-                <p>${produto.nome} - R$ ${produto.preco.toFixed(2)}</p>
-                <p>Unidade: ${produto.unidade}</p> <!-- unidade de unidades -->
-                <p>Descrição: ${produto.descricao}</p>
-                <button class="remove-item" data-index="${index}">Remover</button>
+                <div class="card shadow-sm">
+                    <img src="${produto.imagem}" alt="${produto.nome}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">${produto.nome}</h5>
+                        <p class="card-text">R$ ${produto.preco.toFixed(2)}</p>
+                        <p>Unidade: ${produto.unidade}</p>
+                        <div class="descricao" style="height: 70px; overflow-y: auto;">
+                            <p>${produto.descricao}</p>
+                        </div>
+                        <button class="remove-item btn btn-danger btn-sm" data-index="${index}">Remover</button>
+                    </div>
+                </div>
             `;
             cartItems.appendChild(item);
 

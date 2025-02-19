@@ -6,10 +6,11 @@
     $email = $_POST["email"];
     $endereco = $_POST["endereco"];
     $produto = $_POST["produto"];
-    $acoes = $_POST["acoes"];
+    $acoes = $_POST["quantidade"];
+    $descricao = $_POST["descricao"];
 
-    $sql = "INSERT INTO  fornecedores (`nome`, `telefone`, `email`, `endereco`, `produto`, `acoes`) VALUES
-     ('$nome', '$telefone', '$email', '$endereco', '$produto', '$acoes')";
+    $sql = "INSERT INTO  fornecedores ('nome', 'telefone', 'email', 'endereco', 'produto', 'quantidade', 'descricao') VALUES
+     ('$nome', '$telefone', '$email', '$endereco', '$produto', '$quantidade', '$descricao')";
 
     $resultado = mysqli_query($conexao, $sql);
 

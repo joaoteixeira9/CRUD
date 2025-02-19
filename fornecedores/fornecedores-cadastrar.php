@@ -18,7 +18,7 @@
     <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Produto/label>
+    <label for="inputAddress2">Produto</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc.">
   </div>
   <div class="form-row">
@@ -29,8 +29,10 @@
     <div class="form-group col-md-4">
       <label for="inputEstado">Descrição</label>
       <select id="inputEstado" class="form-control">
-        <option selected>Escolher...</option>
-        <option>...</option>
+        <option selected>Quantidade, Peso</option>
+        <option>Descrição 1</option>
+        <option>Descrição 2</option>
+        <option>Descrição 3</option>
       </select>
     </div>
   </div>
