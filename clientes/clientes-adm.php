@@ -107,7 +107,7 @@
                 return $horarios;
             }
             $horariosDisponiveis = gerarHorarios(\'09:00\', \'17:00\', 30);
-            $sql = "SELECT * FROM agenda_sameque";
+            $sql = "SELECT * FROM agenda_'.$id.'";
             $res = mysqli_query($conexao, $sql);
             $reservados = [];
             while ($l = mysqli_fetch_assoc($res)) {
