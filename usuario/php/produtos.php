@@ -11,7 +11,7 @@
                 $res = mysqli_query($conexao, $sql);
                 while($l = mysqli_fetch_assoc($res)){
                     echo "<div class='produto'>";
-                    echo "<img src='../../img" . $l['nome'] . ".png' alt='" . $l['nome'] . "'>";
+                    echo "<img src='../../img/" . $l['nome'] . ".png' alt='" . $l['nome'] . "'>";
                     echo "<h3>{$l['nome']}</h3>";
                     echo "<p>{$l['unidade']}</p>";
                     echo "<p>{$l['descricao']}</p>";

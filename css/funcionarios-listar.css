@@ -3,6 +3,7 @@ main{
     text-align: center;
     padding: 20px;
     margin: 0 auto;
+    text-transform: uppercase;
 }
 td a img {
     width: 24px;
