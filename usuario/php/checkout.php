@@ -7,7 +7,7 @@
     session_start();
     if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
         
-        header("Location: index.php");
+        header("Location: checkout.php");
         exit;
     }
 
