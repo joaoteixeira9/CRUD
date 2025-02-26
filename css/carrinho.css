@@ -1,0 +1,29 @@
+/* Estilos para o card */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    height: 300px; /* Define uma altura fixa para o card */
+}
+
+/* Estilos da descrição do produto */
+.descricao {
+    flex-grow: 1;
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse a área */
+    height: 70px; /* Altura fixa para a descrição */
+    text-overflow: ellipsis; /* Adiciona reticências (...) caso o texto seja maior */
+    white-space: nowrap; /* Impede que o texto quebre a linha */
+    overflow: hidden; /* Garante que o texto não ultrapasse a altura */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.card {
+    height: 100%; /* Faz com que o card ocupe toda a altura disponível */
+}
+
+/* Garantir que a imagem tenha o mesmo tamanho em todos os produtos */
+.card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem se ajuste bem sem distorção */
+}

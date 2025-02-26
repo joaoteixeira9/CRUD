@@ -16,13 +16,13 @@
                     echo "<p>{$l['unidade']}</p>";
                     echo "<p>{$l['descricao']}</p>";
                     echo "<p class='preco'>R$ {$l['preco']}</p>";
-                    // Corrigindo as aspas do botão
                     echo "<button class='add-to-cart' 
                             data-id='" . $l['id'] . "' 
                             data-nome='" . $l['nome'] . "' 
                             data-preco='" . $l['preco'] . "' 
                             data-unidade='" . $l['unidade'] . "' 
-                            data-descricao='" . $l['descricao'] . "'> 
+                            data-descricao='" . $l['descricao'] . "' 
+                            data-imagem='../../img/" . $l['nome'] . ".png'> 
                             Adicionar ao Carrinho
                           </button>";
                     echo "</div>";
@@ -36,4 +36,3 @@
 <?php
     include './footer.php';
 ?>
-
