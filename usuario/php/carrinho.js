@@ -1,32 +1,18 @@
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function () {
-        const produto = {
-            id: this.getAttribute('data-id'),
-            nome: this.getAttribute('data-nome'),
-            preco: parseFloat(this.getAttribute('data-preco').replace(',', '.')), // Preço como número
-            unidade: parseInt(this.getAttribute('data-unidade'), 10), // unidade como número inteiro de unidades
-            descricao: this.getAttribute('data-descricao'), // Descrição do produto
-            imagem: this.getAttribute('data-imagem') // Foto do produto
-        };
-
-        // Verifica se o produto já existe no carrinho
+// Remover um item do carrinho
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('remove-item')) {
+        const index = e.target.getAttribute('data-index');
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-        const indexExistente = carrinho.findIndex(item => item.id === produto.id);
-        if (indexExistente !== -1) {
-            // Se o produto já existe, apenas atualiza a unidade
-            carrinho[indexExistente].unidade += produto.unidade;
-        } else {
-            // Caso contrário, adiciona o produto ao carrinho
-            carrinho.push(produto);
-        }
+        // Remove o item selecionado
+        carrinho.splice(index, 1);
 
         // Atualiza o carrinho no localStorage
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
         // Atualiza a exibição do carrinho
         atualizarCarrinho();
-    });
+    }
 });
 
 // Função para atualizar a exibição do carrinho
@@ -40,6 +26,7 @@ function atualizarCarrinho() {
 
     if (carrinho.length === 0) {
         cartItems.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        totalPriceElement.textContent = 'R$ 0.00';  // Exibe zero quando o carrinho estiver vazio
     } else {
         let total = 0;
 
@@ -71,23 +58,6 @@ function atualizarCarrinho() {
         totalPriceElement.textContent = `R$ ${total.toFixed(2)}`;
     }
 }
-
-// Remover um item do carrinho
-document.addEventListener('click', function (e) {
-    if (e.target && e.target.classList.contains('remove-item')) {
-        const index = e.target.getAttribute('data-index');
-        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-
-        // Remove o item selecionado
-        carrinho.splice(index, 1);
-
-        // Atualiza o carrinho no localStorage
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-        // Atualiza a exibição do carrinho
-        atualizarCarrinho();
-    }
-});
 
 // Atualiza o carrinho na página quando a página for carregada
 window.onload = atualizarCarrinho;
