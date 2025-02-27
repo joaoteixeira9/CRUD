@@ -13,7 +13,10 @@
 <body>
     <header class="">
         <ul class="nav nav-tabs">
-        <li class="nav-item">
+            <li class="nav-item">
+                <a class="nav-link" href="../../">Inicio</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="./agenda-barbeiro.php">Agendar</a>
             </li>
             <li class="nav-item">

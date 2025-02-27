@@ -12,6 +12,9 @@
 <header class="">
     <ul class="nav nav-tabs">
         <li class="nav-item">
+            <a class="nav-link" href="../">Inicio</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="../clientes/clientes-listar.php">Clientes</a>
         </li>
         <li class="nav-item">

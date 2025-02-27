@@ -104,6 +104,10 @@ header {
     height: 850px;
 }
 
+.card-body span{
+    cursor: pointer;
+}
+
 .card {
     display: flex;
     justify-content: center;
