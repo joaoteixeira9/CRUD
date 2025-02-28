@@ -3,7 +3,7 @@ include "../includes/header.php";
 include "../includes/conexao.php";
 ?>
 
-<main style="mt-3">
+<main class="mt-3">
     <link rel="stylesheet" href="../css/servicos-listar.css">
     <br>
     <h2 class="container-fluid">Todos os serviços</h2>

@@ -1,16 +1,5 @@
 BANCO DE DADOS
 
-
-CREATE TABLE `agenda_sameque` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `clienteId` int(11) NOT NULL,
- `profissionalId` int(11) NOT NULL,
- `servicoId` int(11) NOT NULL,
- `data` date NOT NULL,
- `horarioId` varchar(100) NOT NULL,
- PRIMARY KEY (`id`)
-)
-
 CREATE TABLE `clientes` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `nome` varchar(100) NOT NULL,

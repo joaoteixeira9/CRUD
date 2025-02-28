@@ -3,7 +3,9 @@
 <section>
   <form action="./login-autenticar.php" method="post" class="formulario">
     <div class="d-flex">
-      <a href="../index.html"><p>Voltar</p></a>
+      <a href="../index.html">
+        <p>Voltar</p>
+      </a>
     </div>
     <img src="../img/usuario.png" alt="">
     <div class="form-group">
@@ -16,7 +18,7 @@
     </div>
     <div class="form-group">
       <p id="alertaEmail"></p>
-    </div> 
+    </div>
     <button type="submit" class="btn btn-primary">Entrar</button>
     <a href="../clientes/clientes-cadastro.php" class="cadastre">CADASTRE-SE</a>
   </form>
