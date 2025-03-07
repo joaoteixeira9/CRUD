@@ -6,11 +6,13 @@
         <div class="mb-3">
             <label for="s-nome" class="form-label">Serviço:</label>
             <input name="servico" id="s-nome" class="form-control">
+            <p id="alertS-nome"></p>
         </div>
 
         <div class="mb-3">
             <label for="s-descricao" class="form-label">Descrição:</label>
             <input name="descricao" id="s-descricao" class="form-control">
+            <p id="alertS-descricao"></p>
         </div>
 
         <div class="mb-3">
@@ -32,4 +34,5 @@
     </form>
 </main>
 <script src="../js/validar.js"></script>
+<script src="./validarServicos.js"></script>
 <?php include "../includes/footer.php"?>
