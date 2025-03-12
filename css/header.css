@@ -1,22 +1,22 @@
 .logo-container {
     position: absolute;
-    right: 10px; /* Ajuste conforme necessário */
-    background-color: #db3026; /* Cor de fundo azul */
-    border-radius: 15px; /* Bordas arredondadas */
+    right: 10px;
+    background-color: #db3026;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     border-right: 10px solid #db3026;
 }
 
 .logo-image {
-    width: 40px; /* Ajuste para o tamanho desejado */
-    height: 40px; /* Ajuste para o tamanho desejado */
+    width: 40px;
+    height: 40px;
 }
 
 .logo-text {
-    font-size: 16px; /* Tamanho do texto menor */
-    color: white; /* Cor do texto */
-    margin: 0; /* Remove margens */
+    font-size: 16px;
+    color: white;
+    margin: 0;
 }
 
 .nav{

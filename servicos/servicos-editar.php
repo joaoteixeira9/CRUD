@@ -1,13 +1,13 @@
 <?php 
-    include "../includes/header.php" ;
+    include "../includes/header.php";
     include "../includes/conexao.php";
 
     $id = $_GET["id"];
-    $sql = "select * from servicos where id = $id";
-    $servico = $descricao = $preco = "";
+    $sql = "SELECT * FROM servicos WHERE id = $id";
+    $servico = $descricao = $preco = $categoria = "";
 
     $resultado = mysqli_query($conexao, $sql);
-    while($linha = mysqli_fetch_assoc($resultado)){
+    while ($linha = mysqli_fetch_assoc($resultado)) {
         $servico = $linha['servico'];
         $descricao = $linha['descricao'];
         $preco = $linha['preco'];
@@ -15,19 +15,39 @@
     }
     mysqli_close($conexao);
 ?>
-<main>
+<main class="mt-2">
     <link rel="stylesheet" href="../css/servicos-editar.css">
 
-    <h2>Editar serviço</h2>
-    <form method="post" action="./servicos-atualizar.php?id=<?=$id;?>">
-        <label>Serviço: <input name="servico" class="form-control" value="<?=$servico;?>"></label> <br>
-        <label>Descricao: <input name="descricao" class="form-control" value="<?=$descricao;?>"></label> <br>
-        <label>Preço: <input name="preco" class="form-control" value="<?=$preco;?>"></label> <br>
-        <label>Categoria: <input name="categoria" class="form-control" value="<?=$categoria;?>"></label> <br>
+    <form method="post" action="./servicos-atualizar.php?id=<?= $id; ?>" onsubmit="return validarFormularioServicos()" class="border p-4 rounded">
+        <h2 class="mb-4">Editar serviço</h2>
 
-        <button type="submit" class="btn btn-outline-primary">Editar</button>
+        <div class="mb-3">
+            <label for="s-nome" class="form-label">Serviço:</label>
+            <input name="servico" id="s-nome" class="form-control" value="<?= $servico; ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="s-descricao" class="form-label">Descrição:</label>
+            <input name="descricao" id="s-descricao" class="form-control" value="<?= $descricao; ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="s-preco" class="form-label">Preço:</label>
+            <input name="preco" id="s-preco" class="form-control" value="<?= $preco; ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="s-categoria" class="form-label">Categoria:</label>
+            <input name="categoria" id="s-categoria" class="form-control" value="<?= $categoria; ?>">
+        </div>
+
+        <p id="s-alert" class="text-danger"></p>
+
+        <div class="mb-3 text-center">
+            <button type="submit" class="btn btn-outline-primary">Editar</button>
+        </div>
     </form>
-
-
 </main>
-<?php include "../includes/footer.php"?>
+
+<script src="../js/validar.js"></script>
+<?php include "../includes/footer.php"; ?>

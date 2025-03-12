@@ -17,6 +17,11 @@
         unlink($arquivoSalvarPhp);
     }
 
+    $arquivoListarPhp = "../agenda/agenda-listar-$id.php";
+    if(file_exists($arquivoListarPhp)){
+        unlink($arquivoListarPhp);
+    }
+
     mysqli_close($conexao);
     header("Location: ./clientes-listar.php");
 ?>
