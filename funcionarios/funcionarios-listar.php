@@ -2,7 +2,6 @@
 include "../includes/header.php";
 include "../includes/conexao.php";
 ?>
-
 <main>
     <link rel="stylesheet" href="../css/funcionarios-listar.css">
     <h2 class="container-fluid mb-3">Todos os funcionários</h2>
