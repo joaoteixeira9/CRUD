@@ -3,7 +3,7 @@ include "../includes/header.php";
 include "../includes/conexao.php";
 ?>
 
-<main class="mt-3">
+<main style="text-align: center; padding: 20px;">
     <link rel="stylesheet" href="../css/servicos-listar.css">
     <br>
     <h2 class="container-fluid">Todos os serviços</h2>
@@ -20,7 +20,7 @@ include "../includes/conexao.php";
             </tr>
         </thead>
         <?php
-        $sql = "SELECT id, servico, descricao, REPLACE(preco, '.', ',' ) AS preco, categoria FROM servicos";
+        $sql = "select * from servicos";
         $resultado = mysqli_query($conexao, $sql);
         echo "<br><br>";
 
@@ -29,7 +29,7 @@ include "../includes/conexao.php";
             echo "<tr>"; //começo coluna
             echo "<td> {$linha['servico']} </td>"; // {} => interpolação de strings
             echo "<td> {$linha['descricao']} </td>";
-            echo "<td> {$linha['preco']} </td>";
+            echo "<td> R$ {$linha['preco']} </td>";
             echo "<td> {$linha['categoria']} </td>";
 
             echo "<td>"; //começo ações

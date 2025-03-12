@@ -22,6 +22,24 @@
             <a href='javascript:history.back()' class='btn-voltar'>Voltar</a>
         </div>
       </div>";
+    }elseif (!preg_match('/^[a-zA-Záéíóúãõâêîôûàèìòù\s]+$/', $nome)) {
+        echo "<div class='popup'>
+        <div class='popup-content'>
+            <div class='alert alert-warning' role='alert'>
+                <strong>Erro!</strong> No campo nome digite apenas letras maiúsculas ou mínusculas!
+            </div>
+            <a href='javascript:history.back()' class='btn btn-warning'>Voltar</a>
+        </div>
+      </div>";
+    }elseif (!preg_match('/^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$/', $telefone)) {
+        echo "<div class='popup'>
+        <div class='popup-content'>
+            <div class='alert alert-warning' role='alert'>
+                <strong>Erro!</strong> No campo telefone digite apenas números e deve possuir 11 dígitos!
+            </div>
+            <a href='javascript:history.back()' class='btn btn-warning'>Voltar</a>
+        </div>
+      </div>";
     }else {
         $sql = "INSERT INTO clientes (nome, telefone, email, senha) VALUES ('$nome', '$telefone', '$email', '$senha')";
         $resultado = mysqli_query($conexao, $sql);

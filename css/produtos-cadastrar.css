@@ -1,15 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 main{
-    width: 50vw;
+    width: 80vw;
+    text-align: center;
     padding: 20px;
     margin: 0 auto;
-}
-
-#p-foto{
-    background-color: #db3026;
 }

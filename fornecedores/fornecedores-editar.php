@@ -1,6 +1,9 @@
 <?php 
     include "header.php" ;
+?>
+<?php 
     include "conexao.php";
+
 
     $id = $_GET["id"];
     $sql = "SELECT * FROM fornecedores WHERE id = '$id'";
@@ -17,7 +20,6 @@
     }
     mysqli_close($conexao);
 ?>
-
 <main>
     <h2>Editar um fornecedor</h2>
     <form method="post" action="fornecedores-atualizar.php?id=<?=$id;?>">
@@ -30,5 +32,4 @@
         <button type="submit">salvar</button>
     </form>
 </main>
-
 <?php include "footer.php"?>

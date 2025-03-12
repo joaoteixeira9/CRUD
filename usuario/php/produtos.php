@@ -32,7 +32,7 @@
         </div>
     </div>
 </section>
-<script src="../js/carrinho.js"></script>
+<script src="./carrinho.js"></script>
 <?php
     include './footer.php';
 ?>

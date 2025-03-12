@@ -1,38 +1,18 @@
-<?php include "../includes/header.php" ;?>
-<main class="mt-2">
+<?php 
+    include "../includes/header.php" ;
+?>
+<main>
+    
+    <h2>Adicionar novo serviço</h2>
     <link rel="stylesheet" href="../css/servicos-cadastrar.css">
-    <form method="post" action="./servicos-salvar.php" class="border p-4 rounded" onsubmit="return validarFormularioServicos()">
-        <h2 class="mb-4">Adicionar novo serviço</h2>
-        <div class="mb-3">
-            <label for="s-nome" class="form-label">Serviço:</label>
-            <input name="servico" id="s-nome" class="form-control">
-            <p id="alertS-nome"></p>
-        </div>
+    <form method="post" action="./servicos-salvar.php">
+        <label class="form-label">Serviço: <input name="servico" class="form-control"></label> <br>
+        <label>Descricao: <input name="descricao" class="form-control"></label> <br>
+        <label>Preço: <input name="preco" class="form-control"></label> <br>
+        <label>Categoria: <input name="categoria" class="form-control"></label> <br>
 
-        <div class="mb-3">
-            <label for="s-descricao" class="form-label">Descrição:</label>
-            <input name="descricao" id="s-descricao" class="form-control">
-            <p id="alertS-descricao"></p>
-        </div>
-
-        <div class="mb-3">
-            <label for="s-preco" class="form-label">Preço:</label>
-            <input name="preco" id="s-preco" oninput="formatarPreco()" class="form-control">
-        </div>
-
-        <div class="mb-3">
-            <label for="s-categoria" class="form-label">Categoria:</label>
-            <input name="categoria" id="s-categoria" class="form-control">
-        </div>
-
-        <p id="s-alert" class="text-danger"></p>
-
-        <div class="mb-3 text-center">
-            <button type="submit" class="btn btn-outline-success">Salvar</button>
-        </div>
-        
+        <button type="submit" class="btn btn-outline-success">Salvar</button>
     </form>
 </main>
-<script src="../js/validar.js"></script>
 
 <?php include "../includes/footer.php"?>

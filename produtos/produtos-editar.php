@@ -15,35 +15,16 @@ while($linha = mysqli_fetch_assoc($resultado)){
 mysqli_close($conexao);
 
 ?>
-<main class="mt-2">
+<main>
     <link rel="stylesheet" href="../css/produtos-editar.css">
+    <h2>Editar Produtos</h2>
+    <form method="post" action="./produtos-atualizar.php?id=<?=$id;?>">
+        <label>NOME:<input name="nome" class="form-control" value="<?=$nome;?>"></label><br>
+        <label>DESCRIÇÃO<input name="descricao" class="form-control" value="<?=$descricao;?>"></label><br>
+        <label>PREÇO:<input name="preco" class="form-control" value="<?=$preco;?>"></label><br>
 
-    <form method="post" action="./produtos-atualizar.php?id=<?=$id;?>" onsubmit="return validarFormularioProdutos()" class="border p-4 rounded">
-        <h2 class="mb-4">Editar Produto</h2>
-
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome:</label>
-            <input name="nome" id="p-nome" class="form-control" value="<?=$nome;?>">
-        </div>
-
-        <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição:</label>
-            <input name="descricao" id="p-descricao" class="form-control" value="<?=$descricao;?>">
-        </div>
-
-        <div class="mb-3">
-            <label for="preco" class="form-label">Preço:</label>
-            <input name="preco" id="p-preco" class="form-control" value="<?=$preco;?>">
-        </div>
-
-        <p id="s-alert" class="text-danger"></p>
-
-        <div class="mb-3 text-center">
-            <button type="submit" class="btn btn-outline-primary mt-3">Editar</button>
-        </div>
-        
+        <button type="submit" class="btn btn-outline-primary">Editar</button>
     </form>
 </main>
-<script src="../js/validar.js"></script>
 
 <?php include "../includes/footer.php"; ?>
