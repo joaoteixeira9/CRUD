@@ -17,7 +17,7 @@
 
         <div class="mb-3">
             <label for="s-preco" class="form-label">Preço:</label>
-            <input name="preco" id="s-preco" class="form-control">
+            <input name="preco" id="s-preco" oninput="formatarPreco()" class="form-control">
         </div>
 
         <div class="mb-3">
@@ -34,5 +34,4 @@
     </form>
 </main>
 <script src="../js/validar.js"></script>
-<script src="./validarServicos.js"></script>
 <?php include "../includes/footer.php"?>

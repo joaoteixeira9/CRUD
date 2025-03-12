@@ -33,7 +33,7 @@ mysqli_close($conexao);
 
         <div class="mb-3">
             <label for="preco" class="form-label">Preço:</label>
-            <input name="preco" id="p-preco" class="form-control" value="<?=$preco;?>">
+            <input name="preco" id="p-preco" oninput="formatarPrecoProdutos()" class="form-control" value="<?=$preco;?>">
         </div>
 
         <p id="s-alert" class="text-danger"></p>
@@ -45,5 +45,4 @@ mysqli_close($conexao);
     </form>
 </main>
 <script src="../js/validar.js"></script>
-
 <?php include "../includes/footer.php"; ?>

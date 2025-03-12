@@ -20,7 +20,7 @@ include "../includes/conexao.php";
             </tr>
         </thead>
         <?php
-        $sql = "select * from servicos";
+        $sql = "SELECT id, servico, descricao, REPLACE(preco, '.', ',' ) AS preco, categoria FROM servicos";
         $resultado = mysqli_query($conexao, $sql);
         echo "<br><br>";
 
@@ -29,7 +29,7 @@ include "../includes/conexao.php";
             echo "<tr>"; //começo coluna
             echo "<td> {$linha['servico']} </td>"; // {} => interpolação de strings
             echo "<td> {$linha['descricao']} </td>";
-            echo "<td> R$ {$linha['preco']} </td>";
+            echo "<td> {$linha['preco']} </td>";
             echo "<td> {$linha['categoria']} </td>";
 
             echo "<td>"; //começo ações

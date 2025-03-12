@@ -20,7 +20,7 @@ include "../includes/conexao.php";
     </thead>
 <?php
 
-$sql = "select * from produtos";
+$sql = "SELECT id, nome, descricao, unidade, REPLACE(preco, '.', ',' ) AS preco FROM produtos";
 $resultado = mysqli_query($conexao, $sql);
 echo "<br><br>";
 

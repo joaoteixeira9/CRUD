@@ -17,7 +17,7 @@
         
         <div class="mb-3">
             <label for="preco" class="form-label">Preço:</label>
-            <input type="text" name="preco" id="p-preco" class="form-control">
+            <input type="text" name="preco" oninput="formatarPrecoProdutos()" id="p-preco" class="form-control">
         </div>
         
         <div class="mb-3">

@@ -11,7 +11,7 @@
             $sql = "SELECT * FROM clientes WHERE tipoDeUsuario = 'admin' AND id = $id";
             $res = mysqli_query($conexao, $sql);
             while ($l = mysqli_fetch_assoc($res)) {
-                echo "<a href='agenda-listar-{$l['id']}.php' data-id='{$l['id']}'><button class='btn btn-lg mx-3 mb-3 text-uppercase' value='{$l['id']}'>{$l['nome']} </button></a>";
+                echo "<a href='agenda-listar-{$l['id']}.php' data-id='{$l['id']}'><button class='btn btn-lg mx-3 mb-3 text-uppercase' value='{$l['id']}'>Visualizar agenda</button></a>";
             }
         ?>
     </div>

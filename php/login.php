@@ -4,7 +4,7 @@
 <section class="container mt-5">
   <form action="./login-autenticar.php" method="post" class="formulario">
     <div class="d-flex mb-3">
-      <a href="../index.html" class="btn btn-secondary">Voltar</a>>
+      <a href="../index.html">Voltar</a>
     </div>
     
     <img src="../img/usuario.png" alt="">
