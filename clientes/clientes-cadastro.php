@@ -36,4 +36,4 @@
         <a href="../php/login.php" class="btn btn-link btn-block">Já tem uma conta? Faça login</a>
     </form>
 </section>
-<script src="./js/alertar.js"></script>
+<script src="../js/cadastro-alertar.js"></script>

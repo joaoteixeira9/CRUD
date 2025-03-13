@@ -36,7 +36,7 @@ mysqli_close($conexao);
             <input name="preco" id="p-preco" oninput="formatarPrecoProdutos()" class="form-control" value="<?=$preco;?>">
         </div>
 
-        <p id="s-alert" class="text-danger"></p>
+        <p id="p-alert" class="text-danger"></p>
 
         <div class="mb-3 text-center">
             <button type="submit" class="btn btn-outline-primary mt-3">Editar</button>

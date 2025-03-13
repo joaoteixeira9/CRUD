@@ -17,7 +17,7 @@
         
         <div class="mb-3">
             <label for="preco" class="form-label">Preço:</label>
-            <input type="text" name="preco" oninput="formatarPrecoProdutos()" id="p-preco" class="form-control">
+            <input type="text" name="preco" id="p-preco" oninput="formatarPrecoProdutos()" class="form-control">
         </div>
         
         <div class="mb-3">
@@ -25,7 +25,7 @@
             <input type="file" name="foto" id="p-foto" class="form-control text-white pb-5 pt-3 w-50">
         </div>
 
-        <p id="s-alert" class="text-danger"></p>
+        <p id="p-alert" class="text-danger"></p>
 
         <div class="mb-3 text-center">
             <button type="submit" class="btn btn-outline-success">Salvar</button>
