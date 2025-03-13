@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="telefone">Telefone:</label>
-            <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Digite seu telefone" required>
+            <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Digite seu telefone" required maxlength="11">
             <p id="alertTel"></p>
         </div>
         <div class="form-group">
