@@ -23,6 +23,11 @@
       <a class="nav-link" href="#rodape">CONTATOS</a>
     </li>
   </ul>
+  <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
+    <a href="./php/login.php"><button class="btn btn-light btn-lg text-white border-0">
+      <i class="bi bi-calendar2-date" style="margin-right: 5px;"></i> Agende seu horário
+    </button></a>        
+  </div>
 </header>
  
 <body>
@@ -41,9 +46,9 @@
     </div>
   </div>
   
-  <div class="card mb-3">
+  <div class="card mb-5">
     <div class="card-body">
-      <h5 id="sobreNos" class="card-title" onclick="toggleContent(0)" onmouseout="hideContent(0)">Clique Aqui !!!</h5>
+      <h5 class="text-center">Para ler o conteúdo abaixo, clique sobre os cards!</h5>
       <div class="content-body" id="content-0"></div>
         <h5 id="sobreNos" class="card-title" onclick="toggleContent(1)" onmouseout="hideContent(1)">Quem Somos</h5>
         <div class="content-body" id="content-1">
@@ -85,10 +90,9 @@
     </div>
 </div>
  
-  <br><br><br><br>
  
   <!-- Carousel -->
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

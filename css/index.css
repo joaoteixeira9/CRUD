@@ -108,6 +108,14 @@ header {
     width: 100%;
     height: 850px;
 }
+
+.btn{
+    background-color: #db3026;
+}
+
+.btn:hover{
+    background-color: #db3026;
+}
  
 .card-body span{
     cursor: pointer;

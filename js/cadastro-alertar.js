@@ -77,7 +77,7 @@ document.getElementById("senha").addEventListener("blur", function(){
     }
 })
 
-document.getElementById("confirmarSenha").addEventListener("blur", function(){
+document.getElementById("confirmarSenha").addEventListener("blur", function(event){
     let confirmarSenha = this.value;
     let senha = document.getElementById("senha").value;
     let alerta = document.getElementById("alertConfirmarSenha")
@@ -90,6 +90,7 @@ document.getElementById("confirmarSenha").addEventListener("blur", function(){
     else if (confirmarSenha !== senha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> As senhas não coincidem!";
         alerta.classList.add("text-danger");
+        this.focus();
     }
     else {
         alerta.style.display = "none";
