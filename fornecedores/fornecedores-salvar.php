@@ -3,14 +3,14 @@
 
     $nome = $_POST["nome"];
     $telefone = $_POST["telefone"];
-    $email = $_POST["email"];
     $endereco = $_POST["endereco"];
     $produto = $_POST["produto"];
-    $acoes = $_POST["quantidade"];
+    $acoes = $_POST["pix"];
+    $email = $_POST["cnpj"];
     $descricao = $_POST["descricao"];
 
-    $sql = "INSERT INTO  fornecedores ('nome', 'telefone', 'email', 'endereco', 'produto', 'quantidade', 'descricao') VALUES
-     ('$nome', '$telefone', '$email', '$endereco', '$produto', '$quantidade', '$descricao')";
+    $sql = "INSERT INTO  fornecedores ('nome', 'telefone', 'endereco', 'produto', 'pix', 'cnpj') VALUES
+     ('$nome', '$telefone', '$endereco', '$produto', '$pix', '$cnpj '$descricao')";
 
     $resultado = mysqli_query($conexao, $sql);
 

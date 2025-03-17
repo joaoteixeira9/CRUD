@@ -14,16 +14,20 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Endereço</label>
+    <label for="inputAddress">Endereço:</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Produto</label>
+    <label for="inputAddress2">Produto:</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc.">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity"> <q>Quantidade</q></label>
+      <label for="inputCity"> <q>Pix:</q></label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCity"> <q>Cnpj:</q></label>
       <input type="text" class="form-control" id="inputCity">
     </div>
     <div class="form-group col-md-4">

@@ -14,10 +14,10 @@ include "../includes/conexao.php";
         <tr>
             <th scope="col">NOME</th>
             <th scope="col">TELEFONE</th>
-            <th scope="col">EMAIL</th>
             <th scope="col">ENDERECO</th>
             <th scope="col">PRODUTO</th>
-            <th scope="col">QUANTIDADE</th>
+            <th scope="col">PIX</th>
+            <th scope="col">CNPJ</th>
             <th scope="col">DESCRIÇÃO</th>
 
         </tr>
@@ -36,10 +36,10 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<tr>";
     echo "<td> {$linha['nome']} </td>";
     echo "<td> {$linha['telefone']} </td>";
-    echo "<td> {$linha['email']} </td>";
     echo "<td> {$linha['endereco']} </td>";
     echo "<td> {$linha['produto']} </td>";
-    echo "<td> {$linha['quantidade']} </td>";
+    echo "<td> {$linha['pix']} </td>";
+    echo "<td> {$linha['cnpj']} </td>";
     echo "<td> {$linha['descricao']} </td>";
 
     echo "<td>";
