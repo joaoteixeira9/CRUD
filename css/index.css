@@ -109,11 +109,11 @@ header {
     height: 850px;
 }
 
-.btn{
+.botao-agendar{
     background-color: #db3026;
 }
 
-.btn:hover{
+.botao-agendar:hover{
     background-color: #db3026;
 }
  
