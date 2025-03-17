@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
-    <title></title>
+    <title>SC Cortes</title>
 </head>
 <body>
-<header class="">
+<header class="cabecalho">
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link" href="../">Inicio</a>

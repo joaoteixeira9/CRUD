@@ -30,3 +30,37 @@
 .nav a:hover{
     color: #db3026;
 }
+
+@media screen and (max-width: 768px) {
+    .logo-container {
+        position: absolute;
+        right: 10px;
+        background-color: #db3026;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        border-right: 10px solid #db3026;
+    }
+
+    .cabecalho{
+        width: 100vw;
+    }
+    
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 10px;
+        color: white;
+    }
+    
+    .nav a{
+        color: #db3026;
+    }
+    
+    .nav a:hover{
+        color: #db3026;
+    }
+}
