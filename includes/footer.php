@@ -8,20 +8,19 @@
     </div>
 
     <!-- Contatos e Horários -->
-    <div>
-      <h4>Contatos</h4>
-      <p>+55 (19) 99999-9999</p>
-      <p>exemplo@email.com</p>
-
-      <h4 id="nossos-hrr">Nossos horários</h4>
-      <p>Seg-Sex: 09h às 20h</p>
-      <p>Sáb: 09h às 15h</p>
-      <p>Exceto feriados</p>
-    </div>
+    <div class="col-md-4 mb-4">
+        <h4>Contatos</h4>
+        <p>+55 (19) 99999-9999</p>
+        <p>exemplo@email.com</p>
+ 
+        <h4 id="nossos-hrr">Nossos horários</h4>
+        <p>Segunda-Sexta: 09:00 às 20:00</p>
+        <p>Sábado: 09:00 às 15:00</p>
+        <p>Exceto feriados</p>
+      </div>
 
     <!-- Sobre os barbeiros -->
     <div>
-      <h4>Sobre nós</h4>
       <p><a href="#" class="text-white">Samequê Costa</a></p>
     </div>
 
@@ -37,9 +36,9 @@
   </div>
 
   <div class="col-md-12 text-center">
-    <a href="#" class="mx-2"><img src="../img/instagram-branco.png" alt="Instagram" class="img-fluid"
+    <a href="https://www.instagram.com/sc.cortes_/" class="mx-2"><img src="../img/instagram-branco.png" alt="Instagram" class="img-fluid"
         style="width: 40px; height: 40px;"></a>
-    <a href="#" class="mx-2"><img src="../img/whatsapp-branco.png" alt="WhatsApp" class="img-fluid"
+    <a href="https://www.whatsapp.com/" class="mx-2"><img src="../img/whatsapp-branco.png" alt="WhatsApp" class="img-fluid"
         style="width: 40px; height: 40px;"></a>
   </div>
 

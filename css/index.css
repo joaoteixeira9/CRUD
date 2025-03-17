@@ -5,7 +5,19 @@ html, body {
     background-color: #333;
     color: white;
 }
- 
+
+main {
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+    background-color: #db3026;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
 .nav {
     display: flex;
     justify-content: space-around;
@@ -173,15 +185,6 @@ header {
     object-fit: cover;
 }
  
-#rodape {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #db3026;
-    color: #fff;
-    height: 70%;
-    ;
-}
  
 #rodape h4, #rodape h5 {
     color: #fff;
@@ -204,4 +207,11 @@ header {
  
 .rounded {
     margin-left: 0.5rem;
+    height: 250px;
+    object-fit: cover;
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
 }

@@ -4,15 +4,14 @@
     $id = $_GET["id"];
     $nome = $_POST["nome"];
     $telefone = $_POST["telefone"];
-    $email = $_POST["email"];
     $endereco = $_POST["endereco"];
     $produto = $_POST["produto"];
-    $quantidade = $_POST["quantidade"];
+    $email = $_POST["pix"];
+    $quantidade = $_POST["cnpj"];
     $descricao = $_POST["descricao"];
     
-
-    $sql = "update fornecedores set nome = '$nome', telefone = '$telefone', email = '$email', endereco = '$endereco', 
-    produto = '$produto', quantidade = '$quantidade', descricao = ' $descricao' where id = '$id'";
+    $sql = "update fornecedores set nome = '$nome', telefone = '$telefone', endereco = '$endereco', 
+    produto = '$produto', pix = '$pix', cnpj = ' $cnpj', descricao = '$descricao', =  where id = '$id'";
     $resultado = mysqli_query($conexao,$sql);
 
     mysqli_close($conexao);
