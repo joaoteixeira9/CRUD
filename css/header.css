@@ -1,11 +1,42 @@
+.cabecalho {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav a {
+    color: #db3026;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    color: #db3026;
+    text-decoration: underline;
+}
+
 .logo-container {
-    position: absolute;
-    right: 10px;
-    background-color: #db3026;
-    border-radius: 15px;
     display: flex;
     align-items: center;
-    border-right: 10px solid #db3026;
+    background-color: #db3026;
+    border-radius: 15px;
+    padding: 5px 10px;
 }
 
 .logo-image {
@@ -16,51 +47,58 @@
 .logo-text {
     font-size: 16px;
     color: white;
-    margin: 0;
+    margin: 0 0 0 10px;
 }
 
-.nav{
-    padding: 1.5px;
+/* Botão de menu (hamburguer) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-.nav a{
-    color: #db3026;
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #db3026;
+    margin: 4px 0;
 }
 
-.nav a:hover{
-    color: #db3026;
-}
-
+/* Estilos para telas menores (responsivo) */
 @media screen and (max-width: 768px) {
-    .logo-container {
-        position: absolute;
-        right: 10px;
-        background-color: #db3026;
-        border-radius: 15px;
+    .menu-toggle {
         display: flex;
-        align-items: center;
-        border-right: 10px solid #db3026;
     }
 
-    .cabecalho{
-        width: 100vw;
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    
-    .logo-image {
-        width: 40px;
-        height: 40px;
+
+    .nav-tabs {
+        display: none;
+        width: 100%;
+        flex-direction: column;
     }
-    
+
+    .nav-tabs.active {
+        display: flex;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    .logo-container {
+        position: static;
+        margin-top: 10px;
+    }
+
     .logo-text {
-        font-size: 10px;
-        color: white;
+        font-size: 14px;
     }
-    
-    .nav a{
-        color: #db3026;
-    }
-    
-    .nav a:hover{
-        color: #db3026;
+
+    .menu-toggle{
+        margin-left: 1rem;
     }
 }
