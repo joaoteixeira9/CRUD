@@ -3,6 +3,7 @@ include "../includes/header.php";
 include "../includes/conexao.php"; 
 ?>
 <main>
+<link rel="stylesheet" href="../css/clientes-listar.css">
     <link rel="stylesheet" href="clientes-listar">
     <br>
     <h2 class="container-fluid text-center">Todos os clientes</h2>
