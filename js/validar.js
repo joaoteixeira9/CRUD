@@ -4,7 +4,13 @@ function validarFormularioProdutos() {
     var preco = document.getElementById('p-preco').value;
 
     if (produto === "" || descricao === "" || preco === "") {
-        document.getElementById("s-alert").innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Todos os campos devem ser preenchidos!";
+        document.getElementById("p-alert").innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Todos os campos devem ser preenchidos!";
+        return false;
+    }
+
+    preco = preco.replace(/[^\d,-]/g, '');
+    if (!isNaN(preco)){
+        document.getElementById("p-alert").innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Por favor, insira apenas números no campo de <strong>preço</strong>.";
         return false;
     }
     return true;
@@ -29,7 +35,7 @@ function validarFormularioServicos() {
     return true;
 }
 
-function formatarPreco() {
+function formatarPrecoServicos() {
     var precoInput = document.getElementById('s-preco');
     var preco = precoInput.value;
 

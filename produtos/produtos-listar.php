@@ -29,7 +29,7 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<tr>";
     echo "<td> {$linha['nome']} </td>";
     echo "<td> {$linha['descricao']} </td>";
-    echo "<td> R$ {$linha['preco']} </td>";
+    echo "<td> {$linha['preco']} </td>";
 
     echo "<td>";
     echo "<a href ='produtos-excluir.php?id={$linha['id']}'>";

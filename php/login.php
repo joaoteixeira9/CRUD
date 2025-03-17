@@ -26,6 +26,6 @@
   </form>
 </section>
 
-<script src="./validacao.js"></script>
-<script src="./login.js"></script>
+<script src="../js/login-funcoes.js"></script>
+<script src="../js/login.js"></script>
 

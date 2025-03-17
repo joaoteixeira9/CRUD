@@ -32,10 +32,5 @@ document.getElementById("senha").addEventListener("blur", function() {
         if (!senhaValida) {
             fnAdicionarMensagemDeErro("alertaSenha", "Mínimo 8 caracteres");
         }
-
-        let senhaFormatoValida = fnValidarSenhaComCaracteresEspeciais(this.value);
-        if (!senhaFormatoValida) {
-            fnAdicionarMensagemDeErro("alertaSenha", "A senha deve conter pelo menos um caractere especial");
-        }
     }
 });

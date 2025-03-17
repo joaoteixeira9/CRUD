@@ -3,13 +3,27 @@
         include "../includes/header.php"; 
         include "../includes/conexao.php";
         echo "<br>";
+
+        $dataFiltro = $_GET['dataFiltro'] ?? "";
+        if($dataFiltro != ""){
+            $dataFiltro = "where data = '$dataFiltro'";
+        }
+
         // Consulta a tabela agenda
         $data = date('Y-m-d');
-        $sql = "SELECT * FROM agenda_0";
+        $sql = "SELECT * FROM agenda_4 " . $dataFiltro;
         $res = mysqli_query($conexao, $sql);
+
+        $sqlData = "SELECT distinct data FROM agenda_4";
+        $resData = mysqli_query($conexao, $sqlData);
         echo "<div class='container text-center my-4'>";
         echo "<h2 class='display-4'>Visualize sua agenda</h2>";
         echo "</div>";
+
+       while ($linha = mysqli_fetch_assoc($resData)) {
+          // Exibir a linha da tabela com os dados
+            echo " <a href='agenda-listar-4.php?dataFiltro=".$linha['data']."'>" . date('d/m/Y', strtotime($linha['data'])) . "</a> " ;
+        }
 
         // Início da tabela
         echo "<div class='tabelaAgenda' style='width: 70%; display: flex; justify-content: center;  margin: 0 auto;'>";
