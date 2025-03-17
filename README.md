@@ -2,7 +2,7 @@
  
 ## Introdução
  
-Este documento descreve o funcionamento e a estrutura do site da barbearia, permitindo que clientes agendem horários para corte de cabelo e interajam com a barbearia via WhatsApp. O site foi desenvolvido utilizando HTML, CSS, JavaScript, C#, PHP e banco de dados.
+Este documento descreve o funcionamento e a estrutura do site da barbearia, permitindo que clientes agendem horários para corte de cabelo e interajam com a barbearia. O site foi desenvolvido utilizando HTML, CSS, JavaScript, C#, PHP e banco de dados.
  
 ## Tecnologias Utilizadas
  
