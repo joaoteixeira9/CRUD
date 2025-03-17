@@ -42,15 +42,15 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<td> {$linha['quantidade']} </td>";
     echo "<td> {$linha['descricao']} </td>";
 
-    // echo "<td>";
-    // echo "<a href ='fornecedores-excluir.php?id={$linha['id']}'>";
-    // echo "<img src='excluir.png' width='25'>";
-    // echo "</a>";
+    echo "<td>";
+    echo "<a href ='fornecedores-excluir.php?id={$linha['id']}'>";
+    echo "<img src='excluir.png' width='25'>";
+    echo "</a>";
 
-    // echo "<td>";
-    // echo "<a href ='fornecedores-editar.php?id={$linha['id']}'>";
-    // echo "<img src='editar.png' width='25'>";
-    // echo "</a>";
+    echo "<td>";
+    echo "<a href ='fornecedores-editar.php?id={$linha['id']}'>";
+    echo "<img src='editar.png' width='25'>";
+    echo "</a>";
 
     echo "</td>";
     echo "</tr>";
