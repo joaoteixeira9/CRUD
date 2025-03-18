@@ -9,45 +9,46 @@ include "../includes/conexao.php";
     <h2 class="container-fluid text-center">Todos os clientes</h2>
 
     <div class="container">
-        <table class="table table-striped table-bordered table-hover mt-4">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">NOME</th>
-                <th scope="col">TELEFONE</th>
-                <th scope="col">EMAIL</th>
-                <th scope="col">TIPO DE USUÁRIO</th>
-                <th scope="col">AÇÕES</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-                $sql = "SELECT * FROM clientes";
-                $resultado = mysqli_query($conexao, $sql);
-                while ($linha = mysqli_fetch_assoc($resultado)) {
-                    echo "<tr>";
-                    echo "<td> {$linha['id']} </td>"; 
-                    echo "<td> {$linha['nome']} </td>";
-                    echo "<td> {$linha['telefone']} </td>";
-                    echo "<td> {$linha['email']} </td>";
-                    echo "<td> {$linha['tipoDeUsuario']} </td>";
-                    echo "<td>";
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover mt-4">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NOME    </th>
+                    <th scope="col">TELEFONE</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">TIPO DE USUÁRIO</th>
+                    <th scope="col">AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    $sql = "SELECT * FROM clientes";
+                    $resultado = mysqli_query($conexao, $sql);
+                    while ($linha = mysqli_fetch_assoc($resultado)) {
+                        echo "<tr>";
+                        echo "<td> {$linha['id']} </td>"; 
+                        echo "<td> {$linha['nome']} </td>";
+                        echo "<td> {$linha['telefone']} </td>";
+                        echo "<td> {$linha['email']} </td>";
+                        echo "<td> {$linha['tipoDeUsuario']} </td>";
+                        echo "<td>";
 
-                    // Condicional para verificar o tipo de usuário
-                    if ($linha['tipoDeUsuario'] == 'usuario') {
-                        // Para um cliente, o botão vai mudar para admin
-                        echo "<a href='#' class='btn btn-warning btn-sm confirm-action' data-id='{$linha['id']}' data-action='admin'>Tornar Admin</a>";
-                    } elseif ($linha['tipoDeUsuario'] == 'admin') {
-                        // Para um admin, o botão vai mudar para usuário
-                        echo "<a href='#' class='btn btn-info btn-sm confirm-action' data-id='{$linha['id']}' data-action='usuario'>Tornar Usuário</a>";
+                        // Condicional para verificar o tipo de usuário
+                        if ($linha['tipoDeUsuario'] == 'usuario') {
+                            // Para um cliente, o botão vai mudar para admin
+                            echo "<a href='#' class='btn btn-warning btn-sm confirm-action' data-id='{$linha['id']}' data-action='admin'>Tornar Admin</a>";
+                        } elseif ($linha['tipoDeUsuario'] == 'admin') {
+                            // Para um admin, o botão vai mudar para usuário
+                            echo "<a href='#' class='btn btn-info btn-sm confirm-action' data-id='{$linha['id']}' data-action='usuario'>Tornar Usuário</a>";
+                        }
+
+                        echo "</td>";
+                        echo "</tr>";
                     }
-
-                    echo "</td>";
-                    echo "</tr>";
-                }
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
     </div>
 
     <!-- Modal de Confirmação -->

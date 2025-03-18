@@ -4,3 +4,18 @@ main{
     padding: 20px;
     margin: 0 auto;
 }
+
+@media screen and (max-width: 768px) {
+    td {
+        font-size: smaller;
+        padding: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    th {
+        font-size: smaller;
+    }
+    thead {
+        height: 20px;
+    }
+}

@@ -213,5 +213,18 @@ header {
 
 .row{
     display: flex;
-    justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+    .contatos{
+        margin-left: 4rem;
+    }
+
+    .row{
+        justify-content: space-around;
+    }
+
+    .loc h4{
+        text-align: center;
+    }
 }
