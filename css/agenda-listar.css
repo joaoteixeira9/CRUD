@@ -96,6 +96,7 @@ button.btn:focus {
     }
     th {
         font-size: smaller;
+        white-space: nowrap;
     }
     thead {
         height: 20px;

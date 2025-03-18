@@ -106,6 +106,7 @@
                 echo "</button>";
             }
             echo "</div>";
+            echo "<p id='erroHorario' class='text-danger' style='display: none;'>Por favor, selecione um horário.</p>";
             echo "</div>";
             echo "<input type='hidden' id='horarioSelecionado' name='horario'>";
 
@@ -116,6 +117,20 @@
     </main>
     <script src="../js/agendar-alertar.js"></script>
     <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        const erroHorario = document.getElementById('erroHorario');
+
+        form.addEventListener('submit', function (event) {
+                const horarioSelecionado = document.getElementById('horarioSelecionado').value;
+                if (!horarioSelecionado) {
+                    event.preventDefault();
+                    erroHorario.style.display = 'block';
+                } else {
+                    erroHorario.style.display = 'none';
+                }
+            });
+        });
     function selecionarHorario(horarioId) {
         document.getElementById('horarioSelecionado').value = horarioId;
         const botoes = document.querySelectorAll("button[type='button']");
@@ -270,5 +285,21 @@
         color: #0d6efd;
         padding: 10px;
         font-size: 16px;
+    }
+    
+    @media screen and (max-width: 768px) {
+        td {
+            font-size: smaller;
+            padding: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        th {
+            font-size: smaller;
+            white-space: nowrap;
+        }
+        thead {
+            height: 20px;
+        }
     }
     </style>

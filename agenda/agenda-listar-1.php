@@ -20,11 +20,11 @@
         echo "<h2 class='display-4'>Visualize sua agenda</h2>";
         echo "</div>";
 
-       while ($linha = mysqli_fetch_assoc($resData)) {
-          // Exibir a linha da tabela com os dados
+        echo "<div class='d-flex flex-wrap me-2 mb-4 justify-content-center align-items-center'>";
+        while ($linha = mysqli_fetch_assoc($resData)) {
             echo " <a href='agenda-listar-1.php?dataFiltro=".$linha['data']."'><button class='btn'>" . date('d/m/Y', strtotime($linha['data'])) . "</button></a> " ;
         }
-
+        echo "</div>";
         // Início da tabela
         echo "<div class='tabelaAgenda' style='width: 70%; display: flex; justify-content: center;  margin: 0 auto;'>";
         echo "<div class='table-responsive'>";

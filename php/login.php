@@ -1,7 +1,14 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/login.css">
-
-<section class="mt-5">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/login.css">
+  <title>SC Cortes</title>
+</head>
+<body>
+<section>
   <form action="./login-autenticar.php" method="post" class="formulario">
     <div class="d-flex mb-3">
       <a href="../index.html">Voltar</a>
@@ -28,4 +35,5 @@
 
 <script src="../js/login-funcoes.js"></script>
 <script src="../js/login.js"></script>
-
+</body>
+</html>

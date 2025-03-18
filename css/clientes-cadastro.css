@@ -1,4 +1,5 @@
-html, body {
+/* Corpo da Página */
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -8,40 +9,37 @@ html, body {
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
-}
-
-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
+
 
 .formulario {
     width: 100%;
-    max-width: 400px;
-    background-color: #cfcfcf;
-    padding: 10px;
+    max-width: 400px; 
+    padding: 40px;
     border-radius: 10px;
+    background-color: rgba(207, 207, 207, 0.9); 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.formulario a {
-    color: #db3026;
-    text-decoration: none;
+/* Ajustando o layout da seção que contém o formulário */
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.form-control {
-    border-radius: 15px;
-    margin-bottom: 15px;
-    padding: 10px;
-}
-
+/* Estilo do Botão */
 .btn-primary {
     background-color: #db3026;
     border-color: #db3026;
     border-radius: 50px;
-    padding: 10px;
+    width: 100%;
+    padding: 12px;
     font-size: 16px;
     font-weight: 600;
     transition: 0.3s;
@@ -52,38 +50,55 @@ section {
     border-color: #85000a;
 }
 
-.btn-link {
+
+.formulario .cadastre {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
     color: #db3026;
     font-weight: 600;
     text-decoration: none;
-    text-align: center;
-    display: block;
-    margin-top: 15px;
+    transition: 0.3s;
 }
 
-.btn-link:hover {
-    color: #85000a;
-    text-decoration: underline;
+.formulario a {
+    color: #db3026;
+    text-decoration: none;
+}
+.form-control {
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 15px;
 }
 
 img {
     display: block;
     margin: 20px auto;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 120px; 
+    height: 120px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 768px) {
-    .form-control {
-        border-radius: 10px; /* Bordas um pouco mais arredondadas para móveis */
-        padding: 8px; /* Padding menor para economizar espaço */
-        font-size: 14px; /* Fonte um pouco menor para melhor legibilidade */
+@media (max-width: 768px) {
+    .formulario {
+        max-width: 80%; /* Ocupa 90% da largura da tela */
+        padding: 20px; /* Reduz o padding para telas pequenas */
     }
 
-    .formulario {
-        scale: 2;
+    .form-control {
+        padding: 10px; /* Reduz o padding dos campos de input */
+        font-size: 14px; /* Reduz o tamanho da fonte */
     }
-    
+
+    .btn-primary {
+        padding: 10px; /* Reduz o padding do botão */
+        font-size: 14px; /* Reduz o tamanho da fonte do botão */
+    }
+
+    img {
+        width: 100px; /* Reduz o tamanho da imagem */
+        height: 100px;
+    }
+
 }

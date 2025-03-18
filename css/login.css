@@ -12,16 +12,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 
 .formulario {
     width: 100%;
     max-width: 400px; 
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     background-color: rgba(207, 207, 207, 0.9); 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 7rem;
 }
 
 /* Ajustando o layout da seção que contém o formulário */
@@ -68,7 +70,7 @@ section {
 .form-control {
     border-radius: 15px;
     padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 img {
@@ -78,4 +80,27 @@ img {
     width: 120px; 
     height: 120px; 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .formulario {
+        max-width: 80%; /* Ocupa 90% da largura da tela */
+        padding: 20px; /* Reduz o padding para telas pequenas */
+    }
+
+    .form-control {
+        padding: 10px; /* Reduz o padding dos campos de input */
+        font-size: 14px; /* Reduz o tamanho da fonte */
+    }
+
+    .btn-primary {
+        padding: 10px; /* Reduz o padding do botão */
+        font-size: 14px; /* Reduz o tamanho da fonte do botão */
+    }
+
+    img {
+        width: 100px; /* Reduz o tamanho da imagem */
+        height: 100px;
+    }
+
 }

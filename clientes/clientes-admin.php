@@ -128,6 +128,7 @@
                 echo "</button>";
             }
             echo "</div>";
+            echo "<p id=\'erroHorario\' class=\'text-danger\' style=\'display: none;\'>Por favor, selecione um horário.</p>";
             echo "</div>";
             echo "<input type=\'hidden\' id=\'horarioSelecionado\' name=\'horario\'>";
 
@@ -138,6 +139,20 @@
     </main>
     <script src="../js/agendar-alertar.js"></script>
     <script>
+    document.addEventListener(\'DOMContentLoaded\', function () {
+        const form = document.querySelector(\'form\');
+        const erroHorario = document.getElementById(\'erroHorario\');
+
+        form.addEventListener(\'submit\', function (event) {
+                const horarioSelecionado = document.getElementById(\'horarioSelecionado\').value;
+                if (!horarioSelecionado) {
+                    event.preventDefault();
+                    erroHorario.style.display = \'block\';
+                } else {
+                    erroHorario.style.display = \'none\';
+                }
+            });
+        });
     function selecionarHorario(horarioId) {
         document.getElementById(\'horarioSelecionado\').value = horarioId;
         const botoes = document.querySelectorAll("button[type=\'button\']");
@@ -293,6 +308,22 @@
         padding: 10px;
         font-size: 16px;
     }
+    
+    @media screen and (max-width: 768px) {
+        td {
+            font-size: smaller;
+            padding: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        th {
+            font-size: smaller;
+            white-space: nowrap;
+        }
+        thead {
+            height: 20px;
+        }
+    }
     </style>';
 
     file_put_contents("../usuario/php/agenda-agendar-$id.php", $agendaPhp);
@@ -334,11 +365,11 @@
         echo "<h2 class=\'display-4\'>Visualize sua agenda</h2>";
         echo "</div>";
 
-       while ($linha = mysqli_fetch_assoc($resData)) {
-          // Exibir a linha da tabela com os dados
+        echo "<div class=\'d-flex flex-wrap me-2 mb-4 justify-content-center align-items-center\'>";
+        while ($linha = mysqli_fetch_assoc($resData)) {
             echo " <a href=\'agenda-listar-'.$id_admin.'.php?dataFiltro=".$linha[\'data\']."\'><button class=\'btn\'>" . date(\'d/m/Y\', strtotime($linha[\'data\'])) . "</button></a> " ;
         }
-
+        echo "</div>";
         // Início da tabela
         echo "<div class=\'tabelaAgenda\' style=\'width: 70%; display: flex; justify-content: center;  margin: 0 auto;\'>";
         echo "<div class=\'table-responsive\'>";
