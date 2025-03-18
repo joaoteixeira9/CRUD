@@ -1,63 +1,72 @@
-// Remover um item do carrinho
-document.addEventListener('click', function (e) {
-    if (e.target && e.target.classList.contains('remove-item')) {
-        const index = e.target.getAttribute('data-index');
-        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-        // Remove o item selecionado
-        carrinho.splice(index, 1);
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', addToCart);
+    });
 
-        // Atualiza o carrinho no localStorage
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    function addToCart(event) {
+        const button = event.target;
+        const product = {
+            id: button.getAttribute('data-id'),
+            nome: button.getAttribute('data-nome'),
+            preco: button.getAttribute('data-preco'),
+            unidade: button.getAttribute('data-unidade'),
+            descricao: button.getAttribute('data-descricao'),
+            imagem: button.getAttribute('data-imagem')
+        };
 
-        // Atualiza a exibição do carrinho
-        atualizarCarrinho();
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert('Produto adicionado ao carrinho!');
+        updateCartUI();
     }
-});
 
-// Função para atualizar a exibição do carrinho
-function atualizarCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    const cartItems = document.getElementById('cart-items');
-    const totalPriceElement = document.getElementById('total-price');
+    function updateCartUI() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalPrice = 0;
 
-    // Limpa os itens exibidos
-    cartItems.innerHTML = '';
+        cartItemsContainer.innerHTML = '';
 
-    if (carrinho.length === 0) {
-        cartItems.innerHTML = '<p>Seu carrinho está vazio.</p>';
-        totalPriceElement.textContent = 'R$ 0.00';  // Exibe zero quando o carrinho estiver vazio
-    } else {
-        let total = 0;
-
-        // Exibe cada item do carrinho
-        carrinho.forEach((produto, index) => {
-            const item = document.createElement('div');
-            item.classList.add('col-md-4', 'd-flex', 'align-items-stretch', 'mb-4');
-            item.innerHTML = `
-                <div class="card shadow-sm">
-                    <img src="${produto.imagem}" alt="${produto.nome}" class="card-img-top" style="height: 200px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title">${produto.nome}</h5>
-                        <p class="card-text">R$ ${produto.preco.toFixed(2)}</p>
-                        <p>Unidade: ${produto.unidade}</p>
-                        <div class="descricao" style="height: 70px; overflow-y: auto;">
-                            <p>${produto.descricao}</p>
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+        } else {
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('col-md-4', 'mb-4');
+                itemElement.innerHTML = `
+                    <div class="card">
+                        <div class="image-container" style="width: 100%; height: 150px; overflow: hidden;">
+                            <img src="${item.imagem}" class="card-img-top img-fluid" alt="${item.nome}" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <button class="remove-item btn btn-danger btn-sm" data-index="${index}">Remover</button>
+                        <div class="card-body">
+                            <h5 class="card-title">${item.nome}</h5>
+                            <p class="card-text">${item.descricao}</p>
+                            <p class="card-text">${item.unidade}</p>
+                            <p class="card-text">R$ ${item.preco}</p>
+                            <button class="btn btn-danger" onclick="removeFromCart(${index})">Remover</button>
+                        </div>
                     </div>
-                </div>
-            `;
-            cartItems.appendChild(item);
+                `;
+                cartItemsContainer.appendChild(itemElement);
+                totalPrice += parseFloat(item.preco);
+            });
+        }
 
-            // Calcula o total com base no preço e unidade
-            total += produto.preco * produto.unidade;
-        });
-
-        // Exibe o preço total no carrinho
-        totalPriceElement.textContent = `R$ ${total.toFixed(2)}`;
+        totalPriceElement.textContent = totalPrice.toFixed(2);
     }
-}
 
-// Atualiza o carrinho na página quando a página for carregada
-window.onload = atualizarCarrinho;
+    window.removeFromCart = function(index) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartUI();
+    }
+
+    // Atualiza a UI do carrinho quando a página é carregada
+    updateCartUI();
+});

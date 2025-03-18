@@ -20,16 +20,13 @@
                 <a class="nav-link" href="./agenda-barbeiro.php">Agendar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./produtos.php">Produtos</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./carrinho.php">Carrinho</a>
+                <a class="nav-link" href="./produtos.php">Produtos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./checkout.php">Carrinho</a>
+                <a class="nav-link" href="./carrinho.php">Carrinho</a>
             </li>
             <li class="nav-item logo-container">
                 <a href="./usuario-home.php"><img src="../../img/scCortes.png" alt="Logo Barbearia SC Cortes" class="logo-image"></a>
