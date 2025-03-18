@@ -18,14 +18,12 @@ include "../includes/conexao.php";
                 <th scope="col">AÇÕES</th>
             </tr>
         </thead>
+        <tbody>
         <?php
-
         $sql = "SELECT id, nome, descricao, unidade, REPLACE(preco, '.', ',' ) AS preco FROM produtos";
         $resultado = mysqli_query($conexao, $sql);
-        echo "<br><br>";
 
         while($linha = mysqli_fetch_assoc($resultado)){
-            echo "<tbody>";
             echo "<tr>";
             echo "<td> {$linha['nome']} </td>";
             echo "<td> {$linha['descricao']} </td>";
@@ -40,7 +38,6 @@ include "../includes/conexao.php";
             echo "</a>";
             echo "</td>";
             echo "</tr>";
-            echo "</tbody>";
         }
 
         mysqli_close($conexao);
@@ -53,6 +50,7 @@ include "../includes/conexao.php";
         */
 
         ?>
+        </tbody>
         </table>
     </div>
 </main>

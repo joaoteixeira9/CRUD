@@ -67,6 +67,7 @@ include "../includes/conexao.php";
                 fim debugar
                 */
             ?>
+
         </table>
     </div>
 </main>

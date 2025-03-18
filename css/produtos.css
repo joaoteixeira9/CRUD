@@ -1,3 +1,8 @@
+.produto-imagem {
+    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    height: 200px; /* Define a altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
 
 .produtos-lista {
     display: grid;
