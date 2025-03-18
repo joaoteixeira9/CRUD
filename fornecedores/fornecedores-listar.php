@@ -2,10 +2,12 @@
 include "../includes/header.php";
 include "../includes/conexao.php";
 ?>
+
 <main>
     <link rel="stylesheet" href="../css/fornecedores-listar.css">
     <br>
     <h2 class="container-fluid">Todos os fornecedores</h2>
+    <a class="container-fluid" href="../fornecedores/fornecedores-cadastrar.php">Adicionar novo Fornecedor</a>
     <div class="table-responsive">
         <table class="table table-hover border">
         <thead>
@@ -21,7 +23,6 @@ include "../includes/conexao.php";
                 <th scope="col">AÇÕES</th>
             </tr>
         </thead>
-        
             <?php
                 $sql = "SELECT * FROM `fornecedores`";
                 if ($resultado = mysqli_query($conexao, $sql)) {
@@ -32,9 +33,8 @@ include "../includes/conexao.php";
 
                 while($linha = mysqli_fetch_assoc($resultado)){  
                     echo "<tbody>";                
-                    echo "<tr>";
-
-                    echo "<td> {$linha['id']} </td>"; 
+                    echo "<tr>"; //começo coluna
+                    echo "<td> {$linha['id']} </td>"; // {} => interpolação de strings
                     echo "<td> {$linha['nome']} </td>";
                     echo "<td> {$linha['telefone']} </td>";
                     echo "<td> {$linha['endereco']} </td>";
@@ -42,18 +42,23 @@ include "../includes/conexao.php";
                     echo "<td> {$linha['pix']} </td>";
                     echo "<td> {$linha['cnpj']} </td>";
                     echo "<td> {$linha['descricao']} </td>";
-                    echo "<td>";
-
+            
+                    echo "<td>"; //começo ações
+                    // excluir linhas de serviços
                     echo "<a href ='../fornecedores/fornecedores-excluir.php?id={$linha['id']}'>";
-                    echo "<img src='../img/lixeira.svg' width='25'>";
+                    echo "<img src='../img/lixeira.svg' alt=''>";
                     echo "</a>";
                     echo "<td>";
+                    // fim excluir linhas de serviços
 
+                    //editar linhas de serviços
                     echo "<a href ='../fornecedores/fornecedores-editar.php?id={$linha['id']}'>";
-                    echo "<img src='../img/editar.svg' width='25'>";
+                    echo "<img src='../img/editar.svg' alt=''>";
                     echo "</a>";
-                    echo "</td>";
-                    echo "</tbody>";
+                    //fim editar linhas de serviços
+
+                    echo "</td>"; // fim ações
+                    echo "</tbody>"; // fim coluna
                     echo "</tr>";
                    
                 }
@@ -66,9 +71,9 @@ include "../includes/conexao.php";
                 echo "</pre>";
                 fim debugar
                 */
-            ?>
-
+                ?>
         </table>
     </div>
 </main>
+
 <?php include "../includes/footer.php"; ?>
