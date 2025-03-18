@@ -19,7 +19,7 @@ include "../includes/conexao.php";
             <th scope="col">PIX</th>
             <th scope="col">CNPJ</th>
             <th scope="col">DESCRIÇÃO</th>
-
+            <th scope="col">AÇÕES</th>
         </tr>
     </thead>
 <?php

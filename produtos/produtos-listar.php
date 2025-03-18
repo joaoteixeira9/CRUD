@@ -35,9 +35,12 @@ while($linha = mysqli_fetch_assoc($resultado)){
     echo "<a href ='produtos-excluir.php?id={$linha['id']}'>";
     echo "<img src='../img/lixeira.svg' width='25'>";
     echo "</a>";
+
+    echo "<td>";
     echo "<a href ='produtos-editar.php?id={$linha['id']}'>";
     echo "<img src='../img/editar.svg' width='25'>";
     echo "</a>";
+
     echo "</td>";
     echo "</tr>";
     echo "</tbody>";

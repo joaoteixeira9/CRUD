@@ -43,4 +43,6 @@
   
   <button type="submit" class="btn btn-outline-success">Salvar</button>
 </form>
+</main>
+<script src="../js/validar.js"></script>
 <?php include "../includes/footer.php"; ?>
