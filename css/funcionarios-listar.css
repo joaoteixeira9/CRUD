@@ -30,3 +30,18 @@ td a[href*="excluir"]:hover img {
 td a[href*="editar"]:hover img {
     filter: brightness(0) saturate(100%) invert(20%) sepia(90%) saturate(400%) hue-rotate(210deg) brightness(90%) contrast(85%);
 }
+
+@media screen and (max-width: 768px) {
+    td {
+        font-size: smaller;
+        padding: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    th {
+        font-size: smaller;
+    }
+    thead {
+        height: 20px;
+    }
+}

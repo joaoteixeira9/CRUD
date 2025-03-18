@@ -46,23 +46,24 @@
     </nav>
 </header>
 
-<script>// Seleciona o botão de menu e o menu de navegação
-const mobileMenu = document.getElementById("mobile-menu");
-const navMenu = document.getElementById("nav-menu");
+<script>
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navMenu = document.getElementById("nav-menu");
 
-// Adiciona um evento de clique ao botão de menu
-mobileMenu.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
-
-// Fecha o menu ao clicar em um link
-const navLinks = document.querySelectorAll(".nav-link");
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-            navMenu.classList.remove("active");
-        }
+    // Adiciona um evento de clique ao botão de menu
+    mobileMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
     });
-});</script>
+
+    // Fecha o menu ao clicar em um link
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove("active");
+            }
+        });
+    });
+</script>
 </body>
 </html>

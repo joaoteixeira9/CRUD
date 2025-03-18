@@ -1,7 +1,20 @@
-/* Estilo geral */
 body {
     background-color: #ffffff;
     color: #000000;
     font-family: 'Poppins', sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+    td {
+        font-size: smaller;
+        padding: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    th {
+        font-size: smaller;
+    }
+    thead {
+        height: 20px;
+    }
+}

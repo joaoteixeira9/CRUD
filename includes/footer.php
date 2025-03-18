@@ -8,7 +8,7 @@
     </div>
 
     <!-- Contatos e Horários -->
-    <div class="col-md-4 mb-4">
+    <div class="contatos col-md-4 mb-4">
         <h4>Contatos</h4>
         <p>+55 (19) 99999-9999</p>
         <p>exemplo@email.com</p>
@@ -19,15 +19,10 @@
         <p>Exceto feriados</p>
       </div>
 
-    <!-- Sobre os barbeiros -->
-    <div>
-      <p><a href="#" class="text-white">Samequê Costa</a></p>
-    </div>
-
-    <div>
-      <h4>Localização</h4>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.702312132589!2d-47.29144362390114!3d-22.73930347937337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c897ee1bb55327%3A0xddbef33aa608d9fa!2sSc%20Cortes!5e0!3m2!1spt-BR!2sbr!4v1738160133104!5m2!1spt-BR!2sbr" width="300" height="210" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+      <div class="loc">
+        <h4>Localização</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.702312132589!2d-47.29144362390114!3d-22.73930347937337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c897ee1bb55327%3A0xddbef33aa608d9fa!2sSc%20Cortes!5e0!3m2!1spt-BR!2sbr!4v1738160133104!5m2!1spt-BR!2sbr" width="300" height="210" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
   </div>
 
   <!-- Redes Sociais -->
