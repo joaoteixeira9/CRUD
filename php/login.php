@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/login.css">
 
-<section class="container mt-5">
+<section class="mt-5">
   <form action="./login-autenticar.php" method="post" class="formulario">
     <div class="d-flex mb-3">
       <a href="../index.html">Voltar</a>

@@ -93,6 +93,7 @@
             echo "<label for=\'dataSelecionada\' class=\'form-label\' style=\'color: #34495e;\'>Data:</label>";
             echo "<input type=\'date\' id=\'dataSelecionada\' name=\'data\' class=\'form-control\' style=\'background: #fdfefe; border: 1px solid #bdc3c7;\' required>";
             echo "</div>";
+            echo "<p id=\'alertData\'></p>";
 
             // Geração de Horários e Botões
             function gerarHorarios($inicio, $fim, $intervalo) {
@@ -135,6 +136,7 @@
         }
     ?>
     </main>
+    <script src="../js/agendar-alertar.js"></script>
     <script>
     function selecionarHorario(horarioId) {
         document.getElementById(\'horarioSelecionado\').value = horarioId;
@@ -334,7 +336,7 @@
 
        while ($linha = mysqli_fetch_assoc($resData)) {
           // Exibir a linha da tabela com os dados
-            echo " <a href=\'agenda-listar-'.$id_admin.'.php?dataFiltro=".$linha[\'data\']."\'><button class=\'btn\'" . date(\'d/m/Y\', strtotime($linha[\'data\'])) . "</button></a> " ;
+            echo " <a href=\'agenda-listar-'.$id_admin.'.php?dataFiltro=".$linha[\'data\']."\'><button class=\'btn\'>" . date(\'d/m/Y\', strtotime($linha[\'data\'])) . "</button></a> " ;
         }
 
         // Início da tabela

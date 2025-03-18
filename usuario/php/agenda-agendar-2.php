@@ -10,7 +10,7 @@
         $res = mysqli_query($conexao, $sql);
         while ($l = mysqli_fetch_assoc($res)) {
 
-        echo "<form action='./agenda-salvar-3.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
+        echo "<form action='./agenda-salvar-2.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
             
             // Seleção de Profissional
             $sql = "SELECT * FROM clientes WHERE id = '$id_admin'";
@@ -71,6 +71,7 @@
             echo "<label for='dataSelecionada' class='form-label' style='color: #34495e;'>Data:</label>";
             echo "<input type='date' id='dataSelecionada' name='data' class='form-control' style='background: #fdfefe; border: 1px solid #bdc3c7;' required>";
             echo "</div>";
+            echo "<p id='alertData'></p>";
 
             // Geração de Horários e Botões
             function gerarHorarios($inicio, $fim, $intervalo) {
@@ -84,7 +85,7 @@
                 return $horarios;
             }
             $horariosDisponiveis = gerarHorarios('09:00', '17:00', 30);
-            $sql = "SELECT * FROM agenda_3";
+            $sql = "SELECT * FROM agenda_2";
             $res = mysqli_query($conexao, $sql);
             $reservados = [];
             while ($l = mysqli_fetch_assoc($res)) {
@@ -113,6 +114,7 @@
         }
     ?>
     </main>
+    <script src="../js/agendar-alertar.js"></script>
     <script>
     function selecionarHorario(horarioId) {
         document.getElementById('horarioSelecionado').value = horarioId;
