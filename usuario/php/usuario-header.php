@@ -11,29 +11,6 @@
     <title>SC Cortes</title>
 </head>
 <body>
-    <header class="">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="../../">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./agenda-barbeiro.php">Agendar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./produtos.php">Produtos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./carrinho.php">Carrinho</a>
-            </li>
-            <li class="nav-item logo-container">
-                <a href="./usuario-home.php"><img src="../../img/scCortes.png" alt="Logo Barbearia SC Cortes" class="logo-image"></a>
-                <a href="./usuario-home.php"><h1 class="fs-3 logo-text">Barbearia SC Cortes</h1></a>
-            </li>
-        </ul>
-    </header>
     <header class="cabecalho">
         <nav>
             <div class="menu-toggle" id="mobile-menu">
@@ -49,10 +26,10 @@
                     <a class="nav-link" href="./agenda-barbeiro.php">Agendar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./produtos.php">Produtos</a>
+                    <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./usuario-funcionarios-listar.php">Funcionários</a>
+                    <a class="nav-link" href="./produtos.php">Produtos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./carrinho.php">Carrinho</a>
