@@ -18,14 +18,12 @@ include "../includes/conexao.php";
                 <th scope="col">AÇÕES</th>
             </tr>
         </thead>
+        <tbody>
         <?php
-
         $sql = "SELECT id, nome, descricao, unidade, REPLACE(preco, '.', ',' ) AS preco FROM produtos";
         $resultado = mysqli_query($conexao, $sql);
-        echo "<br><br>";
 
         while($linha = mysqli_fetch_assoc($resultado)){
-            echo "<tbody>";
             echo "<tr>";
             echo "<td> {$linha['nome']} </td>";
             echo "<td> {$linha['descricao']} </td>";
@@ -40,36 +38,9 @@ include "../includes/conexao.php";
             echo "</a>";
             echo "</td>";
             echo "</tr>";
-            echo "</tbody>";
         }
-
-<<<<<<< HEAD
-    echo "<td>";
-    echo "<a href ='produtos-excluir.php?id={$linha['id']}'>";
-    echo "<img src='../img/lixeira.svg' width='25'>";
-    echo "</a>";
-
-    echo "<td>";
-    echo "<a href ='produtos-editar.php?id={$linha['id']}'>";
-    echo "<img src='../img/editar.svg' width='25'>";
-    echo "</a>";
-
-    echo "</td>";
-    echo "</tr>";
-    echo "</tbody>";
-}
-=======
-        mysqli_close($conexao);
->>>>>>> 6beefeca509161c95e221ae4a111b3dbfa556a9d
-
-        /*para debugar
-        echo "<pre>";
-        print_r($resultado);
-        echo "</pre>";
-        fim debugar
-        */
-
         ?>
+        </tbody>
         </table>
     </div>
 </main>

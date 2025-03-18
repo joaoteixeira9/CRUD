@@ -19,22 +19,6 @@ include "../includes/conexao.php";
                     <th scope="col">CNPJ</th>
                     <th scope="col">DESCRIÇÃO</th>
 
-<<<<<<< HEAD
-    <table class="table table-hover border">
-    <thead>
-        <tr>
-            <th scope="col">NOME</th>
-            <th scope="col">TELEFONE</th>
-            <th scope="col">ENDERECO</th>
-            <th scope="col">PRODUTO</th>
-            <th scope="col">PIX</th>
-            <th scope="col">CNPJ</th>
-            <th scope="col">DESCRIÇÃO</th>
-            <th scope="col">AÇÕES</th>
-        </tr>
-    </thead>
-<?php
-=======
                 </tr>
             </thead>
             <?php
@@ -55,7 +39,6 @@ include "../includes/conexao.php";
                     echo "<td> {$linha['pix']} </td>";
                     echo "<td> {$linha['cnpj']} </td>";
                     echo "<td> {$linha['descricao']} </td>";
->>>>>>> 6beefeca509161c95e221ae4a111b3dbfa556a9d
 
                     echo "<td>";
                     echo "<a href ='fornecedores-excluir.php?id={$linha['id']}'>";

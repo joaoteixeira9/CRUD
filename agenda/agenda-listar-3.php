@@ -19,17 +19,16 @@
         echo "<div class='container text-center my-4'>";
         echo "<h2 class='display-4'>Visualize sua agenda</h2>";
         echo "</div>";
-        echo "<div class='d-inline'>";
-            while ($linha = mysqli_fetch_assoc($resData)) {
-                // Exibir a linha da tabela com os dados
-                echo "<a href='agenda-listar-3.php?dataFiltro=".$linha['data']."'><button class='btn ml-2 mb-3'>" . date('d/m/Y', strtotime($linha['data'])) . "</button></a>" ;
-            }
-        echo "</div>";
+
+       while ($linha = mysqli_fetch_assoc($resData)) {
+          // Exibir a linha da tabela com os dados
+            echo " <a href='agenda-listar-3.php?dataFiltro=".$linha['data']."'><button class='btn'" . date('d/m/Y', strtotime($linha['data'])) . "</button></a> " ;
+        }
 
         // Início da tabela
         echo "<div class='tabelaAgenda' style='width: 70%; display: flex; justify-content: center;  margin: 0 auto;'>";
-
-        echo "<table class='table' style='border-collapse: collapse;'>";
+        echo "<div class='table-responsive'>";
+        echo "<table class='table'>";
         echo "<thead style='background-color: #34495e; color: white;'>
                 <tr>
                     <th>Cliente</th>
@@ -78,6 +77,7 @@
 
         // Fechar a tabela
         echo "</tbody></table>";
+        echo "</div>";
         echo "</div>";
         echo "<br>";
         // Fechar a conexão com o banco de dados
