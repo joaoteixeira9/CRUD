@@ -14,7 +14,7 @@ include "../includes/conexao.php";
             <thead class="thead-light">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">NOME    </th>
+                    <th scope="col">NOME</th>
                     <th scope="col">TELEFONE</th>
                     <th scope="col">EMAIL</th>
                     <th scope="col">TIPO DE USUÁRIO</th>

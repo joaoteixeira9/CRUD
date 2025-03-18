@@ -39,6 +39,16 @@ include "../includes/conexao.php";
             echo "</td>";
             echo "</tr>";
         }
+
+        mysqli_close($conexao);
+
+        /*para debugar
+        echo "<pre>";
+        print_r($resultado);
+        echo "</pre>";
+        fim debugar
+        */
+
         ?>
         </tbody>
         </table>

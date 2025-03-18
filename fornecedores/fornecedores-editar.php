@@ -1,36 +1,57 @@
-<?php 
-    include "header.php" ;
-    include "conexao.php";
-
+<?php
+    include "../includes/header.php";
+    include "../includes/conexao.php";
+ 
     $id = $_GET["id"];
-    $sql = "SELECT * FROM fornecedores WHERE id = '$id'";
-    $nome = $telefone = $endereco = $produto = $pix = $CNPJ = "";
-    
+    $sql = "SELECT * FROM fornecedores WHERE id = $id";
+    $nome = $telefone = $endereco = $produto = $pix = $cnpj = $descricao = "";
+ 
     $resultado = mysqli_query($conexao, $sql);
-    while ($l = mysqli_fetch_assoc($resultado)) {
-        $nome = $l['nome'];
-        $telefone = $l['telefone'];
-        $endereco = $l['endereco'];
-        $produto = $l['produto'];
-        $pix = $l['pix'];
-        $CNPJ = $l['cnpjJ'];
-        $acoes = $l['acoes'];
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+        $nome = $linha['nome'];
+        $telefone = $linha['telefone'];
+        $endereco = $linha['endereco'];
+        $produto = $linha['produto'];
+        $pix = $linha['pix'];
+        $cnpj = $linha['cnpj'];
+        $descricao = $linha['descricao'];
     }
     mysqli_close($conexao);
 ?>
-
-<main>
-    <h2>Editar um fornecedor</h2>
-    <form method="post" action="fornecedores-atualizar.php?id=<?=$id;?>">
-        <label>Nome: <input name="nome" value="<?=$nome;?>"></label> <br>
-        <label>Telefone: <input name="telefone" value="<?=$telefone;?>"></label> <br>
-        <label>Endereco: <input name="endereco" value="<?=$endereco;?>"></label> <br>
-        <label>Produto: <input name="produto" value="<?=$produto;?>"></label> <br>
-        <label>Pix: <input name="pix" value="<?=$pix;?>"></label> <br>
-        <label>Cnpj: <input name="cnpj" value="<?=$cnpj;?>"></label> <br>
-        <label>Açoes: <input name="acoes" value="<?=$acoes;?>"></label> <br>
-        <button type="submit">salvar</button>
+<main class="mt-2">
+    <link rel="stylesheet" href="../css/fornecedores-editar.css">
+ 
+    <form method="post" action="./fornecedores-atualizar.php?id=<?= $id; ?>" onsubmit="return validarFormularioFornecedores()" class="border p-4 rounded">
+        <h2 class="mb-4">Editar fornecedores</h2>
+ 
+        <div class="mb-3">
+            <label for="s-nome" class="form-label">Nome:</label>
+            <input name="nome" id="s-nome" class="form-control" value="<?= $nome; ?>">
+        </div>
+ 
+        <div class="mb-3">
+            <label for="s-telefone" class="form-label">Telefone:</label>
+            <input name="telefone" id="s-telefone" class="form-control" value="<?= $telefone; ?>">
+        </div>
+ 
+        <div class="mb-3">
+            <label for="s-produto" class="form-label">Produto:</label>
+            <input name="produto" id="s-produto" class="form-control" value="<?= $produto; ?>">
+        </div>
+        <div class="mb-3">
+            <label for="s-pix" class="form-label">Pix:</label>
+            <input name="pix" id="s-pix" class="form-control" value="<?= $pix; ?>">
+        </div>
+        <div class="mb-3">
+            <label for="s-cnpj" class="form-label">Cnpj:</label>
+            <input name="cnpj" id="s-cnpj" class="form-control" value="<?= $cnpj; ?>">
+        </div>
+ 
+        <div class="mb-3 text-center">
+            <button type="submit" class="btn btn-outline-primary">Editar</button>
+        </div>
     </form>
 </main>
-
-<?php include "footer.php"?>
+<script src="../js/validar.js"></script>
+<?php include "../includes/footer.php"; ?>
+ 

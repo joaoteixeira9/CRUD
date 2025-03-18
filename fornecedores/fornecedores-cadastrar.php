@@ -2,9 +2,11 @@
   include "../includes/header.php"; 
   include "../includes/conexao.php"; 
   ?>
-<form action>
-  <div class="form-row">
-    <div class="form-group col-md-6">
+    <main class="mt-2">
+      <link rel="stylesheet" href="../css/fornecedores-cadastrar.css">
+     <form method="post" action="./produtos-salvar.php" enctype="multipart/form-data" class="border p-4 rounded" onsubmit="return validarFormularioProdutos()">
+        <h2 class="mb-4">Adicionar novo Produto</h2>
+        <div class="mb-3">
       <label for="nome">Nome:</label>
       <input type="text" class="form-control" id="inputEmail4" placeholder="Nome do Fornecedor">
     </div>
@@ -40,7 +42,7 @@
       </select>
     </div>
   </div>
-  
+  </main>
   <button type="submit" class="btn btn-outline-success">Salvar</button>
 </form>
 </main>
