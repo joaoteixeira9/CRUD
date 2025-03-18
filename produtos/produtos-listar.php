@@ -43,24 +43,7 @@ include "../includes/conexao.php";
             echo "</tbody>";
         }
 
-<<<<<<< HEAD
-    echo "<td>";
-    echo "<a href ='produtos-excluir.php?id={$linha['id']}'>";
-    echo "<img src='../img/lixeira.svg' width='25'>";
-    echo "</a>";
-
-    echo "<td>";
-    echo "<a href ='produtos-editar.php?id={$linha['id']}'>";
-    echo "<img src='../img/editar.svg' width='25'>";
-    echo "</a>";
-
-    echo "</td>";
-    echo "</tr>";
-    echo "</tbody>";
-}
-=======
         mysqli_close($conexao);
->>>>>>> 6beefeca509161c95e221ae4a111b3dbfa556a9d
 
         /*para debugar
         echo "<pre>";
