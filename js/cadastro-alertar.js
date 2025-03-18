@@ -77,10 +77,10 @@ document.getElementById("senha").addEventListener("blur", function(){
     }
 })
 
-document.getElementById("confirmarSenha").addEventListener("blur", function(event){
+document.getElementById("confirmarSenha").addEventListener("blur", function(){
     let confirmarSenha = this.value;
     let senha = document.getElementById("senha").value;
-    let alerta = document.getElementById("alertConfirmarSenha")
+    let alerta = document.getElementById("alertConfirmarSenha");
 
     if (!confirmarSenha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Campo obrigatório!";
