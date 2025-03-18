@@ -1,15 +1,52 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
 }
 
-main{
-    width: 50vw;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 20px;
-    margin: 0 auto;
 }
 
+form {
+    width: 100%;
+    max-width: 500px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste para inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+/* Ajuste específico para input file */
+input[type="file"] {
+    padding: 10px;
+    width: 100%;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        padding: 15px;
+    }
+
+    input[type="file"] {
+        width: 100%;
+        padding: 10px;
+    }
+}
 #p-foto{
     background-color: #db3026;
 }
