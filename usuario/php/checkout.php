@@ -6,8 +6,8 @@
 <section id="checkout">
     <div class="container">
         <h2 class="my-4">Compra Finalizada</h2>
-        
-        <!-- Exibe o total -->
+        <div id="checkout-items" class="row">
+        </div>
         <div id="checkout-total">
             <h3>Total: R$ <span id="checkout-total-price">0,00</span></h3>
         </div>
@@ -17,23 +17,12 @@
     </div>
 </section>
 
-<!-- SDK do Mercado Pago -->
 <script src="https://sdk.mercadopago.com/js/v2"></script>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Recupera os itens do carrinho do localStorage
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const checkoutTotalPriceElement = document.getElementById('checkout-total-price');
-        let totalPrice = 0;
-
-        // Calcula o total
-        cart.forEach(item => {
-            totalPrice += parseFloat(item.preco);
-        });
-
-        // Exibe o total
-        checkoutTotalPriceElement.textContent = totalPrice.toFixed(2);
+        // Recupera o preço total do sessionStorage
+        const totalPrice = sessionStorage.getItem('lastTotalPrice') || '0,00';
+        document.getElementById('checkout-total-price').textContent = totalPrice;
 
         // Configuração do Mercado Pago
         const mp = new MercadoPago('SUA_PUBLIC_KEY', {
@@ -46,7 +35,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ total: totalPrice })
+            body: JSON.stringify({ total: parseFloat(totalPrice.replace(',', '.')) })
         })
         .then(response => response.json())
         .then(data => {

@@ -1,8 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const checkoutButton = document.getElementById('checkout-btn');
 
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
+    });
+
+    // Evento para finalizar a compra
+    checkoutButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Evita o redirecionamento padrão
+
+        // Salva o preço total no sessionStorage antes de limpar o carrinho
+        const totalPrice = document.getElementById('total-price').textContent;
+        sessionStorage.setItem('lastTotalPrice', totalPrice);
+
+        // Limpa o carrinho
+        localStorage.removeItem('cart');
+
+        // Redireciona para a página de checkout
+        window.location.href = 'checkout.php';
     });
 
     function addToCart(event) {
@@ -33,7 +49,15 @@ document.addEventListener('DOMContentLoaded', function() {
         cartItemsContainer.innerHTML = '';
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+            // Verifica se há um preço salvo no sessionStorage
+            const lastTotalPrice = sessionStorage.getItem('lastTotalPrice');
+            if (lastTotalPrice) {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                totalPriceElement.textContent = lastTotalPrice;
+            } else {
+                cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
+                totalPriceElement.textContent = '0,00';
+            }
         } else {
             cart.forEach((item, index) => {
                 const itemElement = document.createElement('div');
@@ -55,9 +79,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 cartItemsContainer.appendChild(itemElement);
                 totalPrice += parseFloat(item.preco);
             });
+            totalPriceElement.textContent = totalPrice.toFixed(2);
         }
-
-        totalPriceElement.textContent = totalPrice.toFixed(2);
     }
 
     window.removeFromCart = function(index) {
