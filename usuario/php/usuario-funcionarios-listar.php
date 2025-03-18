@@ -1,34 +1,44 @@
-<?php include "./usuario-header.php"; include "../../includes/conexao.php"?>
-<link rel="stylesheet" href="../../css/usuario-funcionarios-listar.css">
-<main class="container my-5">
-    <h2 class="text-center mb-4" style="color: #2c3e50;">Funcionários</h2>
-    <table class="table table-hover table-bordered rounded shadow-sm elegant-table">
-        <thead class="table-dark">
-            <tr>
-                <th>Nome</th>
-                <th>Telefone</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                $sql = "SELECT * FROM funcionarios";
-                $resultado = mysqli_query($conexao, $sql);
+<?php
+include "./usuario-header.php";
+include "../../includes/conexao.php";
+?>
 
-                while ($l = mysqli_fetch_assoc($resultado)) {
-                    // Formatando o telefone para o modelo (19) 99999-9999
-                    $telefone = $l['telefone'];
-                    $telefone_formatado = "(" . substr($telefone, 0, 2) . ") " . substr($telefone, 2, 5) . "-" . substr($telefone, 7);
+<main>
+    <link rel="stylesheet" href="../../css/funcionarios-listar.css">
+    <h2 class="container-fluid mb-3">Todos os funcionários</h2>
+    <div class="servicos">
+        <div class="table-responsive">
+            <table class="table table-hover border">
+                <thead>
+                    <tr>
+                        <th scope="col">NOME</th>
+                        <th scope="col">TELEFONE</th>
+                    </tr>
+                </thead>
+                <?php
 
-                    // Exibindo o nome e o telefone
-                    echo "<tr>";
-                    echo "<td>" . $l['nome'] . "</td>";
-                    echo "<td>" . $telefone_formatado . "</td>";
-                    echo "</tr>";
-                }
-                mysqli_close($conexao);
-            ?>
-        </tbody>
-    </table>
+                    $sql = "select * from clientes where tipoDeUsuario = 'admin'";
+                    $resultado = mysqli_query($conexao, $sql);
+                    function formatarTelefone($telefone) {
+                        return preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $telefone);
+                    }
+
+                    while($linha = mysqli_fetch_assoc($resultado)){
+                        $telefoneFormatado = formatarTelefone($linha['telefone']);
+                        echo "<tbody>";
+                        echo "<tr>";
+                        echo "<td> {$linha['nome']} </td>";
+                        echo "<td> {$telefoneFormatado} </td>";
+                        echo "</tr>";
+                        echo "</tbody>";
+                    }
+
+                    mysqli_close($conexao);
+
+                ?>
+            </table>
+        </div>
+    </div>
 </main>
-
-<?php include "./footer.php"?>
+<script src="../js/clientes-cadastro.js"></script>
+<?php include "./footer.php"; ?>
