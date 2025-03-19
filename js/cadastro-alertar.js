@@ -57,19 +57,19 @@ document.getElementById("email").addEventListener("blur", function(){
     }
 })
 
-document.getElementById("senha").addEventListener("blur", function(){
+document.getElementById("senha").addEventListener("blur", function(event){
     let senha = this.value;
     let alerta = document.getElementById("alertSenha");
 
     if(!senha){
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Campo obrigatório!";
         alerta.classList.add("text-danger");
-        this.focus();
+        event.preventDefault();
     }
     else if(senha.length < 8){
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Obrigatório ter no minímo 8 caracteres!";
         alerta.classList.add("text-danger");
-        this.focus();
+        event.preventDefault();
     }
     else{
         alerta.style.display = "none";
@@ -77,7 +77,7 @@ document.getElementById("senha").addEventListener("blur", function(){
     }
 })
 
-document.getElementById("confirmarSenha").addEventListener("blur", function(){
+document.getElementById("confirmarSenha").addEventListener("blur", function(event){
     let confirmarSenha = this.value;
     let senha = document.getElementById("senha").value;
     let alerta = document.getElementById("alertConfirmarSenha");
@@ -85,12 +85,12 @@ document.getElementById("confirmarSenha").addEventListener("blur", function(){
     if (!confirmarSenha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Campo obrigatório!";
         alerta.classList.add("text-danger");
-        this.focus();
+        event.preventDefault();
     }
     else if (confirmarSenha !== senha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> As senhas não coincidem!";
         alerta.classList.add("text-danger");
-        this.focus();
+        event.preventDefault();
     }
     else {
         alerta.style.display = "none";
