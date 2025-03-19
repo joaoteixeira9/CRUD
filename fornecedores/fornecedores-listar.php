@@ -7,7 +7,6 @@ include "../includes/conexao.php";
     <link rel="stylesheet" href="../css/fornecedores-listar.css">
     <br>
     <h2 class="container-fluid">Todos os fornecedores</h2>
-    <a class="container-fluid" href="../fornecedores/fornecedores-cadastrar.php">Adicionar novo Fornecedor</a>
     <div class="table-responsive">
         <table class="table table-hover border">
         <thead>
@@ -51,11 +50,6 @@ include "../includes/conexao.php";
                     echo "<td>";
                     // fim excluir linhas de serviços
 
-                    //editar linhas de serviços
-                    echo "<a href ='../fornecedores/fornecedores-editar.php?id={$linha['id']}'>";
-                    echo "<img src='../img/editar.svg' alt=''>";
-                    echo "</a>";
-                    //fim editar linhas de serviços
 
                     echo "</td>"; // fim ações
                     echo "</tbody>"; // fim coluna

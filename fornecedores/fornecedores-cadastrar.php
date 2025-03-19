@@ -6,9 +6,6 @@
 <main class="mt-2">
   <link rel="stylesheet" href="../css/fornecedores-cadastrar.css">
 
-  <form method="post" action="./produtos-salvar.php" enctype="multipart/form-data" class="border p-4 rounded" onsubmit="return validarFormularioProdutos()">
-    <h2 class="mb-4">Adicionar novo Fornecedor</h2>
-
     <!-- Nome -->
     <div class="mb-3">
       <label for="nome">Nome:</label>
