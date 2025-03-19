@@ -41,7 +41,7 @@
                 echo "<tr style='border-bottom: 1px solid #bdc3c7;'>";
                 echo "<td style='padding: 8px; color: #2c3e50;'> {$linha['servico']} </td>";
                 echo "<td style='padding: 8px; color: #2c3e50;'> {$linha['descricao']} </td>";
-                echo "<td style='padding: 8px; color: #27ae60;'>R$ {$linha['preco']} </td>";
+                echo "<td style='padding: 8px; color: #27ae60;'> {$linha['preco']} </td>";
                 echo "<td style='padding: 8px; color: #2c3e50;'> {$linha['categoria']} </td>";
                 echo "</tr>";
             }

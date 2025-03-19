@@ -14,7 +14,7 @@
         <p>exemplo@email.com</p>
  
         <h4 id="nossos-hrr">Nossos horários</h4>
-        <p>Segunda-Sexta: 09:00 às 20:00</p>
+        <p>Terça-Sexta: 09:00 às 17:00</p>
         <p>Sábado: 09:00 às 15:00</p>
         <p>Exceto feriados</p>
       </div>
