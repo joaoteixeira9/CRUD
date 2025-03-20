@@ -48,12 +48,6 @@ include "../includes/conexao.php";
                     echo "<img src='../img/lixeira.svg' alt=''>";
                     echo "</a>";
                     echo "<td>";
-                    // fim excluir linhas de serviços
-
-                    //editar linhas de serviços
-                    echo "<a href ='../fornecedores/fornecedores-editar.php?id={$linha['id']}'>";
-                    echo "<img src='../img/editar.svg' alt=''>";
-                    echo "</a>";
                     //fim editar linhas de serviços
                     echo "</td>"; // fim ações
                     echo "</tbody>"; // fim coluna
