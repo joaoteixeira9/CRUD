@@ -44,12 +44,15 @@ footer {
 
 .rounded {
     margin-left: 0.5rem;
-    height: 250px;
     object-fit: cover;
 }
 
 .row {
     display: flex;
+}
+
+.informacoes{
+    margin-left: 4rem;
 }
 
 /* Estilos responsivos */

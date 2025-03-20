@@ -73,6 +73,7 @@ document.getElementById("senha").addEventListener("blur", function(){
     } else {
         alerta.style.display = "none";
         alerta.classList.remove("text-danger");
+        botao.disabled = true;
     }
 });
 

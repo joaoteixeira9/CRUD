@@ -95,7 +95,7 @@
                         <ol>
                             <li>Clique no cabeçalho <strong>"Funcionários"</strong> no menu superior.</li>
                             <li>Localize o barbeiro responsável pelo seu agendamento.</li>
-                            <li>Anote o número de telefone ou e-mail do barbeiro.</li>
+                            <li>Anote o número de telefone do barbeiro.</li>
                             <li>Entre em contato para desmarcar ou reagendar o horário.</li>
                         </ol>
                     </p>

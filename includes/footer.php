@@ -9,14 +9,17 @@
 
     <!-- Contatos e Horários -->
     <div class="contatos col-md-4 mb-4">
-        <h4>Contatos</h4>
-        <p>+55 (19) 99999-9999</p>
-        <p>exemplo@email.com</p>
- 
-        <h4 id="nossos-hrr">Nossos horários</h4>
-        <p>Terça-Sexta: 09:00 às 17:00</p>
-        <p>Sábado: 09:00 às 15:00</p>
-        <p>Exceto feriados</p>
+        <div class="informacoes">
+          <h4>Contatos</h4>
+          <p>+55 (19) 99999-9999</p>
+          <p>exemplo@email.com</p>
+  
+          <h4 id="nossos-hrr">Nossos horários</h4>
+          <p>Terça-Sexta: 09:00 às 17:00</p>
+          <p>Sábado: 09:00 às 15:00</p>
+          <p>Exceto feriados</p>
+        </div>
+        
       </div>
 
       <div class="loc">

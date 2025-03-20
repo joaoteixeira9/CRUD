@@ -36,14 +36,14 @@
                         echo "<img src='../../img/", $l['foto'], "' class='card-img-top' alt='", $l['nome'], "'>";
                         echo "<div class='card-body'>";
                         echo "<h5 class='card-title'>", $l['nome'], "</h5>";
-                        echo "<p class='card-text'>", $l['unidade'], "</p>";
+                        echo "<p class='card-text'><strong>Quantidade:</strong> ", $l['unidade'], "</p>";
                         echo "<p class='card-text'>", $l['descricao'], "</p>";
                         echo "<p class='card-text font-weight-bold'>R$ ", $l['preco'], "</p>";
                         echo "<button class='btn btn-success add-to-cart' 
                                 data-id='", $l['id'], "' 
                                 data-nome='", $l['nome'], "' 
-                                data-preco='", $l['preco'], "' 
-                                data-unidade='", $l['unidade'], "' 
+                                data-preco='R$ ", $l['preco'], "' 
+                                data-unidade='<strong>Quantidade: </strong> ", $l['unidade'], "' 
                                 data-descricao='", $l['descricao'], "' 
                                 data-imagem='../../img/", $l['foto'], "'> 
                                 Adicionar ao Carrinho

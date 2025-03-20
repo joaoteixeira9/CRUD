@@ -11,10 +11,10 @@
 
         // Consulta a tabela agenda
         $data = date('Y-m-d');
-        $sql = "SELECT * FROM agenda_2 " . $dataFiltro;
+        $sql = "SELECT * FROM agenda_16 " . $dataFiltro;
         $res = mysqli_query($conexao, $sql);
 
-        $sqlData = "SELECT distinct data FROM agenda_2";
+        $sqlData = "SELECT distinct data FROM agenda_16";
         $resData = mysqli_query($conexao, $sqlData);
         echo "<div class='container text-center my-4'>";
         echo "<h2 class='display-4'>Visualize sua agenda</h2>";
@@ -22,7 +22,7 @@
 
         echo "<div class='d-flex flex-wrap me-2 mb-4 justify-content-center align-items-center'>";
         while ($linha = mysqli_fetch_assoc($resData)) {
-            echo " <a href='agenda-listar-2.php?dataFiltro=".$linha['data']."'><button class='btn'>" . date('d/m/Y', strtotime($linha['data'])) . "</button></a> " ;
+            echo " <a href='agenda-listar-16.php?dataFiltro=".$linha['data']."'><button class='btn'>" . date('d/m/Y', strtotime($linha['data'])) . "</button></a> " ;
         }
         echo "</div>";
         // Início da tabela

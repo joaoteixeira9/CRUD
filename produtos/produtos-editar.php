@@ -41,7 +41,7 @@ mysqli_close($conexao);
         <div class="mb-3 text-center">
             <button type="submit" class="btn btn-outline-primary mt-3">Editar</button>
         </div>
-        
+
     </form>
 </main>
 <script src="../js/validar.js"></script>

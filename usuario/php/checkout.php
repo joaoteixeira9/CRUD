@@ -31,7 +31,7 @@
         checkoutItemsContainer.innerHTML = '';
 
         setTimeout(function() {
-        window.location.href = "/crud/usuario/php/produtos.php";
+        window.location.href = "./produtos.php";
     }, 2000);
     });
 </script>
