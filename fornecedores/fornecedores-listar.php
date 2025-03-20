@@ -55,7 +55,6 @@ include "../includes/conexao.php";
                     echo "<img src='../img/editar.svg' alt=''>";
                     echo "</a>";
                     //fim editar linhas de serviços
-
                     echo "</td>"; // fim ações
                     echo "</tbody>"; // fim coluna
                     echo "</tr>";
