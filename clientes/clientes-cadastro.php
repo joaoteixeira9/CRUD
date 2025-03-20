@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/clientes-cadastro.css">
+    <link rel="shortcut icon" href="../img/scCortes.ico" type="image/x-icon">
     <title>SC Cortes</title>
 </head>
 <body>
@@ -40,7 +41,7 @@
                 <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha" required>
                 <p id="alertConfirmarSenha"></p>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+            <button type="submit" id="botao-criar-conta" class="btn btn-primary btn-block">Criar conta</button>
             <a href="../php/login.php" class="btn btn-link btn-block">Já tem uma conta? Faça login</a>
         </form>
     </section>

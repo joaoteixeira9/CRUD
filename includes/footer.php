@@ -4,7 +4,7 @@
   <div class="row">
     <!-- Imagem Barbearia -->
     <div class="rounded float-start">
-      <img src="../img/barbearia.jpeg" class="rounded float-left" alt="Imagem da Barbearia">
+      <img src="../img/frenteBarbearia.png" class="rounded float-left" alt="Imagem da Barbearia">
     </div>
 
     <!-- Contatos e Horários -->
@@ -14,7 +14,7 @@
         <p>exemplo@email.com</p>
  
         <h4 id="nossos-hrr">Nossos horários</h4>
-        <p>Segunda-Sexta: 09:00 às 20:00</p>
+        <p>Terça-Sexta: 09:00 às 17:00</p>
         <p>Sábado: 09:00 às 15:00</p>
         <p>Exceto feriados</p>
       </div>

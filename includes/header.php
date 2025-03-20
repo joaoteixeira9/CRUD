@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="shortcut icon" href="../img/scCortes.ico" type="image/x-icon">
     <title>SC Cortes</title>
 </head>
 <body>
     <header class="cabecalho">
         <!-- Navbar do Bootstrap -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="../php/home.php">
+            <a class="navbar-brand" href="../">
                 <img src="../img/scCortes.png" alt="Logo Barbearia SC Cortes" class="logo-image" style="height: 50px;">
                 <span class="fs-3 logo-text">Barbearia SC Cortes</span>
             </a>
@@ -22,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../">Inicio</a>
+                        <a class="nav-link text-white" href="../php/home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="../clientes/clientes-listar.php">Clientes</a>

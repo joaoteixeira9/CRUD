@@ -57,43 +57,50 @@ document.getElementById("email").addEventListener("blur", function(){
     }
 })
 
-document.getElementById("senha").addEventListener("blur", function(event){
+document.getElementById("senha").addEventListener("blur", function(){
     let senha = this.value;
     let alerta = document.getElementById("alertSenha");
+    let botao = document.getElementById("botao-criar-conta");
 
-    if(!senha){
+    if (!senha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Campo obrigatório!";
         alerta.classList.add("text-danger");
-        event.preventDefault();
-    }
-    else if(senha.length < 8){
-        alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Obrigatório ter no minímo 8 caracteres!";
+        botao.disabled = true;
+    } else if (senha.length < 8) {
+        alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Obrigatório ter no mínimo 8 caracteres!";
         alerta.classList.add("text-danger");
-        event.preventDefault();
-    }
-    else{
+        botao.disabled = true;
+    } else {
         alerta.style.display = "none";
         alerta.classList.remove("text-danger");
     }
-})
+});
 
-document.getElementById("confirmarSenha").addEventListener("blur", function(event){
+
+document.getElementById("confirmarSenha").addEventListener("blur", function(){
     let confirmarSenha = this.value;
     let senha = document.getElementById("senha").value;
     let alerta = document.getElementById("alertConfirmarSenha");
+    let botao = document.getElementById("botao-criar-conta");
 
     if (!confirmarSenha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Campo obrigatório!";
         alerta.classList.add("text-danger");
-        event.preventDefault();
+        botao.disabled = true;
+    }
+    else if(confirmarSenha.length < 8){
+        alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> Obrigatório ter no minímo 8 caracteres!";
+        alerta.classList.add("text-danger");
+        botao.disabled = true;
     }
     else if (confirmarSenha !== senha) {
         alerta.innerHTML = "<i class='bi bi-exclamation-circle-fill'></i> As senhas não coincidem!";
         alerta.classList.add("text-danger");
-        event.preventDefault();
+        botao.disabled = true;
     }
     else {
         alerta.style.display = "none";
         alerta.classList.remove("text-danger");
+        botao.disabled = false;
     }
 })

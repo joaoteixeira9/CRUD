@@ -41,7 +41,7 @@
                 echo "<tr style='border-bottom: 1px solid #bdc3c7;'>";
                 echo "<td style='padding: 8px; color: #2c3e50;'> {$linha['servico']} </td>";
                 echo "<td style='padding: 8px; color: #2c3e50;'> {$linha['descricao']} </td>";
-                echo "<td style='padding: 8px; color: #27ae60;'>R$ {$linha['preco']} </td>";
+                echo "<td style='padding: 8px; color: #27ae60;'> {$linha['preco']} </td>";
                 echo "<td style='padding: 8px; color: #2c3e50;'> {$linha['categoria']} </td>";
                 echo "</tr>";
             }
@@ -61,10 +61,9 @@
             echo "</div>";
             echo "<br>";
             echo "<p class='text-muted fst-italic mb-3'> 
-            Escolha uma data para o serviço. 
-            <strong>Lembramos que não trabalhamos aos domingos e segundas-feiras.</strong> 
-            Caso selecione um desses dias, ajustaremos automaticamente para a próxima terça-feira.
-          </p>";
+            Escolha uma data para o serviço.<br> 
+            <strong>Lembramos que não trabalhamos aos domingos e segundas-feiras.</strong>
+            </p>";
     
             // Campo de Data
             echo "<div class='mb-3'>";
@@ -72,6 +71,7 @@
             echo "<input type='date' id='dataSelecionada' name='data' class='form-control' style='background: #fdfefe; border: 1px solid #bdc3c7;' required>";
             echo "</div>";
             echo "<p id='alertData'></p>";
+            echo "<p class='text-danger' id='alertDataDS'></p>";
 
             // Geração de Horários e Botões
             function gerarHorarios($inicio, $fim, $intervalo) {
@@ -131,7 +131,8 @@
                 }
             });
         });
-    function selecionarHorario(horarioId) {
+        
+        function selecionarHorario(horarioId) {
         document.getElementById('horarioSelecionado').value = horarioId;
         const botoes = document.querySelectorAll("button[type='button']");
         botoes.forEach(btn => btn.style.backgroundColor = '#db3026');
@@ -198,6 +199,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const dataInput = document.getElementById('dataSelecionada');
 
+        // Função para formatar a data no formato YYYY-MM-DD
         function formatarData(data) {
             const ano = data.getFullYear();
             const mes = String(data.getMonth() + 1).padStart(2, '0');
@@ -205,37 +207,53 @@
             return `${ano}-${mes}-${dia}`;
         }
 
-        function corrigirDataSeNecessario(data) {
-            let diaDaSemana = data.getDay();
-            if (diaDaSemana === 0) { 
-                data.setDate(data.getDate() + 2); 
-            } else if (diaDaSemana === 1) { 
-                data.setDate(data.getDate() + 1); 
-            }
-            return data;
+        // Função para verificar se a data é válida (não é domingo ou segunda-feira)
+        function dataEhValida(data) {
+            const diaDaSemana = data.getDay();
+            return diaDaSemana !== 0 && diaDaSemana !== 1; // 0 = Domingo, 1 = Segunda-feira
         }
 
+        // Função para criar uma data sem fuso horário
         function criarDataSemFusoHorario(dataString) {
             const [ano, mes, dia] = dataString.split('-').map(Number);
             return new Date(ano, mes - 1, dia);
         }
 
+        // Função para configurar a data inicial (hoje ou próxima data válida)
         function configurarData() {
             let hoje = new Date();
-            let dataValida = corrigirDataSeNecessario(hoje);
-            dataInput.min = formatarData(dataValida);
-            dataInput.value = formatarData(dataValida);
+            hoje.setDate(hoje.getDate() + 1);
+            dataInput.min = formatarData(hoje);
+            dataInput.value = formatarData(hoje);
+
+            // Verifica se a data inicial é válida
+            if (!dataEhValida(hoje)) {
+                document.getElementById("alertDataDS").innerHTML = 'A data selecionada é inválida (<strong>não trabalhamos aos domingos e segundas-feiras</strong>). Por favor, escolha outra data!';
+                dataInput.value = ''; // Limpa o valor do input
+            }
+            else{
+                document.getElementById("alertDataDS").innerHTML = '';
+            }
         }
 
+        // Evento de mudança no input de data
         dataInput.addEventListener('change', function () {
-            let dataSelecionada = criarDataSemFusoHorario(this.value);
-            let dataCorrigida = corrigirDataSeNecessario(dataSelecionada);
-            this.value = formatarData(dataCorrigida);
+            const dataSelecionada = criarDataSemFusoHorario(this.value);
+
+            // Verifica se a data selecionada é válida
+            if (!dataEhValida(dataSelecionada)) {
+                document.getElementById("alertDataDS").innerHTML = 'A data selecionada é inválida (<strong>não trabalhamos aos domingos e segundas-feiras</strong>). Por favor, escolha outra data!';
+                this.value = ''; // Limpa o valor do input
+            }
+            else{
+                document.getElementById("alertDataDS").innerHTML = '';
+            }
         });
 
+        // Configura a data inicial ao carregar a página
         configurarData();
     });
-
+    
     document.addEventListener('DOMContentLoaded', function () {
         const dataInput = document.getElementById('dataSelecionada');
         dataInput.placeholder = "dd/mm/aa";
@@ -254,6 +272,16 @@
         if (!dataInput.value) {
             dataInput.style.color = "gray";
         }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona o botão do navbar-toggler
+    const navbarToggler = document.querySelector('.navbar-toggler');
+
+    // Verifica se o botão está visível
+    if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none') {
+        // Remove o botão do DOM
+        navbarToggler.remove();
+    }
     });
     </script>
     <?php include "./footer.php";?>

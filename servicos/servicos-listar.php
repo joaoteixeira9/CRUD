@@ -2,10 +2,8 @@
 include "../includes/header.php"; 
 include "../includes/conexao.php";
 ?>
-
-<main>
-    <link rel="stylesheet" href="../css/servicos-listar.css">
-    <main class="mt-3">
+<link rel="stylesheet" href="../css/servicos-listar.css">
+<main class="mt-3">
     <br>
     <h2 class="container-fluid">Todos os serviços</h2>
     <a class="container-fluid" href="../servicos/servicos-cadastrar.php">Adicionar novo serviço</a>

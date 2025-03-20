@@ -22,7 +22,7 @@
         
         <div class="mb-3">
             <label for="foto" class="form-label">Foto:</label>
-            <input type="file" name="foto" id="p-foto" class="form-control text-white pb-5 pt-3 w-50">
+            <input type="file" name="foto" id="p-foto" class="form-control text-white pb-5 pt-3 w-50" required>
         </div>
 
         <p id="p-alert" class="text-danger"></p>

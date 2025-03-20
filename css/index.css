@@ -10,14 +10,6 @@ main {
     flex: 1;
 }
 
-footer {
-    width: 100%;
-    background-color: #db3026;
-    color: #fff;
-    padding: 20px 0;
-    margin-top: auto;
-}
-
 .nav {
     display: flex;
     justify-content: space-around;
@@ -74,7 +66,7 @@ footer {
 }
  
 #carouselExampleIndicators {
-    width: 70%;
+    width: 30%;
     margin: 0 auto;
 }
  
@@ -178,7 +170,15 @@ header {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
- 
+
+footer {
+    width: 100%;
+    background-color: #db3026;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
 .rounded img {
     width: 250px;
     height: 250px;
@@ -216,15 +216,17 @@ header {
 }
 
 @media screen and (max-width: 768px) {
-    .contatos{
-        margin-left: 4rem;
-    }
-
     .row{
-        justify-content: space-around;
+        align-items: center;
+        flex-direction: column; 
+        justify-content: center;
     }
 
     .loc h4{
         text-align: center;
+    }
+    #carouselExampleIndicators {
+        width: 70%;
+        margin: 0 auto;
     }
 }

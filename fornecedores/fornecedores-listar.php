@@ -48,9 +48,7 @@ include "../includes/conexao.php";
                     echo "<img src='../img/lixeira.svg' alt=''>";
                     echo "</a>";
                     echo "<td>";
-                    // fim excluir linhas de serviços
-
-
+                    //fim editar linhas de serviços
                     echo "</td>"; // fim ações
                     echo "</tbody>"; // fim coluna
                     echo "</tr>";

@@ -1,23 +1,30 @@
+/* Garantir que o html e o body ocupem toda a altura da janela */
 html, body {
     height: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-main {
-    flex: 1;
-}
-
+/* Estilos do footer */
 footer {
     width: 100%;
     background-color: #db3026;
     color: #fff;
     padding: 20px 0;
-    margin-top: auto;
+    margin-top: auto; /* Empurra o footer para baixo */
+    bottom: 0;
+}
+
+/* Estilo das imagens arredondadas */
+.rounded img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
 }
 
 #rodape h4, #rodape h5 {
-    color: #fff; 
+    color: #fff;
 }
 
 #rodape a {
@@ -26,7 +33,7 @@ footer {
 }
 
 #rodape a:hover {
-    color: #f0f0f0;
+    color: #d1e9ff;
     text-decoration: underline;
 }
 
@@ -36,30 +43,29 @@ footer {
 }
 
 .rounded {
-    margin-left: -1.3rem;
-}
-
-.rounded img {
-    width: 250px;
+    margin-left: 0.5rem;
     height: 250px;
     object-fit: cover;
 }
 
-.row{
+.row {
     display: flex;
-    justify-content: space-around;
 }
 
+/* Estilos responsivos */
 @media screen and (max-width: 768px) {
-    .contatos{
-        margin-left: 2.5rem;
+    .row {
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .row{
-        justify-content: space-around;
-    }
-
-    .loc h4{
+    .loc h4 {
         text-align: center;
+    }
+
+    #carouselExampleIndicators {
+        width: 70%;
+        margin: 0 auto;
     }
 }
