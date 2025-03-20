@@ -40,7 +40,7 @@
                 <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha" required>
                 <p id="alertConfirmarSenha"></p>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+            <button type="submit" id="botao-criar-conta" class="btn btn-primary btn-block">Criar conta</button>
             <a href="../php/login.php" class="btn btn-link btn-block">Já tem uma conta? Faça login</a>
         </form>
     </section>

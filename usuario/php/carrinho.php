@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 <section id="carrinho">
-    <div class="container">
+    <div class="container mb-5">
         <h2 class="my-4">Carrinho de Compras</h2>
         <div id="cart-items" class="row">
             <p>Seu carrinho está vazio.</p>
@@ -20,7 +20,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="../js/carrinho.js"></script>
-
 <?php
     include "./footer.php";
 ?>

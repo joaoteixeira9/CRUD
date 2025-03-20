@@ -83,10 +83,9 @@
             echo "</div>";
             echo "<br>";
             echo "<p class=\'text-muted fst-italic mb-3\'> 
-            Escolha uma data para o serviço. 
-            <strong>Lembramos que não trabalhamos aos domingos e segundas-feiras.</strong> 
-            Caso selecione um desses dias, ajustaremos automaticamente para a próxima terça-feira.
-          </p>";
+            Escolha uma data para o serviço.<br> 
+            <strong>Lembramos que não trabalhamos aos domingos e segundas-feiras.</strong>
+            </p>";
     
             // Campo de Data
             echo "<div class=\'mb-3\'>";
@@ -249,7 +248,7 @@
 
             // Verifica se a data inicial é válida
             if (!dataEhValida(hoje)) {
-                document.getElementById("alertDataDS").innerHTML = \'A data selecionada é inválida (domingo ou segunda-feira). Por favor, escolha outra data!\';
+                document.getElementById("alertDataDS").innerHTML = \'A data selecionada é inválida (<strong>não trabalhamos aos domingos e segundas-feiras</strong>). Por favor, escolha outra data!\';
                 dataInput.value = \'\'; // Limpa o valor do input
             }
             else{
@@ -263,7 +262,7 @@
 
             // Verifica se a data selecionada é válida
             if (!dataEhValida(dataSelecionada)) {
-                document.getElementById("alertDataDS").innerHTML = \'A data selecionada é inválida (domingo ou segunda-feira). Por favor, escolha outra data!\';
+                document.getElementById("alertDataDS").innerHTML = \'A data selecionada é inválida (<strong>não trabalhamos aos domingos e segundas-feiras</strong>). Por favor, escolha outra data!\';
                 this.value = \'\'; // Limpa o valor do input
             }
             else{

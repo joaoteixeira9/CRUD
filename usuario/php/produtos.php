@@ -10,7 +10,6 @@
     <title>Produtos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Estilos personalizados (opcional) */
         .produto {
             transition: transform 0.3s ease;
         }
@@ -29,30 +28,30 @@
             <h1 class="text-center mb-5">Nossos Produtos</h1>
             <div class="row">
                 <?php
-                    $sql = "SELECT * FROM PRODUTOS";
+                    $sql = "SELECT id, nome, descricao, unidade, foto, REPLACE(preco, '.', ',' ) AS preco FROM produtos";
                     $res = mysqli_query($conexao, $sql);
                     while($l = mysqli_fetch_assoc($res)){
                         echo "<div class='col-md-4 mb-4'>";
                         echo "<div class='card produto h-100'>";
-                        echo "<img src='../../img/" . $l['nome'] . ".png' class='card-img-top' alt='" . $l['nome'] . "'>";
+                        echo "<img src='../../img/", $l['foto'], "' class='card-img-top' alt='", $l['nome'], "'>";
                         echo "<div class='card-body'>";
-                        echo "<h5 class='card-title'>{$l['nome']}</h5>";
-                        echo "<p class='card-text'>{$l['unidade']}</p>";
-                        echo "<p class='card-text'>{$l['descricao']}</p>";
-                        echo "<p class='card-text font-weight-bold'>R$ {$l['preco']}</p>";
+                        echo "<h5 class='card-title'>", $l['nome'], "</h5>";
+                        echo "<p class='card-text'>", $l['unidade'], "</p>";
+                        echo "<p class='card-text'>", $l['descricao'], "</p>";
+                        echo "<p class='card-text font-weight-bold'>R$ ", $l['preco'], "</p>";
                         echo "<button class='btn btn-success add-to-cart' 
-                                data-id='" . $l['id'] . "' 
-                                data-nome='" . $l['nome'] . "' 
-                                data-preco='" . $l['preco'] . "' 
-                                data-unidade='" . $l['unidade'] . "' 
-                                data-descricao='" . $l['descricao'] . "' 
-                                data-imagem='../../img/" . $l['nome'] . ".png'> 
+                                data-id='", $l['id'], "' 
+                                data-nome='", $l['nome'], "' 
+                                data-preco='", $l['preco'], "' 
+                                data-unidade='", $l['unidade'], "' 
+                                data-descricao='", $l['descricao'], "' 
+                                data-imagem='../../img/", $l['foto'], "'> 
                                 Adicionar ao Carrinho
                               </button>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
-                    }
+                    }                    
                     mysqli_close($conexao);
                 ?>
             </div>

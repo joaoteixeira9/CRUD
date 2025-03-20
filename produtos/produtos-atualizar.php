@@ -1,22 +1,35 @@
 <?php
-// requisitar os dados do formulário
+// Requisitar os dados do formulário
 $id = $_GET['id'];
 $nome = $_POST['nome'];
 $descricao = $_POST['descricao'];
 $preco = $_POST['preco'];
 
-// montar um sql de update
-$sql = "update produtos set nome = '$nome', descricao = '$descricao',  preco = '$preco' where id = $id ";
+// Remove todos os espaços extras e o "R$"
+$preco = trim($preco); // Remove espaços no início e no fim
+$precoFormatado = str_replace("R$", "", $preco); // Remove "R$"
+$precoFormatado = str_replace(" ", "", $precoFormatado); // Remove espaços extras
+$precoFormatado = str_replace(",", ".", $precoFormatado); // Substitui vírgula por ponto
 
-// incluir o arquivo de conexão
+// Converte para float (opcional, dependendo do uso)
+$precoFloat = floatval($precoFormatado);
+
+// Montar um SQL de UPDATE
+$sql = "UPDATE produtos 
+        SET nome = '$nome', 
+            descricao = '$descricao', 
+            preco = '$precoFormatado' 
+        WHERE id = $id";
+
+// Incluir o arquivo de conexão
 include "../includes/conexao.php";
 
-// executar o sql update no BD
+// Executar o SQL UPDATE no BD
 $resultado = mysqli_query($conexao, $sql);
 
-// fechar a conexão
+// Fechar a conexão
 mysqli_close($conexao);
 
-// redirecionar para a página listar
+// Redirecionar para a página listar
 header("Location: ./produtos-listar.php");
 ?>

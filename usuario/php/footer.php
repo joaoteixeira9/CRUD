@@ -4,7 +4,7 @@
   <div class="row">
     <!-- Imagem Barbearia -->
     <div class="rounded float-start">
-      <img src="../../img/barbearia.jpeg" class="rounded float-left" alt="Imagem da Barbearia">
+      <img src="../../img/frenteBarbearia.png" class="rounded float-left" alt="Imagem da Barbearia">
     </div>
 
     <!-- Contatos e Horários -->

@@ -11,9 +11,7 @@
         <div id="checkout-total">
             <h3>Total: R$ <span id="checkout-total-price">0,00</span></h3>
         </div>
-
-        <!-- Botão de Pagamento do Mercado Pago -->
-        <div id="mercado-pago-button" class="mt-4"></div>
+        <div class="mt-4"></div>
     </div>
 </section>
 
@@ -24,36 +22,17 @@
         const totalPrice = sessionStorage.getItem('lastTotalPrice') || '0,00';
         document.getElementById('checkout-total-price').textContent = totalPrice;
 
-        // Configuração do Mercado Pago
-        const mp = new MercadoPago('SUA_PUBLIC_KEY', {
-            locale: 'pt-BR'
-        });
+        // Limpa os itens do carrinho no sessionStorage
+        sessionStorage.removeItem('cartItems');
+        sessionStorage.removeItem('lastTotalPrice');
 
-        // Envia o total para o backend e gera a preferência de pagamento
-        fetch('gerar_preferencia.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ total: parseFloat(totalPrice.replace(',', '.')) })
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Cria o botão de pagamento com a preferência gerada
-            mp.checkout({
-                preference: {
-                    id: data.id // ID da preferência gerada no backend
-                },
-                render: {
-                    container: '#mercado-pago-button',
-                    label: 'Pagar com Mercado Pago',
-                    type: 'wallet', // Tipo de botão
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Erro ao gerar preferência de pagamento:', error);
-        });
+        // Limpa a exibição dos itens no checkout
+        const checkoutItemsContainer = document.getElementById('checkout-items');
+        checkoutItemsContainer.innerHTML = '';
+
+        setTimeout(function() {
+        window.location.href = "/crud/usuario/php/produtos.php";
+    }, 2000);
     });
 </script>
 

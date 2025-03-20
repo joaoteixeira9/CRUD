@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             preco: button.getAttribute('data-preco'),
             unidade: button.getAttribute('data-unidade'),
             descricao: button.getAttribute('data-descricao'),
-            imagem: button.getAttribute('data-imagem')
+            imagem: button.getAttribute('data-imagem') // Usa o caminho correto da imagem
         };
 
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -45,11 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalPriceElement = document.getElementById('total-price');
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let totalPrice = 0;
-
+    
         cartItemsContainer.innerHTML = '';
-
+    
         if (cart.length === 0) {
-            // Verifica se há um preço salvo no sessionStorage
             const lastTotalPrice = sessionStorage.getItem('lastTotalPrice');
             if (lastTotalPrice) {
                 cartItemsContainer.innerHTML = '<p>Seu carrinho está vazio.</p>';
@@ -71,15 +70,22 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h5 class="card-title">${item.nome}</h5>
                             <p class="card-text">${item.descricao}</p>
                             <p class="card-text">${item.unidade}</p>
-                            <p class="card-text">R$ ${item.preco}</p>
+                            <p class="card-text">${item.preco}</p>
                             <button class="btn btn-danger" onclick="removeFromCart(${index})">Remover</button>
                         </div>
                     </div>
                 `;
                 cartItemsContainer.appendChild(itemElement);
-                totalPrice += parseFloat(item.preco);
+    
+                // Converte o preço para número antes de somar
+                const precoNumerico = parseFloat(item.preco.replace("R$ ", "").replace(",", "."));
+                if (!isNaN(precoNumerico)) {
+                    totalPrice += precoNumerico;
+                }
             });
-            totalPriceElement.textContent = totalPrice.toFixed(2);
+    
+            // Formata o total com duas casas decimais e substitui o ponto por vírgula
+            totalPriceElement.textContent = totalPrice.toFixed(2).replace(".", ",");
         }
     }
 
@@ -92,4 +98,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Atualiza a UI do carrinho quando a página é carregada
     updateCartUI();
+});
+
+function atualizarBotaoFinalizarCompra() {
+    const totalPrice = parseFloat(document.getElementById("total-price").textContent.replace(",", ".")); 
+    const checkoutBtn = document.getElementById("checkout-btn");
+
+    if (totalPrice > 0) {
+        checkoutBtn.style.display = "inline-block"; // Mostra o botão
+    } else {
+        checkoutBtn.style.display = "none"; // Oculta o botão
+    }
+}
+
+// Executa a função ao carregar a página
+document.addEventListener("DOMContentLoaded", function() {
+    atualizarBotaoFinalizarCompra();
 });
