@@ -10,7 +10,7 @@
         $res = mysqli_query($conexao, $sql);
         while ($l = mysqli_fetch_assoc($res)) {
 
-        echo "<form action='./agenda-salvar-1.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
+        echo "<form action='./agenda-salvar-4.php?id={$l['id']}' method='post' class='needs-validation' novalidate style='background: #ecf0f1; padding: 20px; border-radius: 8px;'>";
             
             // Seleção de Profissional
             $sql = "SELECT * FROM clientes WHERE id = '$id_admin'";
@@ -85,7 +85,7 @@
                 return $horarios;
             }
             $horariosDisponiveis = gerarHorarios('09:00', '17:00', 30);
-            $sql = "SELECT * FROM agenda_1";
+            $sql = "SELECT * FROM agenda_4";
             $res = mysqli_query($conexao, $sql);
             $reservados = [];
             while ($l = mysqli_fetch_assoc($res)) {
