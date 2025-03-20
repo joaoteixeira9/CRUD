@@ -131,7 +131,8 @@
                 }
             });
         });
-    function selecionarHorario(horarioId) {
+        
+        function selecionarHorario(horarioId) {
         document.getElementById('horarioSelecionado').value = horarioId;
         const botoes = document.querySelectorAll("button[type='button']");
         botoes.forEach(btn => btn.style.backgroundColor = '#db3026');
@@ -221,8 +222,9 @@
         // Função para configurar a data inicial (hoje ou próxima data válida)
         function configurarData() {
             let hoje = new Date();
-            dataInput.min = formatarData(hoje); // Define a data mínima como hoje
-            dataInput.value = formatarData(hoje); // Define o valor inicial como hoje
+            hoje.setDate(hoje.getDate() + 1);
+            dataInput.min = formatarData(hoje);
+            dataInput.value = formatarData(hoje);
 
             // Verifica se a data inicial é válida
             if (!dataEhValida(hoje)) {

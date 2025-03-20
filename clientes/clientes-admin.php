@@ -243,6 +243,7 @@
         // Função para configurar a data inicial (hoje ou próxima data válida)
         function configurarData() {
             let hoje = new Date();
+            hoje.setDate(hoje.getDate() + 1);
             dataInput.min = formatarData(hoje); // Define a data mínima como hoje
             dataInput.value = formatarData(hoje); // Define o valor inicial como hoje
 
