@@ -91,38 +91,54 @@ Antes de rodar o projeto, certifique-se de ter:
 BANCO DE DADOS
  
 CREATE TABLE `clientes` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `nome` varchar(100) NOT NULL,
- `telefone` varchar(20) NOT NULL,
- `email` varchar(200) NOT NULL,
- `senha` varchar(30) NOT NULL,
- `tipoDeUsuario` varchar(100) NOT NULL DEFAULT 'usuario',
- PRIMARY KEY (`id`)
-)
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `senha` varchar(30) NOT NULL,
+  `tipoDeUsuario` varchar(100) NOT NULL DEFAULT 'usuario'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
  
 CREATE TABLE `funcionarios` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `nome` varchar(100) NOT NULL,
- `telefone` varchar(20) NOT NULL,
- PRIMARY KEY (`id`)
-)
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `telefone` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
  
 CREATE TABLE `horarios` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `horario` varchar(100) NOT NULL,
- `reservado` tinyint(1) DEFAULT NULL,
- `data` date DEFAULT NULL,
- PRIMARY KEY (`id`)
-)
+  `id` int(11) NOT NULL,
+  `horario` varchar(100) NOT NULL,
+  `reservado` tinyint(1) DEFAULT NULL,
+  `data` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
  
 CREATE TABLE `servicos` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `servico` varchar(100) NOT NULL,
- `descricao` varchar(1000) NOT NULL,
- `preco` varchar(100) NOT NULL,
- `categoria` varchar(100) NOT NULL,
- PRIMARY KEY (`id`)
-)
+  `id` int(11) NOT NULL,
+  `servico` varchar(100) NOT NULL,
+  `descricao` varchar(1000) NOT NULL,
+  `preco` varchar(100) NOT NULL,
+  `categoria` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `produtos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `unidade` int(11) NOT NULL DEFAULT 1,
+  `descricao` varchar(200) NOT NULL,
+  `preco` varchar(150) NOT NULL,
+  `foto` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `fornecedores` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
+  `endereco` varchar(255) DEFAULT NULL,
+  `produto` varchar(255) DEFAULT NULL,
+  `pix` varchar(100) NOT NULL,
+  `cnpj` varchar(100) NOT NULL,
+  `descricao` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 ```
  
 ## Melhorias Futuras
